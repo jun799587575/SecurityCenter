@@ -67,15 +67,37 @@
                                data-index="0" th:href="@{/main}">了解兖矿信息中心 安全运营系统</a></li>
                     </ul>
                 </li>
-                <li th:each="menu : ${menus}"><a href="#"> <i
-                        class="fa fa fa-bar-chart-o" th:class="${menu.attributes.icon}"></i>
-                    <span class="nav-label" th:text="${menu.text}">基础信息</span> <span
-                            class="fa arrow"></span>
-                </a>
+                <li th:each="menu : ${menus}">
+                    <a href="#"> <i class="fa fa fa-bar-chart-o" th:class="${menu.attributes.icon}"></i>
+                    <span class="nav-label" th:text="${menu.text}">基础信息</span>
+                        <span class="fa arrow"></span>
+                     </a>
                     <ul class="nav nav-second-level">
-                        <li th:each="cmenu : ${menu.children}"><a class="J_menuItem" href="graph_echarts.html"
-                                                                  th:text="${cmenu.text}"
-                                                                  th:href="${cmenu.attributes.url}">系统管理</a></li>
+                        <li th:each="cmenu : ${menu.children}">
+                            <a class="J_menuItem" href="graph_echarts.html" th:text="${cmenu.text}" th:href="${cmenu.attributes.url}">系统管理
+                                <span class="fa arrow">12312312332</span>
+                            </a>
+                            <ul class="nav nav-second-level" >
+                                <li th:each="ccmenu : ${cmenu.children}">
+                                    <a style="padding-left: 72px;" class="J_menuItem" href="graph_echarts.html" th:text="${ccmenu.text}" th:href="${ccmenu.attributes.url}">系统管理
+                                        <span class="fa arrow">12312312332</span></a>
+
+                                    <ul class="nav nav-second-level" >
+                                        <li th:each="cccmenu : ${ccmenu.children}">
+                                            <a style="padding-left: 72px;" class="J_menuItem" href="graph_echarts.html" th:text="${cccmenu.text}" th:href="${cccmenu.attributes.url}">系统管理
+                                                <span class="fa arrow">12312312332</span></a>
+                                            <ul class="nav nav-second-level" >
+                                                <li th:each="ccccmenu : ${cccmenu.children}">
+                                                    <a style="padding-left: 72px;" class="J_menuItem" href="graph_echarts.html" th:text="${ccccmenu.text}" th:href="${ccccmenu.attributes.url}">系统管理
+                                                        <span class="fa arrow">12312312332</span></a>
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>

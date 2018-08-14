@@ -40,7 +40,7 @@ public class LoginController extends BaseController {
 		return "redirect:/blog";
 	}
 
-	@Log("请求访问主页")
+	@Log("请求访问")
 	@GetMapping({ "/index" })
 	String index(Model model) {
 		List<Tree<MenuDO>> menus = menuService.listMenuTree(getUserId());
