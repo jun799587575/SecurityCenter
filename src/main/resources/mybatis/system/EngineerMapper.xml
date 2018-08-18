@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.engineer.dao.EngineerDao">
+
+	<select id="get" resultType="com.bootdo.engineer.domain.EngineerDO">
+		select `id`,`engineer_Name`,`work_Number`,`dept_id`,`post`,`grade`,`phone`,`email`,`engineer_matching`,`adress`,`engineer_state`,`sex`,`brithday`,`judge` from work_engineer where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.engineer.domain.EngineerDO">
+		select `id`,`engineer_Name`,`work_Number`,`dept_id`,`post`,`grade`,`phone`,`email`,`engineer_matching`,`adress`,`engineer_state`,`sex`,`brithday`,`judge` from work_engineer
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="engineerName != null and engineerName != ''"> and engineer_Name = #{engineerName} </if>
+		  		  <if test="workNumber != null and workNumber != ''"> and work_Number = #{workNumber} </if>
+		  		  <if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
+		  		  <if test="post != null and post != ''"> and post = #{post} </if>
+		  		  <if test="grade != null and grade != ''"> and grade = #{grade} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="engineerMatching != null and engineerMatching != ''"> and engineer_matching = #{engineerMatching} </if>
+		  		  <if test="adress != null and adress != ''"> and adress = #{adress} </if>
+		  		  <if test="engineerState != null and engineerState != ''"> and engineer_state = #{engineerState} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="brithday != null and brithday != ''"> and brithday = #{brithday} </if>
+		  		  <if test="judge != null and judge != ''"> and judge = #{judge} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from work_engineer
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="engineerName != null and engineerName != ''"> and engineer_Name = #{engineerName} </if>
+		  		  <if test="workNumber != null and workNumber != ''"> and work_Number = #{workNumber} </if>
+		  		  <if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
+		  		  <if test="post != null and post != ''"> and post = #{post} </if>
+		  		  <if test="grade != null and grade != ''"> and grade = #{grade} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="engineerMatching != null and engineerMatching != ''"> and engineer_matching = #{engineerMatching} </if>
+		  		  <if test="adress != null and adress != ''"> and adress = #{adress} </if>
+		  		  <if test="engineerState != null and engineerState != ''"> and engineer_state = #{engineerState} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="brithday != null and brithday != ''"> and brithday = #{brithday} </if>
+		  		  <if test="judge != null and judge != ''"> and judge = #{judge} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.engineer.domain.EngineerDO" useGeneratedKeys="true" keyProperty="id">
+		insert into work_engineer
+		(
+			`engineer_Name`, 
+			`work_Number`, 
+			`dept_id`, 
+			`post`, 
+			`grade`, 
+			`phone`, 
+			`email`, 
+			`engineer_matching`, 
+			`adress`, 
+			`engineer_state`, 
+			`sex`, 
+			`brithday`, 
+			`judge`
+		)
+		values
+		(
+			#{engineerName}, 
+			#{workNumber}, 
+			#{deptId}, 
+			#{post}, 
+			#{grade}, 
+			#{phone}, 
+			#{email}, 
+			#{engineerMatching}, 
+			#{adress}, 
+			#{engineerState}, 
+			#{sex}, 
+			#{brithday}, 
+			#{judge}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.engineer.domain.EngineerDO">
+		update work_engineer 
+		<set>
+			<if test="engineerName != null">`engineer_Name` = #{engineerName}, </if>
+			<if test="workNumber != null">`work_Number` = #{workNumber}, </if>
+			<if test="deptId != null">`dept_id` = #{deptId}, </if>
+			<if test="post != null">`post` = #{post}, </if>
+			<if test="grade != null">`grade` = #{grade}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="engineerMatching != null">`engineer_matching` = #{engineerMatching}, </if>
+			<if test="adress != null">`adress` = #{adress}, </if>
+			<if test="engineerState != null">`engineer_state` = #{engineerState}, </if>
+			<if test="sex != null">`sex` = #{sex}, </if>
+			<if test="brithday != null">`brithday` = #{brithday}, </if>
+			<if test="judge != null">`judge` = #{judge}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from work_engineer where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from work_engineer where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
