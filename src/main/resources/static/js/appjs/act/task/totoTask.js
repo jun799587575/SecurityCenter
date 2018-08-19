@@ -7,8 +7,8 @@ function load() {
 	$('#exampleTable')
 		.bootstrapTable(
 			{
-				method : 'get', // 服务器数据的请求方式 get or post
-				url : prefix + "/todoList", // 服务器数据的加载地址
+				/*method : 'get', // 服务器数据的请求方式 get or post
+				url : prefix + "/todoList", // 服务器数据的加载地址*/
 				// showRefresh : true,
 				// showToggle : true,
 				// showColumns : true,

@@ -120,5 +120,11 @@ public class ListController {
 		listService.batchRemove(workIds);
 		return R.ok();
 	}
-	
+
+
+	@GetMapping("/Details")
+	@RequiresPermissions("work:list:Details")
+	String Details(){
+		return "work/list/listLetails";
+	}
 }

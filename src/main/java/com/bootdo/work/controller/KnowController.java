@@ -87,11 +87,9 @@ public class KnowController {
 		return "work/know/add";
 	}
 
-	@GetMapping("/edit/{knowKeyword}")
+	@GetMapping("/edit")
 	@RequiresPermissions("work:know:edit")
-	String edit(@PathVariable("knowKeyword") String knowKeyword,Model model){
-		KnowDO know = knowService.get(knowKeyword);
-		model.addAttribute("know", know);
+	String edit(){
 		return "work/know/edit";
 	}
 

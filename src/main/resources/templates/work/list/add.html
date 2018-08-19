@@ -31,17 +31,45 @@
 									<input id="workState" name="workState" class="form-control" type="text">
 								</div>
 							</div>-->
-
 							<div class="form-group">
-								<label class="col-sm-3 control-label">服务类别：</label>
+								<label class="col-sm-3 control-label">影响范围：</label>
 								<div class="col-sm-8" style="width: 25%;display: inline">
-									<select id="workServiceCategory" name="workServiceCategory" class="form-control">
-										<option value="一级">一级</option>
-										<option value="二级">二级</option>
-										<option value="三级">三级</option>
-										<option value="四级">四级</option>
+									<select id="yingxiangfanwei" name="workServiceCategory" class="form-control">
+										<option value="一级">严重</option>
+										<option value="二级">高</option>
+										<option value="三级">中</option>
+										<option value="四级">低</option>
 									</select>
 								</div>
+								<label class="col-sm-3 control-label"  style="width: 16%">紧急程度：</label>
+								<div class="col-sm-8" style="width: 25%;display: inline">
+									<!--<input id="workEventLevel" name="workEventLevel" class="form-control" type="text">-->
+									<select id="jinjichengdu" name="workEventLevel" class="form-control">
+										<option value="严重">严重</option>
+										<option value="高">高</option>
+										<option value="中">中</option>
+										<option value="低">低</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">服务类别：</label>
+								<div class="col-sm-8"  style="width: 25%;display: inline">
+									<input id="deptId" name="deptId" class="hidden"> <input
+										id="searchKonwCategory" name="searchKonwCategory" class="form-control" type="text"
+										style="cursor: pointer;" onclick="openDept()"
+										readonly="readonly" placeholder="所属类别">
+								</div>
+								<script>
+                                    var openDept = function(){
+                                        layer.open({
+                                            type:2,
+                                            title:"选择类别",
+                                            area : [ '300px', '450px' ],
+                                            content:"/system/sysDept/treeView"
+                                        })
+                                    }
+								</script>
 								<label class="col-sm-3 control-label"  style="width: 16%">事件级别：</label>
 								<div class="col-sm-8" style="width: 25%;display: inline">
 									<!--<input id="workEventLevel" name="workEventLevel" class="form-control" type="text">-->
