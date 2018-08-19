@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar">
+
+						<button shiro:hasPermission="work:list:close"  type="button" class="btn  btn-danger"
+						onclick="closeWork()">
+						<!--<i class="fa fa-trash" aria-hidden="true"></i>-->关闭工单
+						</button>
+						<button shiro:hasPermission="work:list:edit"  type="button" class="btn  btn-primary"
+								onclick="editA()">
+							工单处理
+						</button>
+						<div class="columns pull-right">
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+						</div>
+						<div class="columns pull-left">
+								<div class="col-sm-8"  style="width: 33%">
+									<label class="col-sm-3 control-label" style="width: 40%">工单号：</label>
+									<input id="searchWorkId" style="width: 50%" class="form-control" type="text" placeholder="请输入工单号">
+								</div>
+
+
+								<div class="col-sm-8"  style="width: 33%">
+									<label class="col-sm-3 control-label" style="width: 40%">服务类别：</label>
+									<select id="searchWorkServiceCategory" style="width: 50%"  class="form-control">
+										<option value="" selected>请选择服务类别</option>
+										<option value="一级">一级</option>
+										<option value="二级">二级</option>
+										<option value="三级">三级</option>
+										<option value="四级">四级</option>
+									</select>
+								</div>
+
+
+								<div class="col-sm-8" style="width: 33%">
+									<label class="col-sm-3 control-label" style="width: 40%">事件级别：</label>
+									<select id="searchWorkEventLevel" style="width: 50%"  class="form-control">
+										<option value="" selected>请选择事件级别</option>
+										<option value="严重">严重</option>
+										<option value="高">高</option>
+										<option value="中">中</option>
+										<option value="低">低</option>
+									</select>
+								</div>
+
+							<div class="col-sm-8"  style="width: 33%">
+								<label class="col-sm-3 control-label" style="width: 40%">提投时间：</label>
+								<input id="searchWorkJournalistTime" style="width: 50%" class="form-control" type="date" placeholder="请输入提投时间">
+							</div>
+
+
+							<div class="col-sm-8"  style="width: 33%">
+								<label class="col-sm-3 control-label" style="width: 40%">状态：</label>
+								<select id="searchWorkState" style="width: 50%" name="searchWorkState" class="form-control">
+									<option value="" selected>请选择状态</option>
+									<option value="">状态一</option>
+									<option value="">状态二</option>
+									<option value="">状态三</option>
+									<option value="">状态四</option>
+								</select>
+							</div>
+
+
+							<div class="col-sm-8" style="width: 33%">
+								<label class="col-sm-3 control-label" style="width: 40%">处理人员：</label>
+								<input id="searchWorkHandlingPersonnel" style="width: 50%" class="form-control" type="text" placeholder="请输入处理人员">
+							</div>
+						</div>
+
+					</div>
+
+
+
+
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--shiro控制bootstraptable行内按钮看见性 来自bootdo的创新方案 -->
+		<div>
+			<script type="text/javascript">
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_resetPwd_h = 'hidden';
+			</script>
+		</div>
+		<div shiro:hasPermission="work:list:edit">
+			<script type="text/javascript">
+				s_edit_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="work:list:remove">
+			<script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="work:list:resetPwd">
+			<script type="text/javascript">
+				var s_resetPwd_h = '';
+			</script>
+		</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/work/list/list.js"></script>
+</body>
+</html>

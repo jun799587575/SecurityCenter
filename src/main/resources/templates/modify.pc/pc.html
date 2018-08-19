@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar">
+						<button shiro:hasPermission="deploy:ip:add" type="button" class="btn  btn-primary" onclick="add()">变更申请</button>
+
+						<!--<button type="button" class="btn  btn-danger" onclick="aaaAAA()" style="margin-right: 5px">变更分派</button>-->
+						<button type="button" class="btn  btn-danger" onclick="bbbAAA() " style="margin-right: 5px">变更确认和分级</button>
+						<button type="button" class="btn  btn-primary" onclick="cccAAA ">变更影响及资源评估</button>
+						<button type="button" class="btn  btn-danger" onclick="dddAAA()" >变更审批</button>
+						<button type="button" class="btn  btn-danger" onclick="dddsAAA()" >变更排程</button>
+						<button type="button" class="btn  btn-danger" onclick="eeeAAA() " >实施方案和措施的审核</button>
+						<button type="button" class="btn  btn-danger" onclick="fffAAA() " >变更实施、评估和关闭</button>
+						<button type="button" class="btn  btn-danger" onclick="qqqAAA() " >需求分细</button>
+						<script>
+                            function qqqAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更申请',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc" + '/fractionto' // iframe的url
+                                });
+                            }
+                            function add() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更申请',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc" + '/add' // iframe的url
+                                });
+                            }
+                            // function aaaAAA() {
+                            //     layer.open({
+                            //         type: 2,
+                            //         title: '变更分派',
+                            //         maxmin: true,
+                            //         shadeClose: false, // 点击遮罩关闭层
+                            //         area: ['800px', '520px'],
+                            //         content: "/modify/pc" + '/aaa' // iframe的url
+                            //     });
+                            // }
+                            function bbbAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更确认和分级',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc" + '/bbb' // iframe的url
+                                });
+                            }
+
+                            function cccAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更影响及资源评估',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content:  "/modify/pc" + '/ccc' // iframe的url
+                                });
+                            }
+                            function dddAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更审批和排程',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc"  + '/ddd' // iframe的url
+                                });
+                            }
+                            function dddsAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更审批和排程',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc" + '/ddds' // iframe的url
+                                });
+                            }
+                            function eeeAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '实施方案和措施的审核',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc"  + '/eee' // iframe的url
+                                });
+                            }
+                            function fffAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '变更实施、评估和变更',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content: "/modify/pc" + '/fff' // iframe的url
+                                });
+                            }
+						</script>
+						<div style="margin-top: 10px">
+							名称  <input id="searchName" name="pcName" class="form-control" type="text"
+										style="width: 20%;  display: inline-block;margin-right: 3%">
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+
+						</div>
+
+
+
+
+
+					</div>
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--shiro控制bootstraptable行内按钮看见性 来自bootdo的创新方案 -->
+		<div>
+			<script type="text/javascript">
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_resetPwd_h = 'hidden';
+			</script>
+		</div>
+		<div shiro:hasPermission="modify:pc:edit">
+			<script type="text/javascript">
+				s_edit_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="modify:pc:remove">
+			<script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="modify:pc:resetPwd">
+			<script type="text/javascript">
+				var s_resetPwd_h = '';
+			</script>
+		</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/modify/pc/pc.js"></script>
+</body>
+</html>

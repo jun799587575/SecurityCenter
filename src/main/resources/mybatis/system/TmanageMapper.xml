@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.TmanageDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.TmanageDO">
+		select `slt_id`,`slt_name`,`slt_rank`,`slt_style`,`slt_index`,`slt_price`,`slt_unit` from slt_tmanage where slt_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.TmanageDO">
+		select `slt_id`,`slt_name`,`slt_rank`,`slt_style`,`slt_index`,`slt_price`,`slt_unit` from slt_tmanage
+        <where>  
+		  		  <if test="sltId != null and sltId != ''"> and slt_id = #{sltId} </if>
+		  		  <if test="sltName != null and sltName != ''"> and slt_name = #{sltName} </if>
+		  		  <if test="sltRank != null and sltRank != ''"> and slt_rank = #{sltRank} </if>
+		  		  <if test="sltStyle != null and sltStyle != ''"> and slt_style = #{sltStyle} </if>
+		  		  <if test="sltIndex != null and sltIndex != ''"> and slt_index = #{sltIndex} </if>
+		  		  <if test="sltPrice != null and sltPrice != ''"> and slt_price = #{sltPrice} </if>
+		  		  <if test="sltUnit != null and sltUnit != ''"> and slt_unit = #{sltUnit} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by slt_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from slt_tmanage
+		 <where>  
+		  		  <if test="sltId != null and sltId != ''"> and slt_id = #{sltId} </if>
+		  		  <if test="sltName != null and sltName != ''"> and slt_name = #{sltName} </if>
+		  		  <if test="sltRank != null and sltRank != ''"> and slt_rank = #{sltRank} </if>
+		  		  <if test="sltStyle != null and sltStyle != ''"> and slt_style = #{sltStyle} </if>
+		  		  <if test="sltIndex != null and sltIndex != ''"> and slt_index = #{sltIndex} </if>
+		  		  <if test="sltPrice != null and sltPrice != ''"> and slt_price = #{sltPrice} </if>
+		  		  <if test="sltUnit != null and sltUnit != ''"> and slt_unit = #{sltUnit} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.TmanageDO">
+		insert into slt_tmanage
+		(
+			`slt_id`, 
+			`slt_name`, 
+			`slt_rank`, 
+			`slt_style`, 
+			`slt_index`, 
+			`slt_price`, 
+			`slt_unit`
+		)
+		values
+		(
+			#{sltId}, 
+			#{sltName}, 
+			#{sltRank}, 
+			#{sltStyle}, 
+			#{sltIndex}, 
+			#{sltPrice}, 
+			#{sltUnit}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.TmanageDO">
+		update slt_tmanage 
+		<set>
+			<if test="sltName != null">`slt_name` = #{sltName}, </if>
+			<if test="sltRank != null">`slt_rank` = #{sltRank}, </if>
+			<if test="sltStyle != null">`slt_style` = #{sltStyle}, </if>
+			<if test="sltIndex != null">`slt_index` = #{sltIndex}, </if>
+			<if test="sltPrice != null">`slt_price` = #{sltPrice}, </if>
+			<if test="sltUnit != null">`slt_unit` = #{sltUnit}</if>
+		</set>
+		where slt_id = #{sltId}
+	</update>
+	
+	<delete id="remove">
+		delete from slt_tmanage where slt_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from slt_tmanage where slt_id in 
+		<foreach item="sltId" collection="array" open="(" separator="," close=")">
+			#{sltId}
+		</foreach>
+	</delete>
+
+</mapper>

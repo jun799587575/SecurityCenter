@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.worker.dao.ListerDao">
+
+	<select id="get" resultType="com.bootdo.worker.domain.ListerDO">
+		select `work_id`,`work_number`,`processing_person`,`time_of_submission`,`level`,`submitter`,`service_category`,`event_level`,`configuration_item`,`event_description`,`sla` from work_lister where work_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.worker.domain.ListerDO">
+		select `work_id`,`work_number`,`processing_person`,`time_of_submission`,`level`,`submitter`,`service_category`,`event_level`,`configuration_item`,`event_description`,`sla` from work_lister
+        <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workNumber != null and workNumber != ''"> and work_number = #{workNumber} </if>
+		  		  <if test="processingPerson != null and processingPerson != ''"> and processing_person = #{processingPerson} </if>
+		  		  <if test="timeOfSubmission != null and timeOfSubmission != ''"> and time_of_submission = #{timeOfSubmission} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="submitter != null and submitter != ''"> and submitter = #{submitter} </if>
+		  		  <if test="serviceCategory != null and serviceCategory != ''"> and service_category = #{serviceCategory} </if>
+		  		  <if test="eventLevel != null and eventLevel != ''"> and event_level = #{eventLevel} </if>
+		  		  <if test="configurationItem != null and configurationItem != ''"> and configuration_item = #{configurationItem} </if>
+		  		  <if test="eventDescription != null and eventDescription != ''"> and event_description = #{eventDescription} </if>
+		  		  <if test="sla != null and sla != ''"> and sla = #{sla} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by work_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from work_lister
+		 <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workNumber != null and workNumber != ''"> and work_number = #{workNumber} </if>
+		  		  <if test="processingPerson != null and processingPerson != ''"> and processing_person = #{processingPerson} </if>
+		  		  <if test="timeOfSubmission != null and timeOfSubmission != ''"> and time_of_submission = #{timeOfSubmission} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="submitter != null and submitter != ''"> and submitter = #{submitter} </if>
+		  		  <if test="serviceCategory != null and serviceCategory != ''"> and service_category = #{serviceCategory} </if>
+		  		  <if test="eventLevel != null and eventLevel != ''"> and event_level = #{eventLevel} </if>
+		  		  <if test="configurationItem != null and configurationItem != ''"> and configuration_item = #{configurationItem} </if>
+		  		  <if test="eventDescription != null and eventDescription != ''"> and event_description = #{eventDescription} </if>
+		  		  <if test="sla != null and sla != ''"> and sla = #{sla} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.worker.domain.ListerDO" useGeneratedKeys="true" keyProperty="workId">
+		insert into work_lister
+		(
+			`work_number`, 
+			`processing_person`, 
+			`time_of_submission`, 
+			`level`, 
+			`submitter`, 
+			`service_category`, 
+			`event_level`, 
+			`configuration_item`, 
+			`event_description`, 
+			`sla`
+		)
+		values
+		(
+			#{workNumber}, 
+			#{processingPerson}, 
+			#{timeOfSubmission}, 
+			#{level}, 
+			#{submitter}, 
+			#{serviceCategory}, 
+			#{eventLevel}, 
+			#{configurationItem}, 
+			#{eventDescription}, 
+			#{sla}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.worker.domain.ListerDO">
+		update work_lister 
+		<set>
+			<if test="workNumber != null">`work_number` = #{workNumber}, </if>
+			<if test="processingPerson != null">`processing_person` = #{processingPerson}, </if>
+			<if test="timeOfSubmission != null">`time_of_submission` = #{timeOfSubmission}, </if>
+			<if test="level != null">`level` = #{level}, </if>
+			<if test="submitter != null">`submitter` = #{submitter}, </if>
+			<if test="serviceCategory != null">`service_category` = #{serviceCategory}, </if>
+			<if test="eventLevel != null">`event_level` = #{eventLevel}, </if>
+			<if test="configurationItem != null">`configuration_item` = #{configurationItem}, </if>
+			<if test="eventDescription != null">`event_description` = #{eventDescription}, </if>
+			<if test="sla != null">`sla` = #{sla}</if>
+		</set>
+		where work_id = #{workId}
+	</update>
+	
+	<delete id="remove">
+		delete from work_lister where work_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from work_lister where work_id in 
+		<foreach item="workId" collection="array" open="(" separator="," close=")">
+			#{workId}
+		</foreach>
+	</delete>
+
+</mapper>

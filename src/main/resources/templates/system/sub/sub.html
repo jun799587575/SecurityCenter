@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div class="fixed-table-toolbar">
+
+						<button shiro:hasPermission="system:sub:add" type="button" class="btn  btn-primary" onclick="add()">
+							<i class="fa fa-plus" aria-hidden="true"></i>添加
+						</button>
+						<button shiro:hasPermission="system:sub:batchRemove" type="button" class="btn  btn-danger"
+								onclick="batchRemove()">
+							<i class="fa fa-trash" aria-hidden="true"></i>删除
+						</button>
+						<div style="text-align: center">
+							<div>
+								<div style="display: inline;margin: 40px;">
+									<label>编号：</label>
+									<input id="searchId" type="text" class="form-control"
+										   placeholder="" style="display: inline;width: 200px">
+								</div>
+								<div style="display: inline;margin: 40px;">
+									<label>名称：</label>
+									<input id="searchName" type="text" class="form-control"
+										   placeholder="" style="display: inline;width: 200px">
+								</div>
+								<div style="display: inline;margin: 40px;">
+									<label>供应商：</label>
+									<input id="serveSupplier" type="text" class="form-control"
+										   placeholder="" style="display: inline;width: 200px">
+								</div>
+
+							</div>
+						</div>
+
+						<div class="columns pull-right">
+							<button class="btn btn-success" onclick="reLoad()">查询</button>
+						</div>
+					</div>
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--shiro控制bootstraptable行内按钮看见性 来自bootdo的创新方案 -->
+		<div>
+			<script type="text/javascript">
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_resetPwd_h = 'hidden';
+			</script>
+		</div>
+		<div shiro:hasPermission="system:sub:edit">
+			<script type="text/javascript">
+				s_edit_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="system:sub:remove">
+			<script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+		</div>
+		<div shiro:hasPermission="system:sub:resetPwd">
+			<script type="text/javascript">
+				var s_resetPwd_h = '';
+			</script>
+		</div>
+	</div>
+	<div th:include="include :: footer"></div>
+	<script type="text/javascript" src="/js/appjs/system/sub/sub.js"></script>
+</body>
+</html>

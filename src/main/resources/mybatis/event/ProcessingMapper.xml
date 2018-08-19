@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.event.dao.ProcessingDao">
+
+	<select id="get" resultType="com.bootdo.event.domain.ProcessingDO">
+		select `event_id`,`job_number`,`person`,`reporting_time`,`state`,`handling_personnel`,`event_level`,`type`,`source`,`processing_content`,`enclosure`,`mission_personnel`,`mission_completion_time`,`describe` from event_processing where event_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.event.domain.ProcessingDO">
+		select `event_id`,`job_number`,`person`,`reporting_time`,`state`,`handling_personnel`,`event_level`,`type`,`source`,`processing_content`,`enclosure`,`mission_personnel`,`mission_completion_time`,`describe` from event_processing
+        <where>  
+		  		  <if test="eventId != null and eventId != ''"> and event_id = #{eventId} </if>
+		  		  <if test="jobNumber != null and jobNumber != ''"> and job_number = #{jobNumber} </if>
+		  		  <if test="person != null and person != ''"> and person = #{person} </if>
+		  		  <if test="reportingTime != null and reportingTime != ''"> and reporting_time = #{reportingTime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="handlingPersonnel != null and handlingPersonnel != ''"> and handling_personnel = #{handlingPersonnel} </if>
+		  		  <if test="eventLevel != null and eventLevel != ''"> and event_level = #{eventLevel} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="source != null and source != ''"> and source = #{source} </if>
+		  		  <if test="processingContent != null and processingContent != ''"> and processing_content = #{processingContent} </if>
+		  		  <if test="enclosure != null and enclosure != ''"> and enclosure = #{enclosure} </if>
+		  		  <if test="missionPersonnel != null and missionPersonnel != ''"> and mission_personnel = #{missionPersonnel} </if>
+		  		  <if test="missionCompletionTime != null and missionCompletionTime != ''"> and mission_completion_time = #{missionCompletionTime} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by event_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from event_processing
+		 <where>  
+		  		  <if test="eventId != null and eventId != ''"> and event_id = #{eventId} </if>
+		  		  <if test="jobNumber != null and jobNumber != ''"> and job_number = #{jobNumber} </if>
+		  		  <if test="person != null and person != ''"> and person = #{person} </if>
+		  		  <if test="reportingTime != null and reportingTime != ''"> and reporting_time = #{reportingTime} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="handlingPersonnel != null and handlingPersonnel != ''"> and handling_personnel = #{handlingPersonnel} </if>
+		  		  <if test="eventLevel != null and eventLevel != ''"> and event_level = #{eventLevel} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="source != null and source != ''"> and source = #{source} </if>
+		  		  <if test="processingContent != null and processingContent != ''"> and processing_content = #{processingContent} </if>
+		  		  <if test="enclosure != null and enclosure != ''"> and enclosure = #{enclosure} </if>
+		  		  <if test="missionPersonnel != null and missionPersonnel != ''"> and mission_personnel = #{missionPersonnel} </if>
+		  		  <if test="missionCompletionTime != null and missionCompletionTime != ''"> and mission_completion_time = #{missionCompletionTime} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.event.domain.ProcessingDO" useGeneratedKeys="true" keyProperty="eventId">
+		insert into event_processing
+		(
+			`job_number`, 
+			`person`, 
+			`reporting_time`, 
+			`state`, 
+			`handling_personnel`, 
+			`event_level`, 
+			`type`, 
+			`source`, 
+			`processing_content`, 
+			`enclosure`, 
+			`mission_personnel`, 
+			`mission_completion_time`, 
+			`describe`
+		)
+		values
+		(
+			#{jobNumber}, 
+			#{person}, 
+			#{reportingTime}, 
+			#{state}, 
+			#{handlingPersonnel}, 
+			#{eventLevel}, 
+			#{type}, 
+			#{source}, 
+			#{processingContent}, 
+			#{enclosure}, 
+			#{missionPersonnel}, 
+			#{missionCompletionTime}, 
+			#{describe}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.event.domain.ProcessingDO">
+		update event_processing 
+		<set>
+			<if test="jobNumber != null">`job_number` = #{jobNumber}, </if>
+			<if test="person != null">`person` = #{person}, </if>
+			<if test="reportingTime != null">`reporting_time` = #{reportingTime}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="handlingPersonnel != null">`handling_personnel` = #{handlingPersonnel}, </if>
+			<if test="eventLevel != null">`event_level` = #{eventLevel}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="source != null">`source` = #{source}, </if>
+			<if test="processingContent != null">`processing_content` = #{processingContent}, </if>
+			<if test="enclosure != null">`enclosure` = #{enclosure}, </if>
+			<if test="missionPersonnel != null">`mission_personnel` = #{missionPersonnel}, </if>
+			<if test="missionCompletionTime != null">`mission_completion_time` = #{missionCompletionTime}, </if>
+			<if test="describe != null">`describe` = #{describe}</if>
+		</set>
+		where event_id = #{eventId}
+	</update>
+	
+	<delete id="remove">
+		delete from event_processing where event_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from event_processing where event_id in 
+		<foreach item="eventId" collection="array" open="(" separator="," close=")">
+			#{eventId}
+		</foreach>
+	</delete>
+
+</mapper>

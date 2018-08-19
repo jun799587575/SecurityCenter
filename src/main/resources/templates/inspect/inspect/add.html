@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">客户名称：</label>
+								<div class="col-sm-8">
+									<input id="inspectName" name="inspectName" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">检查月度：</label>
+								<div class="col-sm-8">
+									<input id="inspectMonthly" name="inspectMonthly" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务类型：</label>
+								<div class="col-sm-8">
+									<input id="inspectType" name="inspectType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">开始时间：</label>
+								<div class="col-sm-8">
+									<input id="inspectStart" name="inspectStart" class="form-control" type="date">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">结束时间：</label>
+								<div class="col-sm-8">
+									<input id="inspectEnd" name="inspectEnd" class="form-control" type="date">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">描述：</label>
+								<div class="col-sm-8">
+									<input id="inspectDescribe" name="inspectDescribe" class="form-control" type="text">
+								</div>
+							</div>
+
+
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">服务电话号码：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="serviceCallNo" name="serviceCallNo" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<div class="form-group">
+								<label class="col-sm-3 control-label">合同号：</label>
+								<div class="col-sm-8">
+									<input id="contractNo" name="contractNo" class="form-control" type="text">
+								</div>
+							</div>
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">机器型号：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="machineModel" name="machineModel" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">设备序列号：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="deviceSerialNumber" name="deviceSerialNumber" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">检查的内容描述：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="testDesdescribe" name="testDesdescribe" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">本次检查发现的问题：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="inspectProblem" name="inspectProblem" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">工作步骤与内容：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="stepContent" name="stepContent" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">已经完成的工作：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="finishWork" name="finishWork" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">等待完成的工作：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="waiteWork" name="waiteWork" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+														<!--<div class="form-group">	-->
+								<!--<label class="col-sm-3 control-label">下一步工作计划：</label>-->
+								<!--<div class="col-sm-8">-->
+									<!--<input id="workPlan" name="workPlan" class="form-control" type="text">-->
+								<!--</div>-->
+							<!--</div>-->
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/inspect/inspect/add.js">
+	</script>
+</body>
+</html>

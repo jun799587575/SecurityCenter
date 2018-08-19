@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.work.dao.ListDao">
+
+	<select id="get" resultType="com.bootdo.work.domain.ListDO">
+		select `work_id`,`work_journalist`,`work_journalist_time`,`work_state`,`work_handling_personnel`,`work_event_level`,`work_service_category`,`work_source` from work_list where work_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.work.domain.ListDO">
+		select `work_id`,`work_journalist`,`work_journalist_time`,`work_state`,`work_handling_personnel`,`work_event_level`,`work_service_category`,`work_source` from work_list
+        <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workJournalist != null and workJournalist != ''"> and work_journalist = #{workJournalist} </if>
+		  		  <if test="workJournalistTime != null and workJournalistTime != ''"> and work_journalist_time = #{workJournalistTime} </if>
+		  		  <if test="workState != null and workState != ''"> and work_state = #{workState} </if>
+		  		  <if test="workHandlingPersonnel != null and workHandlingPersonnel != ''"> and work_handling_personnel = #{workHandlingPersonnel} </if>
+		  		  <if test="workEventLevel != null and workEventLevel != ''"> and work_event_level = #{workEventLevel} </if>
+		  		  <if test="workServiceCategory != null and workServiceCategory != ''"> and work_service_category = #{workServiceCategory} </if>
+		  		  <if test="workSource != null and workSource != ''"> and work_source = #{workSource} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by work_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from work_list
+		 <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workJournalist != null and workJournalist != ''"> and work_journalist = #{workJournalist} </if>
+		  		  <if test="workJournalistTime != null and workJournalistTime != ''"> and work_journalist_time = #{workJournalistTime} </if>
+		  		  <if test="workState != null and workState != ''"> and work_state = #{workState} </if>
+		  		  <if test="workHandlingPersonnel != null and workHandlingPersonnel != ''"> and work_handling_personnel = #{workHandlingPersonnel} </if>
+		  		  <if test="workEventLevel != null and workEventLevel != ''"> and work_event_level = #{workEventLevel} </if>
+		  		  <if test="workServiceCategory != null and workServiceCategory != ''"> and work_service_category = #{workServiceCategory} </if>
+		  		  <if test="workSource != null and workSource != ''"> and work_source = #{workSource} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.work.domain.ListDO">
+		insert into work_list
+		(
+			`work_id`, 
+			`work_journalist`, 
+			`work_journalist_time`, 
+			`work_state`, 
+			`work_handling_personnel`, 
+			`work_event_level`, 
+			`work_service_category`, 
+			`work_source`
+		)
+		values
+		(
+			#{workId}, 
+			#{workJournalist}, 
+			#{workJournalistTime}, 
+			#{workState}, 
+			#{workHandlingPersonnel}, 
+			#{workEventLevel}, 
+			#{workServiceCategory}, 
+			#{workSource}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.work.domain.ListDO">
+		update work_list 
+		<set>
+			<if test="workJournalist != null">`work_journalist` = #{workJournalist}, </if>
+			<if test="workJournalistTime != null">`work_journalist_time` = #{workJournalistTime}, </if>
+			<if test="workState != null">`work_state` = #{workState}, </if>
+			<if test="workHandlingPersonnel != null">`work_handling_personnel` = #{workHandlingPersonnel}, </if>
+			<if test="workEventLevel != null">`work_event_level` = #{workEventLevel}, </if>
+			<if test="workServiceCategory != null">`work_service_category` = #{workServiceCategory}, </if>
+			<if test="workSource != null">`work_source` = #{workSource}</if>
+		</set>
+		where work_id = #{workId}
+	</update>
+	
+	<delete id="remove">
+		delete from work_list where work_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from work_list where work_id in 
+		<foreach item="workId" collection="array" open="(" separator="," close=")">
+			#{workId}
+		</foreach>
+	</delete>
+
+</mapper>

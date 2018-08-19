@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">SLA编号：</label>
+                            <div class="col-sm-8">
+                                <input id="slaId" name="slaId" class="form-control" type="text" style="width: 250px">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">SLA名称：</label>
+                            <div class="col-sm-8">
+                                <input id="slaName" name="slaName" class="form-control" type="text" style="width: 250px">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">供应商：</label>
+                            <div class="col-sm-8" style=" padding-left: 13px;display: inline-block;">
+                                <select id="slaSupplier" name="slaSupplier" style="width: 80px;height: 35px;">
+                                    <option value=1>供应商1</option>
+                                    <option value=2>供应商2</option>
+                                    <option value=3>供应商3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">描述：</label>
+                            <div class="col-sm-8" style="padding-left: 10px;display: inline-block;">
+                                <textarea id="slaDescribe" name="slaDescribe" class="form-control"
+                                          style="width: 450px;height: 120px;resize: none"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group pull-right">
+                            <button shiro:hasPermission="system:tmanage:add"  type="button" class="btn  btn-primary" onclick="addA()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>STL
+                            </button>
+                                <script>
+                                    function addA() {
+                                        parent.layer.open({
+                                            type : 2,
+                                            title : '添加',
+                                            maxmin : true,
+                                            shadeClose : false, // 点击遮罩关闭层
+                                            area : [ '800px', '520px' ],
+                                            content : prefix + '/add' // iframe的url
+                                        });
+                                    }
+                                </script>
+                            <div class="col-sm-offset-3" style="display: inline;margin-left: 10px">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/system/tmanage/tmanage.js"></script>
+<script type="text/javascript" src="/js/appjs/system/amanage/add.js"></script>
+
+</body>
+</html>

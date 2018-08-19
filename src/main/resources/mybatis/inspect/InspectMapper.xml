@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.inspect.dao.InspectDao">
+
+	<select id="get" resultType="com.bootdo.inspect.domain.InspectDO">
+		select `inspect_id`,`inspect_monthly`,`inspect_type`,`inspect_start`,`inspect_end`,`inspect_describe`,`inspect_name`,`service_call_no`,`contract_no`,`machine_model`,`device_serial_number`,`test_desdescribe`,`Inspect_problem`,`step_content`,`finish_work`,`waite_work`,`work_plan` from report_inspect where inspect_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.inspect.domain.InspectDO">
+		select `inspect_id`,`inspect_monthly`,`inspect_type`,`inspect_start`,`inspect_end`,`inspect_describe`,`inspect_name`,`service_call_no`,`contract_no`,`machine_model`,`device_serial_number`,`test_desdescribe`,`Inspect_problem`,`step_content`,`finish_work`,`waite_work`,`work_plan` from report_inspect
+        <where>  
+		  		  <if test="inspectId != null and inspectId != ''"> and inspect_id = #{inspectId} </if>
+		  		  <if test="inspectMonthly != null and inspectMonthly != ''"> and inspect_monthly = #{inspectMonthly} </if>
+		  		  <if test="inspectType != null and inspectType != ''"> and inspect_type = #{inspectType} </if>
+		  		  <if test="inspectStart != null and inspectStart != ''"> and inspect_start = #{inspectStart} </if>
+		  		  <if test="inspectEnd != null and inspectEnd != ''"> and inspect_end = #{inspectEnd} </if>
+		  		  <if test="inspectDescribe != null and inspectDescribe != ''"> and inspect_describe = #{inspectDescribe} </if>
+		  		  <if test="inspectName != null and inspectName != ''"> and inspect_name = #{inspectName} </if>
+		  		  <if test="serviceCallNo != null and serviceCallNo != ''"> and service_call_no = #{serviceCallNo} </if>
+		  		  <if test="contractNo != null and contractNo != ''"> and contract_no = #{contractNo} </if>
+		  		  <if test="machineModel != null and machineModel != ''"> and machine_model = #{machineModel} </if>
+		  		  <if test="deviceSerialNumber != null and deviceSerialNumber != ''"> and device_serial_number = #{deviceSerialNumber} </if>
+		  		  <if test="testDesdescribe != null and testDesdescribe != ''"> and test_desdescribe = #{testDesdescribe} </if>
+		  		  <if test="inspectProblem != null and inspectProblem != ''"> and Inspect_problem = #{inspectProblem} </if>
+		  		  <if test="stepContent != null and stepContent != ''"> and step_content = #{stepContent} </if>
+		  		  <if test="finishWork != null and finishWork != ''"> and finish_work = #{finishWork} </if>
+		  		  <if test="waiteWork != null and waiteWork != ''"> and waite_work = #{waiteWork} </if>
+		  		  <if test="workPlan != null and workPlan != ''"> and work_plan = #{workPlan} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by inspect_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from report_inspect
+		 <where>  
+		  		  <if test="inspectId != null and inspectId != ''"> and inspect_id = #{inspectId} </if>
+		  		  <if test="inspectMonthly != null and inspectMonthly != ''"> and inspect_monthly = #{inspectMonthly} </if>
+		  		  <if test="inspectType != null and inspectType != ''"> and inspect_type = #{inspectType} </if>
+		  		  <if test="inspectStart != null and inspectStart != ''"> and inspect_start = #{inspectStart} </if>
+		  		  <if test="inspectEnd != null and inspectEnd != ''"> and inspect_end = #{inspectEnd} </if>
+		  		  <if test="inspectDescribe != null and inspectDescribe != ''"> and inspect_describe = #{inspectDescribe} </if>
+		  		  <if test="inspectName != null and inspectName != ''"> and inspect_name = #{inspectName} </if>
+		  		  <if test="serviceCallNo != null and serviceCallNo != ''"> and service_call_no = #{serviceCallNo} </if>
+		  		  <if test="contractNo != null and contractNo != ''"> and contract_no = #{contractNo} </if>
+		  		  <if test="machineModel != null and machineModel != ''"> and machine_model = #{machineModel} </if>
+		  		  <if test="deviceSerialNumber != null and deviceSerialNumber != ''"> and device_serial_number = #{deviceSerialNumber} </if>
+		  		  <if test="testDesdescribe != null and testDesdescribe != ''"> and test_desdescribe = #{testDesdescribe} </if>
+		  		  <if test="inspectProblem != null and inspectProblem != ''"> and Inspect_problem = #{inspectProblem} </if>
+		  		  <if test="stepContent != null and stepContent != ''"> and step_content = #{stepContent} </if>
+		  		  <if test="finishWork != null and finishWork != ''"> and finish_work = #{finishWork} </if>
+		  		  <if test="waiteWork != null and waiteWork != ''"> and waite_work = #{waiteWork} </if>
+		  		  <if test="workPlan != null and workPlan != ''"> and work_plan = #{workPlan} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.inspect.domain.InspectDO" useGeneratedKeys="true" keyProperty="inspectId">
+		insert into report_inspect
+		(
+			`inspect_monthly`, 
+			`inspect_type`, 
+			`inspect_start`, 
+			`inspect_end`, 
+			`inspect_describe`, 
+			`inspect_name`, 
+			`service_call_no`, 
+			`contract_no`, 
+			`machine_model`, 
+			`device_serial_number`, 
+			`test_desdescribe`, 
+			`Inspect_problem`, 
+			`step_content`, 
+			`finish_work`, 
+			`waite_work`, 
+			`work_plan`
+		)
+		values
+		(
+			#{inspectMonthly}, 
+			#{inspectType}, 
+			#{inspectStart}, 
+			#{inspectEnd}, 
+			#{inspectDescribe}, 
+			#{inspectName}, 
+			#{serviceCallNo}, 
+			#{contractNo}, 
+			#{machineModel}, 
+			#{deviceSerialNumber}, 
+			#{testDesdescribe}, 
+			#{inspectProblem}, 
+			#{stepContent}, 
+			#{finishWork}, 
+			#{waiteWork}, 
+			#{workPlan}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.inspect.domain.InspectDO">
+		update report_inspect 
+		<set>
+			<if test="inspectMonthly != null">`inspect_monthly` = #{inspectMonthly}, </if>
+			<if test="inspectType != null">`inspect_type` = #{inspectType}, </if>
+			<if test="inspectStart != null">`inspect_start` = #{inspectStart}, </if>
+			<if test="inspectEnd != null">`inspect_end` = #{inspectEnd}, </if>
+			<if test="inspectDescribe != null">`inspect_describe` = #{inspectDescribe}, </if>
+			<if test="inspectName != null">`inspect_name` = #{inspectName}, </if>
+			<if test="serviceCallNo != null">`service_call_no` = #{serviceCallNo}, </if>
+			<if test="contractNo != null">`contract_no` = #{contractNo}, </if>
+			<if test="machineModel != null">`machine_model` = #{machineModel}, </if>
+			<if test="deviceSerialNumber != null">`device_serial_number` = #{deviceSerialNumber}, </if>
+			<if test="testDesdescribe != null">`test_desdescribe` = #{testDesdescribe}, </if>
+			<if test="inspectProblem != null">`Inspect_problem` = #{inspectProblem}, </if>
+			<if test="stepContent != null">`step_content` = #{stepContent}, </if>
+			<if test="finishWork != null">`finish_work` = #{finishWork}, </if>
+			<if test="waiteWork != null">`waite_work` = #{waiteWork}, </if>
+			<if test="workPlan != null">`work_plan` = #{workPlan}</if>
+		</set>
+		where inspect_id = #{inspectId}
+	</update>
+	
+	<delete id="remove">
+		delete from report_inspect where inspect_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from report_inspect where inspect_id in 
+		<foreach item="inspectId" collection="array" open="(" separator="," close=")">
+			#{inspectId}
+		</foreach>
+	</delete>
+
+</mapper>

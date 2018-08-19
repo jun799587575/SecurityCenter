@@ -6,31 +6,354 @@
     <title>欢迎页</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <script src="js/plugins/echarts/echarts.js"></script>
+    <script src="/js/plugins/echarts/echartsTable.js"></script>
 </head>
 <body>
 <div class="panel panel-default">
-    <div class="panel-heading">了解兖矿信息中心 安全运营系统</div>
-    <!--<div style="padding: 10px 0 20px 10px;">
-        <h3>&nbsp;&nbsp;&nbsp;项目介绍</h3>
-        <ul>
-            <li>面向学习型的开源框架，简洁高效，减少过渡封装，展现技术本质</li>
-            <li>Springboot作为基础框架，使用mybatis作为持久层框架</li>
-            <li>使用官方推荐的thymeleaf做为模板引擎，shiro作为安全框架,主流技术，“一网打尽”</li>
-            <li>极简配置，一键前后台代码生成</li>
-        </ul>
+    <div class="panel-heading">了解兖矿安全运营系统</div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>重大事件进度</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="eventProgress" style="width: 600px;height:400px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>满意度</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="satisfaction" style="width: 600px;height:400px;">
 
-        <h3>&nbsp;&nbsp;&nbsp;获取源码</h3>
-        <ul>
-            <li>Github地址：<a href="https://github.com/lcg0124/bootdo.git" th:href="@{https://github.com/lcg0124/bootdo.git}" target="_blank">https://github.com/lcg0124/bootdo.git</a></li>
-            <li>Oschina地址：<a href="https://gitee.com/lcg0124/bootdo.git" target="_blank">https://gitee.com/lcg0124/bootdo.git</a></li>
-        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>服务运营风险</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="operationalRisk" style="width: 600px;height:400px;">
+                    </div>
+                </div>
+            </div>
+           <!-- <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>服务运营效率</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="operationalEfficiency" style="width: 600px;height:400px;">
 
-        <h3>&nbsp;&nbsp;&nbsp;官方QQ群</h3>
-        <ul>
-            <li>点击链接加入群【BootDo交流群】：<a href="https://jq.qq.com/?_wv=1027&k=5EYXfiZ">669039323(满)</a></li>
-            <li>点击链接加入群聊【BootDo交流二群】：<a href="https://jq.qq.com/?_wv=1027&k=5M659N4">614726589</a></li>
-        </ul>
-    </div>-->
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>服务运营效率</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div  class="ibox-content" id="operationalEfficiency" style="width:100%;height:400px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<script>
+    var myChart = echarts.init(document.getElementById('eventProgress'));
+    var option = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data:['重大事件一','重大事件二','重大事件三','重大事件四']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        yAxis : [
+            {
+                type : 'category',
+                data : ['事件一','事件二','事件三','事件四']
+            }
+        ],
+        series : [
+            {
+                name:'响应时间',
+                type:'bar',
+                stack: '总量',
+                itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+                data:[320, 302, 301, 334]
+            },
+            {
+                name:'处理时间',
+                type:'bar',
+                stack: '总量',
+                itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+                data:[120, 132, 101, 134]
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+    var myChart1 = echarts.init(document.getElementById('satisfaction'));
+    var option1 = {
+        title: {
+            x: 'center',
+            text: '满意度调查',
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        grid: {
+            borderWidth: 0,
+            y: 80,
+            y2: 60
+        },
+        xAxis: [
+            {
+                type: 'category',
+                show: false,
+                data: ['非常满意', '满意', '一般', '不满意', '非常不满意']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                show: false
+            }
+        ],
+        series: [
+            {
+                name: '满意度调查',
+                type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            // build a color map as your need.
+                            var colorList = [
+                                '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                                '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                                '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{b}\n{c}'
+                        }
+                    }
+                },
+                data: [12,21,10,4,12],
+                markPoint: {
+                    tooltip: {
+                        trigger: 'item',
+                        backgroundColor: 'rgba(0,0,0,0)',
+                        formatter: function(params){
+                            return '<img src="'
+                                + params.data.symbol.replace('image://', '')
+                                + '"/>';
+                        }
+                    },
+                    data: [
+                        {xAxis:0, y: 350, name:'非常满意', symbolSize:20, symbol: 'image://../asset/ico/折线图.png'},
+                        {xAxis:1, y: 350, name:'满意', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
+                        {xAxis:2, y: 350, name:'一般', symbolSize:20, symbol: 'image://../asset/ico/散点图.png'},
+                        {xAxis:3, y: 350, name:'不满意', symbolSize:20, symbol: 'image://../asset/ico/K线图.png'},
+                        {xAxis:4, y: 350, name:'非常不满意', symbolSize:20, symbol: 'image://../asset/ico/饼状图.png'}
+                    ]
+                }
+            }
+        ]
+    };
+    myChart1.setOption(option1);
+
+    var myChart2 = echarts.init(document.getElementById('operationalRisk'));
+    var option2 = {
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            x : 'center',
+            data:['运营风险']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        polar : [
+            {
+                // '紧急变更率','变更失败率','由变更引起的事件率','未授权变更率','服务级别协议违反率','信息安全事件频率'
+                indicator : [
+                    {text : '紧急变更率', max  : 100},
+                    {text : '变更失败率', max  : 100},
+                    {text : '由变更引起的事件率', max  : 100},
+                    {text : '未授权变更率', max  : 100},
+                    {text : '服务级别协议违反率', max  : 100},
+                    {text : '信息安全事件频率', max  : 100}
+                ],
+                radius : 130
+            }
+        ],
+        series : [
+            {
+                name: '完全实况球员数据',
+                type: 'radar',
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+                            type: 'default'
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [97, 42, 88, 94, 90, 86],
+                        name : '运营风险'
+                    },
+                ]
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+
+    var myChart3 = echarts.init(document.getElementById('operationalEfficiency'));
+    var option3 = {
+        tooltip : {
+            formatter: "{a} <br/>{b} : {c}%"
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        series : [
+            {
+                name:'业务指标',
+                type:'gauge',
+                detail : {formatter:'{value}%'},
+                data:[{value: 50, name: '完成率'}]
+            }
+        ]
+    };
+    /*clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+        option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
+        myChart.setOption(option,true);
+    },2000)*/
+    myChart3.setOption(option3);
+
+
+
+
+
+
+
+
+
+
+</script>
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- ECharts -->
+<script src="/js/plugins/echarts/echarts-all.js"></script>
+
+<!-- 自定义js -->
+<script src="/js/content.js?v=1.0.0"></script>
+
+
+<!-- ECharts demo data -->
+<script src="/js/demo/echarts-demo.js"></script>
+
 </body>
 </html>
