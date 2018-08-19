@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.LinkmenDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.LinkmenDO">
+		select `lin_id`,`lin_name`,`in_state`,`lin_type`,`lin_describe` from lin_linkmen where lin_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.LinkmenDO">
+		select `lin_id`,`lin_name`,`in_state`,`lin_type`,`lin_describe` from lin_linkmen
+        <where>  
+		  		  <if test="linId != null and linId != ''"> and lin_id = #{linId} </if>
+		  		  <if test="linName != null and linName != ''"> and lin_name = #{linName} </if>
+		  		  <if test="inState != null and inState != ''"> and in_state = #{inState} </if>
+		  		  <if test="linType != null and linType != ''"> and lin_type = #{linType} </if>
+		  		  <if test="linDescribe != null and linDescribe != ''"> and lin_describe = #{linDescribe} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by lin_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from lin_linkmen
+		 <where>  
+		  		  <if test="linId != null and linId != ''"> and lin_id = #{linId} </if>
+		  		  <if test="linName != null and linName != ''"> and lin_name = #{linName} </if>
+		  		  <if test="inState != null and inState != ''"> and in_state = #{inState} </if>
+		  		  <if test="linType != null and linType != ''"> and lin_type = #{linType} </if>
+		  		  <if test="linDescribe != null and linDescribe != ''"> and lin_describe = #{linDescribe} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.LinkmenDO" useGeneratedKeys="true" keyProperty="linId">
+		insert into lin_linkmen
+		(
+			`lin_name`, 
+			`in_state`, 
+			`lin_type`, 
+			`lin_describe`
+		)
+		values
+		(
+			#{linName}, 
+			#{inState}, 
+			#{linType}, 
+			#{linDescribe}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.LinkmenDO">
+		update lin_linkmen 
+		<set>
+			<if test="linName != null">`lin_name` = #{linName}, </if>
+			<if test="inState != null">`in_state` = #{inState}, </if>
+			<if test="linType != null">`lin_type` = #{linType}, </if>
+			<if test="linDescribe != null">`lin_describe` = #{linDescribe}</if>
+		</set>
+		where lin_id = #{linId}
+	</update>
+	
+	<delete id="remove">
+		delete from lin_linkmen where lin_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from lin_linkmen where lin_id in 
+		<foreach item="linId" collection="array" open="(" separator="," close=")">
+			#{linId}
+		</foreach>
+	</delete>
+
+</mapper>

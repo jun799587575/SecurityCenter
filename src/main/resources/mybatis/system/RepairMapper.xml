@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.RepairDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.RepairDO">
+		select `que_id`,`que_name`,`que_organization`,`que_state`,`que_priority`,`que_manage`,`que_sbumanage`,`que_dispose`,`que_question`,`que_repair` from que_repair where que_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.RepairDO">
+		select `que_id`,`que_name`,`que_organization`,`que_state`,`que_priority`,`que_manage`,`que_sbumanage`,`que_dispose`,`que_question`,`que_repair` from que_repair
+        <where>  
+		  		  <if test="queId != null and queId != ''"> and que_id = #{queId} </if>
+		  		  <if test="queName != null and queName != ''"> and que_name = #{queName} </if>
+		  		  <if test="queOrganization != null and queOrganization != ''"> and que_organization = #{queOrganization} </if>
+		  		  <if test="queState != null and queState != ''"> and que_state = #{queState} </if>
+		  		  <if test="quePriority != null and quePriority != ''"> and que_priority = #{quePriority} </if>
+		  		  <if test="queManage != null and queManage != ''"> and que_manage = #{queManage} </if>
+		  		  <if test="queSbumanage != null and queSbumanage != ''"> and que_sbumanage = #{queSbumanage} </if>
+		  		  <if test="queDispose != null and queDispose != ''"> and que_dispose = #{queDispose} </if>
+		  		  <if test="queQuestion != null and queQuestion != ''"> and que_question = #{queQuestion} </if>
+		  		  <if test="queRepair != null and queRepair != ''"> and que_repair = #{queRepair} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by que_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from que_repair
+		 <where>  
+		  		  <if test="queId != null and queId != ''"> and que_id = #{queId} </if>
+		  		  <if test="queName != null and queName != ''"> and que_name = #{queName} </if>
+		  		  <if test="queOrganization != null and queOrganization != ''"> and que_organization = #{queOrganization} </if>
+		  		  <if test="queState != null and queState != ''"> and que_state = #{queState} </if>
+		  		  <if test="quePriority != null and quePriority != ''"> and que_priority = #{quePriority} </if>
+		  		  <if test="queManage != null and queManage != ''"> and que_manage = #{queManage} </if>
+		  		  <if test="queSbumanage != null and queSbumanage != ''"> and que_sbumanage = #{queSbumanage} </if>
+		  		  <if test="queDispose != null and queDispose != ''"> and que_dispose = #{queDispose} </if>
+		  		  <if test="queQuestion != null and queQuestion != ''"> and que_question = #{queQuestion} </if>
+		  		  <if test="queRepair != null and queRepair != ''"> and que_repair = #{queRepair} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.RepairDO" useGeneratedKeys="true" keyProperty="queId">
+		insert into que_repair
+		(
+			`que_name`, 
+			`que_organization`, 
+			`que_state`, 
+			`que_priority`, 
+			`que_manage`, 
+			`que_sbumanage`, 
+			`que_dispose`, 
+			`que_question`, 
+			`que_repair`
+		)
+		values
+		(
+			#{queName}, 
+			#{queOrganization}, 
+			#{queState}, 
+			#{quePriority}, 
+			#{queManage}, 
+			#{queSbumanage}, 
+			#{queDispose}, 
+			#{queQuestion}, 
+			#{queRepair}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.RepairDO">
+		update que_repair 
+		<set>
+			<if test="queName != null">`que_name` = #{queName}, </if>
+			<if test="queOrganization != null">`que_organization` = #{queOrganization}, </if>
+			<if test="queState != null">`que_state` = #{queState}, </if>
+			<if test="quePriority != null">`que_priority` = #{quePriority}, </if>
+			<if test="queManage != null">`que_manage` = #{queManage}, </if>
+			<if test="queSbumanage != null">`que_sbumanage` = #{queSbumanage}, </if>
+			<if test="queDispose != null">`que_dispose` = #{queDispose}, </if>
+			<if test="queQuestion != null">`que_question` = #{queQuestion}, </if>
+			<if test="queRepair != null">`que_repair` = #{queRepair}</if>
+		</set>
+		where que_id = #{queId}
+	</update>
+	
+	<delete id="remove">
+		delete from que_repair where que_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from que_repair where que_id in 
+		<foreach item="queId" collection="array" open="(" separator="," close=")">
+			#{queId}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.PointDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.PointDO">
+		select `que_id`,`que_name`,`que_organization`,`que_state`,`que_priority`,`que_manage`,`que_sbumanage`,`que_dispose`,`que_question`,`que_point` from que_point where que_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.PointDO">
+		select `que_id`,`que_name`,`que_organization`,`que_state`,`que_priority`,`que_manage`,`que_sbumanage`,`que_dispose`,`que_question`,`que_point` from que_point
+        <where>  
+		  		  <if test="queId != null and queId != ''"> and que_id = #{queId} </if>
+		  		  <if test="queName != null and queName != ''"> and que_name = #{queName} </if>
+		  		  <if test="queOrganization != null and queOrganization != ''"> and que_organization = #{queOrganization} </if>
+		  		  <if test="queState != null and queState != ''"> and que_state = #{queState} </if>
+		  		  <if test="quePriority != null and quePriority != ''"> and que_priority = #{quePriority} </if>
+		  		  <if test="queManage != null and queManage != ''"> and que_manage = #{queManage} </if>
+		  		  <if test="queSbumanage != null and queSbumanage != ''"> and que_sbumanage = #{queSbumanage} </if>
+		  		  <if test="queDispose != null and queDispose != ''"> and que_dispose = #{queDispose} </if>
+		  		  <if test="queQuestion != null and queQuestion != ''"> and que_question = #{queQuestion} </if>
+		  		  <if test="quePoint != null and quePoint != ''"> and que_point = #{quePoint} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by que_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from que_point
+		 <where>  
+		  		  <if test="queId != null and queId != ''"> and que_id = #{queId} </if>
+		  		  <if test="queName != null and queName != ''"> and que_name = #{queName} </if>
+		  		  <if test="queOrganization != null and queOrganization != ''"> and que_organization = #{queOrganization} </if>
+		  		  <if test="queState != null and queState != ''"> and que_state = #{queState} </if>
+		  		  <if test="quePriority != null and quePriority != ''"> and que_priority = #{quePriority} </if>
+		  		  <if test="queManage != null and queManage != ''"> and que_manage = #{queManage} </if>
+		  		  <if test="queSbumanage != null and queSbumanage != ''"> and que_sbumanage = #{queSbumanage} </if>
+		  		  <if test="queDispose != null and queDispose != ''"> and que_dispose = #{queDispose} </if>
+		  		  <if test="queQuestion != null and queQuestion != ''"> and que_question = #{queQuestion} </if>
+		  		  <if test="quePoint != null and quePoint != ''"> and que_point = #{quePoint} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.PointDO" useGeneratedKeys="true" keyProperty="queId">
+		insert into que_point
+		(
+			`que_name`, 
+			`que_organization`, 
+			`que_state`, 
+			`que_priority`, 
+			`que_manage`, 
+			`que_sbumanage`, 
+			`que_dispose`, 
+			`que_question`, 
+			`que_point`
+		)
+		values
+		(
+			#{queName}, 
+			#{queOrganization}, 
+			#{queState}, 
+			#{quePriority}, 
+			#{queManage}, 
+			#{queSbumanage}, 
+			#{queDispose}, 
+			#{queQuestion}, 
+			#{quePoint}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.PointDO">
+		update que_point 
+		<set>
+			<if test="queName != null">`que_name` = #{queName}, </if>
+			<if test="queOrganization != null">`que_organization` = #{queOrganization}, </if>
+			<if test="queState != null">`que_state` = #{queState}, </if>
+			<if test="quePriority != null">`que_priority` = #{quePriority}, </if>
+			<if test="queManage != null">`que_manage` = #{queManage}, </if>
+			<if test="queSbumanage != null">`que_sbumanage` = #{queSbumanage}, </if>
+			<if test="queDispose != null">`que_dispose` = #{queDispose}, </if>
+			<if test="queQuestion != null">`que_question` = #{queQuestion}, </if>
+			<if test="quePoint != null">`que_point` = #{quePoint}</if>
+		</set>
+		where que_id = #{queId}
+	</update>
+	
+	<delete id="remove">
+		delete from que_point where que_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from que_point where que_id in 
+		<foreach item="queId" collection="array" open="(" separator="," close=")">
+			#{queId}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="queId" name="queId" th:value="${allotproblem.queId}" type="hidden">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">分配：</label>
+                            <select id="queAllot" th:value="${allotproblem.queAllot}" name="queAllot"
+                                    style="width: 80px;height: 35px;">
+                                <option value="小明">小明</option>
+                                <option value="小虎">小虎</option>
+                                <option value="小鹿">小鹿</option>
+                                <option value="小花">小花</option>
+                            </select>
+                        </div>
+                        <div class="form-group pull-right">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/system/allotproblem/edit.js">
+</script>
+</body>
+</html>

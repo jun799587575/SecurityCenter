@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.ClientDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.ClientDO">
+		select `con_id`,`con_name`,`con_state`,`con_type`,`con_describe` from con_client where con_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.ClientDO">
+		select `con_id`,`con_name`,`con_state`,`con_type`,`con_describe` from con_client
+        <where>  
+		  		  <if test="conId != null and conId != ''"> and con_id = #{conId} </if>
+		  		  <if test="conName != null and conName != ''"> and con_name = #{conName} </if>
+		  		  <if test="conState != null and conState != ''"> and con_state = #{conState} </if>
+		  		  <if test="conType != null and conType != ''"> and con_type = #{conType} </if>
+		  		  <if test="conDescribe != null and conDescribe != ''"> and con_describe = #{conDescribe} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by con_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from con_client
+		 <where>  
+		  		  <if test="conId != null and conId != ''"> and con_id = #{conId} </if>
+		  		  <if test="conName != null and conName != ''"> and con_name = #{conName} </if>
+		  		  <if test="conState != null and conState != ''"> and con_state = #{conState} </if>
+		  		  <if test="conType != null and conType != ''"> and con_type = #{conType} </if>
+		  		  <if test="conDescribe != null and conDescribe != ''"> and con_describe = #{conDescribe} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.ClientDO" useGeneratedKeys="true" keyProperty="conId">
+		insert into con_client
+		(
+			`con_name`, 
+			`con_state`, 
+			`con_type`, 
+			`con_describe`
+		)
+		values
+		(
+			#{conName}, 
+			#{conState}, 
+			#{conType}, 
+			#{conDescribe}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.ClientDO">
+		update con_client 
+		<set>
+			<if test="conName != null">`con_name` = #{conName}, </if>
+			<if test="conState != null">`con_state` = #{conState}, </if>
+			<if test="conType != null">`con_type` = #{conType}, </if>
+			<if test="conDescribe != null">`con_describe` = #{conDescribe}</if>
+		</set>
+		where con_id = #{conId}
+	</update>
+	
+	<delete id="remove">
+		delete from con_client where con_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from con_client where con_id in 
+		<foreach item="conId" collection="array" open="(" separator="," close=")">
+			#{conId}
+		</foreach>
+	</delete>
+
+</mapper>

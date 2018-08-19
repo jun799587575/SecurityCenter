@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="queId" name="queId" th:value="${isproblem.queId}" type="hidden">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">是否是问题：</label>
+                            <select id="queDegree" th:value="${isproblem.queIs}" name="queDegree"
+                                    style="width: 80px;height: 35px;">
+                                <option value="确认">确认</option>
+                                <option value="驳回">驳回</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">意见：</label>
+                            <div class="col-sm-8">
+                                <textarea id="quePoint" name="quePoint"style="width: 450px;height: 120px;resize: none" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group pull-right">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/system/isproblem/edit.js">
+</script>
+</body>
+</html>

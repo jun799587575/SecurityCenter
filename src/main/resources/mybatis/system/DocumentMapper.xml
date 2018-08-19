@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.system.dao.DocumentDao">
+
+	<select id="get" resultType="com.bootdo.system.domain.DocumentDO">
+		select `doc_id`,`doc_name`,`doc_state`,`doc_type`,`doc_describe` from doc_document where doc_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.system.domain.DocumentDO">
+		select `doc_id`,`doc_name`,`doc_state`,`doc_type`,`doc_describe` from doc_document
+        <where>  
+		  		  <if test="docId != null and docId != ''"> and doc_id = #{docId} </if>
+		  		  <if test="docName != null and docName != ''"> and doc_name = #{docName} </if>
+		  		  <if test="docState != null and docState != ''"> and doc_state = #{docState} </if>
+		  		  <if test="docType != null and docType != ''"> and doc_type = #{docType} </if>
+		  		  <if test="docDescribe != null and docDescribe != ''"> and doc_describe = #{docDescribe} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by doc_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from doc_document
+		 <where>  
+		  		  <if test="docId != null and docId != ''"> and doc_id = #{docId} </if>
+		  		  <if test="docName != null and docName != ''"> and doc_name = #{docName} </if>
+		  		  <if test="docState != null and docState != ''"> and doc_state = #{docState} </if>
+		  		  <if test="docType != null and docType != ''"> and doc_type = #{docType} </if>
+		  		  <if test="docDescribe != null and docDescribe != ''"> and doc_describe = #{docDescribe} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.system.domain.DocumentDO" useGeneratedKeys="true" keyProperty="docId">
+		insert into doc_document
+		(
+			`doc_name`, 
+			`doc_state`, 
+			`doc_type`, 
+			`doc_describe`
+		)
+		values
+		(
+			#{docName}, 
+			#{docState}, 
+			#{docType}, 
+			#{docDescribe}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.system.domain.DocumentDO">
+		update doc_document 
+		<set>
+			<if test="docName != null">`doc_name` = #{docName}, </if>
+			<if test="docState != null">`doc_state` = #{docState}, </if>
+			<if test="docType != null">`doc_type` = #{docType}, </if>
+			<if test="docDescribe != null">`doc_describe` = #{docDescribe}</if>
+		</set>
+		where doc_id = #{docId}
+	</update>
+	
+	<delete id="remove">
+		delete from doc_document where doc_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from doc_document where doc_id in 
+		<foreach item="docId" collection="array" open="(" separator="," close=")">
+			#{docId}
+		</foreach>
+	</delete>
+
+</mapper>
