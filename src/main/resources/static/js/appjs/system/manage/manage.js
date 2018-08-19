@@ -99,7 +99,7 @@ function add() {
 		title : '添加',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
-		area : [ '529px', '600px' ],
+		area : [ '80%', '600px' ],
 		content : prefix + '/add' // iframe的url
 	});
 }
