@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="nasId" name="nasId" th:value="${nas.nasId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="nasName" name="nasName" th:value="${nas.nasName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">组织：</label>
+								<div class="col-sm-8">
+									<input id="organization" name="organization" th:value="${nas.organization}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="state" name="state" th:value="${nas.state}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">业务级别：</label>
+								<div class="col-sm-8">
+									<input id="businessLevel" name="businessLevel" th:value="${nas.businessLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">地理位置：</label>
+								<div class="col-sm-8">
+									<input id="geographicalPosition" name="geographicalPosition" th:value="${nas.geographicalPosition}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">机柜：</label>
+								<div class="col-sm-8">
+									<input id="cabinet" name="cabinet" th:value="${nas.cabinet}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">机箱：</label>
+								<div class="col-sm-8">
+									<input id="chassis" name="chassis" th:value="${nas.chassis}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">品牌：</label>
+								<div class="col-sm-8">
+									<input id="brand" name="brand" th:value="${nas.brand}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">型号：</label>
+								<div class="col-sm-8">
+									<input id="model" name="model" th:value="${nas.model}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">管理IP：</label>
+								<div class="col-sm-8">
+									<input id="managingIp" name="managingIp" th:value="${nas.managingIp}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">机箱高度：</label>
+								<div class="col-sm-8">
+									<input id="chassisHeight" name="chassisHeight" th:value="${nas.chassisHeight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">序列号：</label>
+								<div class="col-sm-8">
+									<input id="serialNumber" name="serialNumber" th:value="${nas.serialNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资产编号：</label>
+								<div class="col-sm-8">
+									<input id="assetNumber" name="assetNumber" th:value="${nas.assetNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">投产日期：</label>
+								<div class="col-sm-8">
+									<input id="startingDate" name="startingDate" th:value="${nas.startingDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">采购日期：</label>
+								<div class="col-sm-8">
+									<input id="purchaseDate" name="purchaseDate" th:value="${nas.purchaseDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">过保日期：</label>
+								<div class="col-sm-8">
+									<input id="dateOfInsurance" name="dateOfInsurance" th:value="${nas.dateOfInsurance}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">电源A：</label>
+								<div class="col-sm-8">
+									<input id="powerA" name="powerA" th:value="${nas.powerA}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">电源B：</label>
+								<div class="col-sm-8">
+									<input id="powerB" name="powerB" th:value="${nas.powerB}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">冗余：</label>
+								<div class="col-sm-8">
+									<input id="redundancy" name="redundancy" th:value="${nas.redundancy}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">描述：</label>
+								<div class="col-sm-8">
+									<input id="describe" name="describe" th:value="${nas.describe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人：</label>
+								<div class="col-sm-8">
+									<input id="contacts" name="contacts" th:value="${nas.contacts}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人状态：</label>
+								<div class="col-sm-8">
+									<input id="contactsState" name="contactsState" th:value="${nas.contactsState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人组织：</label>
+								<div class="col-sm-8">
+									<input id="contactsOrganize" name="contactsOrganize" th:value="${nas.contactsOrganize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人邮箱：</label>
+								<div class="col-sm-8">
+									<input id="contactsMailbox" name="contactsMailbox" th:value="${nas.contactsMailbox}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人电话：</label>
+								<div class="col-sm-8">
+									<input id="contactsTelephone" name="contactsTelephone" th:value="${nas.contactsTelephone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人职责：</label>
+								<div class="col-sm-8">
+									<input id="contactsDuty" name="contactsDuty" th:value="${nas.contactsDuty}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档：</label>
+								<div class="col-sm-8">
+									<input id="file" name="file" th:value="${nas.file}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档状态：</label>
+								<div class="col-sm-8">
+									<input id="fileState" name="fileState" th:value="${nas.fileState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档组织：</label>
+								<div class="col-sm-8">
+									<input id="fileOrganize" name="fileOrganize" th:value="${nas.fileOrganize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档类型：</label>
+								<div class="col-sm-8">
+									<input id="fileType" name="fileType" th:value="${nas.fileType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档描述：</label>
+								<div class="col-sm-8">
+									<input id="fileDescribe" name="fileDescribe" th:value="${nas.fileDescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">解决方案：</label>
+								<div class="col-sm-8">
+									<input id="solution" name="solution" th:value="${nas.solution}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">（解决方案）组织：</label>
+								<div class="col-sm-8">
+									<input id="solutionOrganization" name="solutionOrganization" th:value="${nas.solutionOrganization}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">（解决方案）业务级别：</label>
+								<div class="col-sm-8">
+									<input id="soultionBusinessLevel" name="soultionBusinessLevel" th:value="${nas.soultionBusinessLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">（解决方案）投产日期 ：</label>
+								<div class="col-sm-8">
+									<input id="soultionStartingDate" name="soultionStartingDate" th:value="${nas.soultionStartingDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">网卡名称：</label>
+								<div class="col-sm-8">
+									<input id="networkName" name="networkName" th:value="${nas.networkName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">IP地址：</label>
+								<div class="col-sm-8">
+									<input id="networkIp" name="networkIp" th:value="${nas.networkIp}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">Mac地址：</label>
+								<div class="col-sm-8">
+									<input id="networkMac" name="networkMac" th:value="${nas.networkMac}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">注释：</label>
+								<div class="col-sm-8">
+									<input id="networkNotes" name="networkNotes" th:value="${nas.networkNotes}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">网关：</label>
+								<div class="col-sm-8">
+									<input id="networkGateway" name="networkGateway" th:value="${nas.networkGateway}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">掩码：</label>
+								<div class="col-sm-8">
+									<input id="networkMask" name="networkMask" th:value="${nas.networkMask}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">名称（光纤端口）：</label>
+								<div class="col-sm-8">
+									<input id="opticalFiberName" name="opticalFiberName" th:value="${nas.opticalFiberName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">速率：</label>
+								<div class="col-sm-8">
+									<input id="rate" name="rate" th:value="${nas.rate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">TOPOLOGY：</label>
+								<div class="col-sm-8">
+									<input id="topology" name="topology" th:value="${nas.topology}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">WWN：</label>
+								<div class="col-sm-8">
+									<input id="wwn" name="wwn" th:value="${nas.wwn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">本地网口：</label>
+								<div class="col-sm-8">
+									<input id="localNetworkPort" name="localNetworkPort" th:value="${nas.localNetworkPort}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">设备类型：</label>
+								<div class="col-sm-8">
+									<input id="equipmentNetMouth" name="equipmentNetMouth" th:value="${nas.equipmentNetMouth}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">连接类型：</label>
+								<div class="col-sm-8">
+									<input id="lineType" name="lineType" th:value="${nas.lineType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">网络设备：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipment" name="networkEquipment" th:value="${nas.networkEquipment}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">组织（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentOrganize" name="networkEquipmentOrganize" th:value="${nas.networkEquipmentOrganize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentState" name="networkEquipmentState" th:value="${nas.networkEquipmentState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">业务级别（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentLevel" name="networkEquipmentLevel" th:value="${nas.networkEquipmentLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">地理位置（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentPosition" name="networkEquipmentPosition" th:value="${nas.networkEquipmentPosition}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">品牌（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentBrand" name="networkEquipmentBrand" th:value="${nas.networkEquipmentBrand}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">型号（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentModel" name="networkEquipmentModel" th:value="${nas.networkEquipmentModel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">序列号（网络设备）：</label>
+								<div class="col-sm-8">
+									<input id="networkEquipmentNumber" name="networkEquipmentNumber" th:value="${nas.networkEquipmentNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">姓名（文件系统）：</label>
+								<div class="col-sm-8">
+									<input id="fileSystemName" name="fileSystemName" th:value="${nas.fileSystemName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">描述（文件系统）：</label>
+								<div class="col-sm-8">
+									<input id="fileSystemDescribe" name="fileSystemDescribe" th:value="${nas.fileSystemDescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">列阵级别（文件系统）：</label>
+								<div class="col-sm-8">
+									<input id="fileSystemArrayLevel" name="fileSystemArrayLevel" th:value="${nas.fileSystemArrayLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">大小（文件系统）：</label>
+								<div class="col-sm-8">
+									<input id="fileSystemSize" name="fileSystemSize" th:value="${nas.fileSystemSize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商合同：</label>
+								<div class="col-sm-8">
+									<input id="supplierContract" name="supplierContract" th:value="${nas.supplierContract}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态（供应商合同）：</label>
+								<div class="col-sm-8">
+									<input id="supplierState" name="supplierState" th:value="${nas.supplierState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">客户（供应商合同）：</label>
+								<div class="col-sm-8">
+									<input id="supplierCustomer" name="supplierCustomer" th:value="${nas.supplierCustomer}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">开始时间（供应商合同）：</label>
+								<div class="col-sm-8">
+									<input id="supplierStart" name="supplierStart" th:value="${nas.supplierStart}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">结束时间（供应商合同）：</label>
+								<div class="col-sm-8">
+									<input id="supplierEnd" name="supplierEnd" th:value="${nas.supplierEnd}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商：</label>
+								<div class="col-sm-8">
+									<input id="supplier" name="supplier" th:value="${nas.supplier}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">SLA：</label>
+								<div class="col-sm-8">
+									<input id="supplierSla" name="supplierSla" th:value="${nas.supplierSla}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务时间：</label>
+								<div class="col-sm-8">
+									<input id="serviceTime" name="serviceTime" th:value="${nas.serviceTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">描述（供应商合同）：</label>
+								<div class="col-sm-8">
+									<input id="supplierDescribe" name="supplierDescribe" th:value="${nas.supplierDescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务：</label>
+								<div class="col-sm-8">
+									<input id="service" name="service" th:value="${nas.service}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务供应商：</label>
+								<div class="col-sm-8">
+									<input id="serviceSupplier" name="serviceSupplier" th:value="${nas.serviceSupplier}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务状态：</label>
+								<div class="col-sm-8">
+									<input id="serviceState" name="serviceState" th:value="${nas.serviceState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务族：</label>
+								<div class="col-sm-8">
+									<input id="serviceFamily" name="serviceFamily" th:value="${nas.serviceFamily}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">例行变更：</label>
+								<div class="col-sm-8">
+									<input id="routineChange" name="routineChange" th:value="${nas.routineChange}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">正常变更：</label>
+								<div class="col-sm-8">
+									<input id="normalChange" name="normalChange" th:value="${nas.normalChange}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">紧急变更：</label>
+								<div class="col-sm-8">
+									<input id="urgentChange" name="urgentChange" th:value="${nas.urgentChange}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">事件：</label>
+								<div class="col-sm-8">
+									<input id="event" name="event" th:value="${nas.event}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">问题：</label>
+								<div class="col-sm-8">
+									<input id="problem" name="problem" th:value="${nas.problem}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务请求：</label>
+								<div class="col-sm-8">
+									<input id="serviceRequest" name="serviceRequest" th:value="${nas.serviceRequest}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/deploy/nas/edit.js">
+	</script>
+</body>
+</html>

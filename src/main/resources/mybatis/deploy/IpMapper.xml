@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.deploy.dao.IpDao">
+
+	<select id="get" resultType="com.bootdo.deploy.domain.IpDO">
+		select `ip_id`,`ip_name`,`ip_organization`,`ip_state`,`ip_level`,`geographical_position`,`brand`,`model`,`telephone_number`,`serial_number`,`asset_number`,`starting_date`,`purchase_date`,`date_of_insurance`,`describe`,`contacts`,`contacts_state`,`contacts_organize`,`contacts_mailbox`,`contacts_telephone`,`contacts_dept`,`file`,`file_state`,`file_organize`,`file_type`,`file_describe`,`supplier_contract`,`supplier_state`,`supplier_customer`,`supplier_describe`,`supplier_start_date`,`supplier_end_time`,`supplier_sla`,`service_time`,`service`,`service_supplier`,`service_state`,`service_family`,`routine_change`,`normal_change`,`urgent
+
+_change`,`event`,`problem`,`service_request` from deploy_ip where ip_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.deploy.domain.IpDO">
+		select `ip_id`,`ip_name`,`ip_organization`,`ip_state`,`ip_level`,`geographical_position`,`brand`,`model`,`telephone_number`,`serial_number`,`asset_number`,`starting_date`,`purchase_date`,`date_of_insurance`,`describe`,`contacts`,`contacts_state`,`contacts_organize`,`contacts_mailbox`,`contacts_telephone`,`contacts_dept`,`file`,`file_state`,`file_organize`,`file_type`,`file_describe`,`supplier_contract`,`supplier_state`,`supplier_customer`,`supplier_describe`,`supplier_start_date`,`supplier_end_time`,`supplier_sla`,`service_time`,`service`,`service_supplier`,`service_state`,`service_family`,`routine_change`,`normal_change`,`urgent
+
+_change`,`event`,`problem`,`service_request` from deploy_ip
+        <where>  
+		  		  <if test="ipId != null and ipId != ''"> and ip_id = #{ipId} </if>
+		  		  <if test="ipName != null and ipName != ''"> and ip_name = #{ipName} </if>
+		  		  <if test="ipOrganization != null and ipOrganization != ''"> and ip_organization = #{ipOrganization} </if>
+		  		  <if test="ipState != null and ipState != ''"> and ip_state = #{ipState} </if>
+		  		  <if test="ipLevel != null and ipLevel != ''"> and ip_level = #{ipLevel} </if>
+		  		  <if test="geographicalPosition != null and geographicalPosition != ''"> and geographical_position = #{geographicalPosition} </if>
+		  		  <if test="brand != null and brand != ''"> and brand = #{brand} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="telephoneNumber != null and telephoneNumber != ''"> and telephone_number = #{telephoneNumber} </if>
+		  		  <if test="serialNumber != null and serialNumber != ''"> and serial_number = #{serialNumber} </if>
+		  		  <if test="assetNumber != null and assetNumber != ''"> and asset_number = #{assetNumber} </if>
+		  		  <if test="startingDate != null and startingDate != ''"> and starting_date = #{startingDate} </if>
+		  		  <if test="purchaseDate != null and purchaseDate != ''"> and purchase_date = #{purchaseDate} </if>
+		  		  <if test="dateOfInsurance != null and dateOfInsurance != ''"> and date_of_insurance = #{dateOfInsurance} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		  <if test="contacts != null and contacts != ''"> and contacts = #{contacts} </if>
+		  		  <if test="contactsState != null and contactsState != ''"> and contacts_state = #{contactsState} </if>
+		  		  <if test="contactsOrganize != null and contactsOrganize != ''"> and contacts_organize = #{contactsOrganize} </if>
+		  		  <if test="contactsMailbox != null and contactsMailbox != ''"> and contacts_mailbox = #{contactsMailbox} </if>
+		  		  <if test="contactsTelephone != null and contactsTelephone != ''"> and contacts_telephone = #{contactsTelephone} </if>
+		  		  <if test="contactsDept != null and contactsDept != ''"> and contacts_dept = #{contactsDept} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="fileState != null and fileState != ''"> and file_state = #{fileState} </if>
+		  		  <if test="fileOrganize != null and fileOrganize != ''"> and file_organize = #{fileOrganize} </if>
+		  		  <if test="fileType != null and fileType != ''"> and file_type = #{fileType} </if>
+		  		  <if test="fileDescribe != null and fileDescribe != ''"> and file_describe = #{fileDescribe} </if>
+		  		  <if test="supplierContract != null and supplierContract != ''"> and supplier_contract = #{supplierContract} </if>
+		  		  <if test="supplierState != null and supplierState != ''"> and supplier_state = #{supplierState} </if>
+		  		  <if test="supplierCustomer != null and supplierCustomer != ''"> and supplier_customer = #{supplierCustomer} </if>
+		  		  <if test="supplierDescribe != null and supplierDescribe != ''"> and supplier_describe = #{supplierDescribe} </if>
+		  		  <if test="supplierStartDate != null and supplierStartDate != ''"> and supplier_start_date = #{supplierStartDate} </if>
+		  		  <if test="supplierEndTime != null and supplierEndTime != ''"> and supplier_end_time = #{supplierEndTime} </if>
+		  		  <if test="supplierSla != null and supplierSla != ''"> and supplier_sla = #{supplierSla} </if>
+		  		  <if test="serviceTime != null and serviceTime != ''"> and service_time = #{serviceTime} </if>
+		  		  <if test="service != null and service != ''"> and service = #{service} </if>
+		  		  <if test="serviceSupplier != null and serviceSupplier != ''"> and service_supplier = #{serviceSupplier} </if>
+		  		  <if test="serviceState != null and serviceState != ''"> and service_state = #{serviceState} </if>
+		  		  <if test="serviceFamily != null and serviceFamily != ''"> and service_family = #{serviceFamily} </if>
+		  		  <if test="routineChange != null and routineChange != ''"> and routine_change = #{routineChange} </if>
+		  		  <if test="normalChange != null and normalChange != ''"> and normal_change = #{normalChange} </if>
+		  		  <if test="urgent
+
+Change != null and urgent
+
+Change != ''"> and urgent
+
+_change = #{urgent
+
+Change} </if>
+		  		  <if test="event != null and event != ''"> and event = #{event} </if>
+		  		  <if test="problem != null and problem != ''"> and problem = #{problem} </if>
+		  		  <if test="serviceRequest != null and serviceRequest != ''"> and service_request = #{serviceRequest} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by ip_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from deploy_ip
+		 <where>  
+		  		  <if test="ipId != null and ipId != ''"> and ip_id = #{ipId} </if>
+		  		  <if test="ipName != null and ipName != ''"> and ip_name = #{ipName} </if>
+		  		  <if test="ipOrganization != null and ipOrganization != ''"> and ip_organization = #{ipOrganization} </if>
+		  		  <if test="ipState != null and ipState != ''"> and ip_state = #{ipState} </if>
+		  		  <if test="ipLevel != null and ipLevel != ''"> and ip_level = #{ipLevel} </if>
+		  		  <if test="geographicalPosition != null and geographicalPosition != ''"> and geographical_position = #{geographicalPosition} </if>
+		  		  <if test="brand != null and brand != ''"> and brand = #{brand} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="telephoneNumber != null and telephoneNumber != ''"> and telephone_number = #{telephoneNumber} </if>
+		  		  <if test="serialNumber != null and serialNumber != ''"> and serial_number = #{serialNumber} </if>
+		  		  <if test="assetNumber != null and assetNumber != ''"> and asset_number = #{assetNumber} </if>
+		  		  <if test="startingDate != null and startingDate != ''"> and starting_date = #{startingDate} </if>
+		  		  <if test="purchaseDate != null and purchaseDate != ''"> and purchase_date = #{purchaseDate} </if>
+		  		  <if test="dateOfInsurance != null and dateOfInsurance != ''"> and date_of_insurance = #{dateOfInsurance} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		  <if test="contacts != null and contacts != ''"> and contacts = #{contacts} </if>
+		  		  <if test="contactsState != null and contactsState != ''"> and contacts_state = #{contactsState} </if>
+		  		  <if test="contactsOrganize != null and contactsOrganize != ''"> and contacts_organize = #{contactsOrganize} </if>
+		  		  <if test="contactsMailbox != null and contactsMailbox != ''"> and contacts_mailbox = #{contactsMailbox} </if>
+		  		  <if test="contactsTelephone != null and contactsTelephone != ''"> and contacts_telephone = #{contactsTelephone} </if>
+		  		  <if test="contactsDept != null and contactsDept != ''"> and contacts_dept = #{contactsDept} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="fileState != null and fileState != ''"> and file_state = #{fileState} </if>
+		  		  <if test="fileOrganize != null and fileOrganize != ''"> and file_organize = #{fileOrganize} </if>
+		  		  <if test="fileType != null and fileType != ''"> and file_type = #{fileType} </if>
+		  		  <if test="fileDescribe != null and fileDescribe != ''"> and file_describe = #{fileDescribe} </if>
+		  		  <if test="supplierContract != null and supplierContract != ''"> and supplier_contract = #{supplierContract} </if>
+		  		  <if test="supplierState != null and supplierState != ''"> and supplier_state = #{supplierState} </if>
+		  		  <if test="supplierCustomer != null and supplierCustomer != ''"> and supplier_customer = #{supplierCustomer} </if>
+		  		  <if test="supplierDescribe != null and supplierDescribe != ''"> and supplier_describe = #{supplierDescribe} </if>
+		  		  <if test="supplierStartDate != null and supplierStartDate != ''"> and supplier_start_date = #{supplierStartDate} </if>
+		  		  <if test="supplierEndTime != null and supplierEndTime != ''"> and supplier_end_time = #{supplierEndTime} </if>
+		  		  <if test="supplierSla != null and supplierSla != ''"> and supplier_sla = #{supplierSla} </if>
+		  		  <if test="serviceTime != null and serviceTime != ''"> and service_time = #{serviceTime} </if>
+		  		  <if test="service != null and service != ''"> and service = #{service} </if>
+		  		  <if test="serviceSupplier != null and serviceSupplier != ''"> and service_supplier = #{serviceSupplier} </if>
+		  		  <if test="serviceState != null and serviceState != ''"> and service_state = #{serviceState} </if>
+		  		  <if test="serviceFamily != null and serviceFamily != ''"> and service_family = #{serviceFamily} </if>
+		  		  <if test="routineChange != null and routineChange != ''"> and routine_change = #{routineChange} </if>
+		  		  <if test="normalChange != null and normalChange != ''"> and normal_change = #{normalChange} </if>
+		  		  <if test="urgent
+
+Change != null and urgent
+
+Change != ''"> and urgent
+
+_change = #{urgent
+
+Change} </if>
+		  		  <if test="event != null and event != ''"> and event = #{event} </if>
+		  		  <if test="problem != null and problem != ''"> and problem = #{problem} </if>
+		  		  <if test="serviceRequest != null and serviceRequest != ''"> and service_request = #{serviceRequest} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.deploy.domain.IpDO" useGeneratedKeys="true" keyProperty="ipId">
+		insert into deploy_ip
+		(
+			`ip_name`, 
+			`ip_organization`, 
+			`ip_state`, 
+			`ip_level`, 
+			`geographical_position`, 
+			`brand`, 
+			`model`, 
+			`telephone_number`, 
+			`serial_number`, 
+			`asset_number`, 
+			`starting_date`, 
+			`purchase_date`, 
+			`date_of_insurance`, 
+			`describe`, 
+			`contacts`, 
+			`contacts_state`, 
+			`contacts_organize`, 
+			`contacts_mailbox`, 
+			`contacts_telephone`, 
+			`contacts_dept`, 
+			`file`, 
+			`file_state`, 
+			`file_organize`, 
+			`file_type`, 
+			`file_describe`, 
+			`supplier_contract`, 
+			`supplier_state`, 
+			`supplier_customer`, 
+			`supplier_describe`, 
+			`supplier_start_date`, 
+			`supplier_end_time`, 
+			`supplier_sla`, 
+			`service_time`, 
+			`service`, 
+			`service_supplier`, 
+			`service_state`, 
+			`service_family`, 
+			`routine_change`, 
+			`normal_change`, 
+			`urgent
+
+_change`, 
+			`event`, 
+			`problem`, 
+			`service_request`
+		)
+		values
+		(
+			#{ipName}, 
+			#{ipOrganization}, 
+			#{ipState}, 
+			#{ipLevel}, 
+			#{geographicalPosition}, 
+			#{brand}, 
+			#{model}, 
+			#{telephoneNumber}, 
+			#{serialNumber}, 
+			#{assetNumber}, 
+			#{startingDate}, 
+			#{purchaseDate}, 
+			#{dateOfInsurance}, 
+			#{describe}, 
+			#{contacts}, 
+			#{contactsState}, 
+			#{contactsOrganize}, 
+			#{contactsMailbox}, 
+			#{contactsTelephone}, 
+			#{contactsDept}, 
+			#{file}, 
+			#{fileState}, 
+			#{fileOrganize}, 
+			#{fileType}, 
+			#{fileDescribe}, 
+			#{supplierContract}, 
+			#{supplierState}, 
+			#{supplierCustomer}, 
+			#{supplierDescribe}, 
+			#{supplierStartDate}, 
+			#{supplierEndTime}, 
+			#{supplierSla}, 
+			#{serviceTime}, 
+			#{service}, 
+			#{serviceSupplier}, 
+			#{serviceState}, 
+			#{serviceFamily}, 
+			#{routineChange}, 
+			#{normalChange}, 
+			#{urgent
+
+Change}, 
+			#{event}, 
+			#{problem}, 
+			#{serviceRequest}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.deploy.domain.IpDO">
+		update deploy_ip 
+		<set>
+			<if test="ipName != null">`ip_name` = #{ipName}, </if>
+			<if test="ipOrganization != null">`ip_organization` = #{ipOrganization}, </if>
+			<if test="ipState != null">`ip_state` = #{ipState}, </if>
+			<if test="ipLevel != null">`ip_level` = #{ipLevel}, </if>
+			<if test="geographicalPosition != null">`geographical_position` = #{geographicalPosition}, </if>
+			<if test="brand != null">`brand` = #{brand}, </if>
+			<if test="model != null">`model` = #{model}, </if>
+			<if test="telephoneNumber != null">`telephone_number` = #{telephoneNumber}, </if>
+			<if test="serialNumber != null">`serial_number` = #{serialNumber}, </if>
+			<if test="assetNumber != null">`asset_number` = #{assetNumber}, </if>
+			<if test="startingDate != null">`starting_date` = #{startingDate}, </if>
+			<if test="purchaseDate != null">`purchase_date` = #{purchaseDate}, </if>
+			<if test="dateOfInsurance != null">`date_of_insurance` = #{dateOfInsurance}, </if>
+			<if test="describe != null">`describe` = #{describe}, </if>
+			<if test="contacts != null">`contacts` = #{contacts}, </if>
+			<if test="contactsState != null">`contacts_state` = #{contactsState}, </if>
+			<if test="contactsOrganize != null">`contacts_organize` = #{contactsOrganize}, </if>
+			<if test="contactsMailbox != null">`contacts_mailbox` = #{contactsMailbox}, </if>
+			<if test="contactsTelephone != null">`contacts_telephone` = #{contactsTelephone}, </if>
+			<if test="contactsDept != null">`contacts_dept` = #{contactsDept}, </if>
+			<if test="file != null">`file` = #{file}, </if>
+			<if test="fileState != null">`file_state` = #{fileState}, </if>
+			<if test="fileOrganize != null">`file_organize` = #{fileOrganize}, </if>
+			<if test="fileType != null">`file_type` = #{fileType}, </if>
+			<if test="fileDescribe != null">`file_describe` = #{fileDescribe}, </if>
+			<if test="supplierContract != null">`supplier_contract` = #{supplierContract}, </if>
+			<if test="supplierState != null">`supplier_state` = #{supplierState}, </if>
+			<if test="supplierCustomer != null">`supplier_customer` = #{supplierCustomer}, </if>
+			<if test="supplierDescribe != null">`supplier_describe` = #{supplierDescribe}, </if>
+			<if test="supplierStartDate != null">`supplier_start_date` = #{supplierStartDate}, </if>
+			<if test="supplierEndTime != null">`supplier_end_time` = #{supplierEndTime}, </if>
+			<if test="supplierSla != null">`supplier_sla` = #{supplierSla}, </if>
+			<if test="serviceTime != null">`service_time` = #{serviceTime}, </if>
+			<if test="service != null">`service` = #{service}, </if>
+			<if test="serviceSupplier != null">`service_supplier` = #{serviceSupplier}, </if>
+			<if test="serviceState != null">`service_state` = #{serviceState}, </if>
+			<if test="serviceFamily != null">`service_family` = #{serviceFamily}, </if>
+			<if test="routineChange != null">`routine_change` = #{routineChange}, </if>
+			<if test="normalChange != null">`normal_change` = #{normalChange}, </if>
+			<if test="urgent
+
+Change != null">`urgent
+
+_change` = #{urgent
+
+Change}, </if>
+			<if test="event != null">`event` = #{event}, </if>
+			<if test="problem != null">`problem` = #{problem}, </if>
+			<if test="serviceRequest != null">`service_request` = #{serviceRequest}</if>
+		</set>
+		where ip_id = #{ipId}
+	</update>
+	
+	<delete id="remove">
+		delete from deploy_ip where ip_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from deploy_ip where ip_id in 
+		<foreach item="ipId" collection="array" open="(" separator="," close=")">
+			#{ipId}
+		</foreach>
+	</delete>
+
+</mapper>

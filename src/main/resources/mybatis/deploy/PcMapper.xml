@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.deploy.dao.PcDao">
+
+	<select id="get" resultType="com.bootdo.deploy.domain.PcDO">
+		select `pc_id`,`pc_name`,`organization`,`state`,`business_level`,`geographical_position`,`brand`,`model`,`os_family`,`os_version`,`type`,`cpu`,`memory`,`serial_number`,`asset_number`,`starting_date`,`purchase_date`,`date_of_insurance`,`describe`,`software`,`software_license`,`contacts`,`organize`,`mailbox`,`telephone`,`duty`,`contact_state`,`software_name`,`software_organization`,`software_state`,`software_level`,`software_route`,`software_starting_date`,`software_describe`,`file`,`file_organize`,`file_state`,`file_dype`,`file_describe`,`network_name`,`network_ip`,`network_mac`,`network_notes`,`network_gateway`,`network_mask`,`network_sulv`,`local_network_port`,`equipment_net_mouth`,`line_type`,`network_equipment`,`network_organize`,`network_state`,`network_business_level`,`network_geographical_position`,`network_brand`,`network_model`,`network_number`,`supplier_contract`,`supplier_state`,`supplier_customer`,`supplier_describe`,`supplier_start`,`supplier_end`,`supplier`,`supplier_sla`,`service_time`,`service`,`service_supplier`,`service_state`,`service_family`,`router_change`,`normal_change`,`urgent_change`,`problem`,`event`,`service_request` from deploy_pc where pc_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.deploy.domain.PcDO">
+		select `pc_id`,`pc_name`,`organization`,`state`,`business_level`,`geographical_position`,`brand`,`model`,`os_family`,`os_version`,`type`,`cpu`,`memory`,`serial_number`,`asset_number`,`starting_date`,`purchase_date`,`date_of_insurance`,`describe`,`software`,`software_license`,`contacts`,`organize`,`mailbox`,`telephone`,`duty`,`contact_state`,`software_name`,`software_organization`,`software_state`,`software_level`,`software_route`,`software_starting_date`,`software_describe`,`file`,`file_organize`,`file_state`,`file_dype`,`file_describe`,`network_name`,`network_ip`,`network_mac`,`network_notes`,`network_gateway`,`network_mask`,`network_sulv`,`local_network_port`,`equipment_net_mouth`,`line_type`,`network_equipment`,`network_organize`,`network_state`,`network_business_level`,`network_geographical_position`,`network_brand`,`network_model`,`network_number`,`supplier_contract`,`supplier_state`,`supplier_customer`,`supplier_describe`,`supplier_start`,`supplier_end`,`supplier`,`supplier_sla`,`service_time`,`service`,`service_supplier`,`service_state`,`service_family`,`router_change`,`normal_change`,`urgent_change`,`problem`,`event`,`service_request` from deploy_pc
+        <where>  
+		  		  <if test="pcId != null and pcId != ''"> and pc_id = #{pcId} </if>
+		  		  <if test="pcName != null and pcName != ''"> and pc_name = #{pcName} </if>
+		  		  <if test="organization != null and organization != ''"> and organization = #{organization} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="businessLevel != null and businessLevel != ''"> and business_level = #{businessLevel} </if>
+		  		  <if test="geographicalPosition != null and geographicalPosition != ''"> and geographical_position = #{geographicalPosition} </if>
+		  		  <if test="brand != null and brand != ''"> and brand = #{brand} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="osFamily != null and osFamily != ''"> and os_family = #{osFamily} </if>
+		  		  <if test="osVersion != null and osVersion != ''"> and os_version = #{osVersion} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="cpu != null and cpu != ''"> and cpu = #{cpu} </if>
+		  		  <if test="memory != null and memory != ''"> and memory = #{memory} </if>
+		  		  <if test="serialNumber != null and serialNumber != ''"> and serial_number = #{serialNumber} </if>
+		  		  <if test="assetNumber != null and assetNumber != ''"> and asset_number = #{assetNumber} </if>
+		  		  <if test="startingDate != null and startingDate != ''"> and starting_date = #{startingDate} </if>
+		  		  <if test="purchaseDate != null and purchaseDate != ''"> and purchase_date = #{purchaseDate} </if>
+		  		  <if test="dateOfInsurance != null and dateOfInsurance != ''"> and date_of_insurance = #{dateOfInsurance} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		  <if test="software != null and software != ''"> and software = #{software} </if>
+		  		  <if test="softwareLicense != null and softwareLicense != ''"> and software_license = #{softwareLicense} </if>
+		  		  <if test="contacts != null and contacts != ''"> and contacts = #{contacts} </if>
+		  		  <if test="organize != null and organize != ''"> and organize = #{organize} </if>
+		  		  <if test="mailbox != null and mailbox != ''"> and mailbox = #{mailbox} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="duty != null and duty != ''"> and duty = #{duty} </if>
+		  		  <if test="contactState != null and contactState != ''"> and contact_state = #{contactState} </if>
+		  		  <if test="softwareName != null and softwareName != ''"> and software_name = #{softwareName} </if>
+		  		  <if test="softwareOrganization != null and softwareOrganization != ''"> and software_organization = #{softwareOrganization} </if>
+		  		  <if test="softwareState != null and softwareState != ''"> and software_state = #{softwareState} </if>
+		  		  <if test="softwareLevel != null and softwareLevel != ''"> and software_level = #{softwareLevel} </if>
+		  		  <if test="softwareRoute != null and softwareRoute != ''"> and software_route = #{softwareRoute} </if>
+		  		  <if test="softwareStartingDate != null and softwareStartingDate != ''"> and software_starting_date = #{softwareStartingDate} </if>
+		  		  <if test="softwareDescribe != null and softwareDescribe != ''"> and software_describe = #{softwareDescribe} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="fileOrganize != null and fileOrganize != ''"> and file_organize = #{fileOrganize} </if>
+		  		  <if test="fileState != null and fileState != ''"> and file_state = #{fileState} </if>
+		  		  <if test="fileDype != null and fileDype != ''"> and file_dype = #{fileDype} </if>
+		  		  <if test="fileDescribe != null and fileDescribe != ''"> and file_describe = #{fileDescribe} </if>
+		  		  <if test="networkName != null and networkName != ''"> and network_name = #{networkName} </if>
+		  		  <if test="networkIp != null and networkIp != ''"> and network_ip = #{networkIp} </if>
+		  		  <if test="networkMac != null and networkMac != ''"> and network_mac = #{networkMac} </if>
+		  		  <if test="networkNotes != null and networkNotes != ''"> and network_notes = #{networkNotes} </if>
+		  		  <if test="networkGateway != null and networkGateway != ''"> and network_gateway = #{networkGateway} </if>
+		  		  <if test="networkMask != null and networkMask != ''"> and network_mask = #{networkMask} </if>
+		  		  <if test="networkSulv != null and networkSulv != ''"> and network_sulv = #{networkSulv} </if>
+		  		  <if test="localNetworkPort != null and localNetworkPort != ''"> and local_network_port = #{localNetworkPort} </if>
+		  		  <if test="equipmentNetMouth != null and equipmentNetMouth != ''"> and equipment_net_mouth = #{equipmentNetMouth} </if>
+		  		  <if test="lineType != null and lineType != ''"> and line_type = #{lineType} </if>
+		  		  <if test="networkEquipment != null and networkEquipment != ''"> and network_equipment = #{networkEquipment} </if>
+		  		  <if test="networkOrganize != null and networkOrganize != ''"> and network_organize = #{networkOrganize} </if>
+		  		  <if test="networkState != null and networkState != ''"> and network_state = #{networkState} </if>
+		  		  <if test="networkBusinessLevel != null and networkBusinessLevel != ''"> and network_business_level = #{networkBusinessLevel} </if>
+		  		  <if test="networkGeographicalPosition != null and networkGeographicalPosition != ''"> and network_geographical_position = #{networkGeographicalPosition} </if>
+		  		  <if test="networkBrand != null and networkBrand != ''"> and network_brand = #{networkBrand} </if>
+		  		  <if test="networkModel != null and networkModel != ''"> and network_model = #{networkModel} </if>
+		  		  <if test="networkNumber != null and networkNumber != ''"> and network_number = #{networkNumber} </if>
+		  		  <if test="supplierContract != null and supplierContract != ''"> and supplier_contract = #{supplierContract} </if>
+		  		  <if test="supplierState != null and supplierState != ''"> and supplier_state = #{supplierState} </if>
+		  		  <if test="supplierCustomer != null and supplierCustomer != ''"> and supplier_customer = #{supplierCustomer} </if>
+		  		  <if test="supplierDescribe != null and supplierDescribe != ''"> and supplier_describe = #{supplierDescribe} </if>
+		  		  <if test="supplierStart != null and supplierStart != ''"> and supplier_start = #{supplierStart} </if>
+		  		  <if test="supplierEnd != null and supplierEnd != ''"> and supplier_end = #{supplierEnd} </if>
+		  		  <if test="supplier != null and supplier != ''"> and supplier = #{supplier} </if>
+		  		  <if test="supplierSla != null and supplierSla != ''"> and supplier_sla = #{supplierSla} </if>
+		  		  <if test="serviceTime != null and serviceTime != ''"> and service_time = #{serviceTime} </if>
+		  		  <if test="service != null and service != ''"> and service = #{service} </if>
+		  		  <if test="serviceSupplier != null and serviceSupplier != ''"> and service_supplier = #{serviceSupplier} </if>
+		  		  <if test="serviceState != null and serviceState != ''"> and service_state = #{serviceState} </if>
+		  		  <if test="serviceFamily != null and serviceFamily != ''"> and service_family = #{serviceFamily} </if>
+		  		  <if test="routerChange != null and routerChange != ''"> and router_change = #{routerChange} </if>
+		  		  <if test="normalChange != null and normalChange != ''"> and normal_change = #{normalChange} </if>
+		  		  <if test="urgentChange != null and urgentChange != ''"> and urgent_change = #{urgentChange} </if>
+		  		  <if test="problem != null and problem != ''"> and problem = #{problem} </if>
+		  		  <if test="event != null and event != ''"> and event = #{event} </if>
+		  		  <if test="serviceRequest != null and serviceRequest != ''"> and service_request = #{serviceRequest} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by pc_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from deploy_pc
+		 <where>  
+		  		  <if test="pcId != null and pcId != ''"> and pc_id = #{pcId} </if>
+		  		  <if test="pcName != null and pcName != ''"> and pc_name = #{pcName} </if>
+		  		  <if test="organization != null and organization != ''"> and organization = #{organization} </if>
+		  		  <if test="state != null and state != ''"> and state = #{state} </if>
+		  		  <if test="businessLevel != null and businessLevel != ''"> and business_level = #{businessLevel} </if>
+		  		  <if test="geographicalPosition != null and geographicalPosition != ''"> and geographical_position = #{geographicalPosition} </if>
+		  		  <if test="brand != null and brand != ''"> and brand = #{brand} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="osFamily != null and osFamily != ''"> and os_family = #{osFamily} </if>
+		  		  <if test="osVersion != null and osVersion != ''"> and os_version = #{osVersion} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="cpu != null and cpu != ''"> and cpu = #{cpu} </if>
+		  		  <if test="memory != null and memory != ''"> and memory = #{memory} </if>
+		  		  <if test="serialNumber != null and serialNumber != ''"> and serial_number = #{serialNumber} </if>
+		  		  <if test="assetNumber != null and assetNumber != ''"> and asset_number = #{assetNumber} </if>
+		  		  <if test="startingDate != null and startingDate != ''"> and starting_date = #{startingDate} </if>
+		  		  <if test="purchaseDate != null and purchaseDate != ''"> and purchase_date = #{purchaseDate} </if>
+		  		  <if test="dateOfInsurance != null and dateOfInsurance != ''"> and date_of_insurance = #{dateOfInsurance} </if>
+		  		  <if test="describe != null and describe != ''"> and describe = #{describe} </if>
+		  		  <if test="software != null and software != ''"> and software = #{software} </if>
+		  		  <if test="softwareLicense != null and softwareLicense != ''"> and software_license = #{softwareLicense} </if>
+		  		  <if test="contacts != null and contacts != ''"> and contacts = #{contacts} </if>
+		  		  <if test="organize != null and organize != ''"> and organize = #{organize} </if>
+		  		  <if test="mailbox != null and mailbox != ''"> and mailbox = #{mailbox} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="duty != null and duty != ''"> and duty = #{duty} </if>
+		  		  <if test="contactState != null and contactState != ''"> and contact_state = #{contactState} </if>
+		  		  <if test="softwareName != null and softwareName != ''"> and software_name = #{softwareName} </if>
+		  		  <if test="softwareOrganization != null and softwareOrganization != ''"> and software_organization = #{softwareOrganization} </if>
+		  		  <if test="softwareState != null and softwareState != ''"> and software_state = #{softwareState} </if>
+		  		  <if test="softwareLevel != null and softwareLevel != ''"> and software_level = #{softwareLevel} </if>
+		  		  <if test="softwareRoute != null and softwareRoute != ''"> and software_route = #{softwareRoute} </if>
+		  		  <if test="softwareStartingDate != null and softwareStartingDate != ''"> and software_starting_date = #{softwareStartingDate} </if>
+		  		  <if test="softwareDescribe != null and softwareDescribe != ''"> and software_describe = #{softwareDescribe} </if>
+		  		  <if test="file != null and file != ''"> and file = #{file} </if>
+		  		  <if test="fileOrganize != null and fileOrganize != ''"> and file_organize = #{fileOrganize} </if>
+		  		  <if test="fileState != null and fileState != ''"> and file_state = #{fileState} </if>
+		  		  <if test="fileDype != null and fileDype != ''"> and file_dype = #{fileDype} </if>
+		  		  <if test="fileDescribe != null and fileDescribe != ''"> and file_describe = #{fileDescribe} </if>
+		  		  <if test="networkName != null and networkName != ''"> and network_name = #{networkName} </if>
+		  		  <if test="networkIp != null and networkIp != ''"> and network_ip = #{networkIp} </if>
+		  		  <if test="networkMac != null and networkMac != ''"> and network_mac = #{networkMac} </if>
+		  		  <if test="networkNotes != null and networkNotes != ''"> and network_notes = #{networkNotes} </if>
+		  		  <if test="networkGateway != null and networkGateway != ''"> and network_gateway = #{networkGateway} </if>
+		  		  <if test="networkMask != null and networkMask != ''"> and network_mask = #{networkMask} </if>
+		  		  <if test="networkSulv != null and networkSulv != ''"> and network_sulv = #{networkSulv} </if>
+		  		  <if test="localNetworkPort != null and localNetworkPort != ''"> and local_network_port = #{localNetworkPort} </if>
+		  		  <if test="equipmentNetMouth != null and equipmentNetMouth != ''"> and equipment_net_mouth = #{equipmentNetMouth} </if>
+		  		  <if test="lineType != null and lineType != ''"> and line_type = #{lineType} </if>
+		  		  <if test="networkEquipment != null and networkEquipment != ''"> and network_equipment = #{networkEquipment} </if>
+		  		  <if test="networkOrganize != null and networkOrganize != ''"> and network_organize = #{networkOrganize} </if>
+		  		  <if test="networkState != null and networkState != ''"> and network_state = #{networkState} </if>
+		  		  <if test="networkBusinessLevel != null and networkBusinessLevel != ''"> and network_business_level = #{networkBusinessLevel} </if>
+		  		  <if test="networkGeographicalPosition != null and networkGeographicalPosition != ''"> and network_geographical_position = #{networkGeographicalPosition} </if>
+		  		  <if test="networkBrand != null and networkBrand != ''"> and network_brand = #{networkBrand} </if>
+		  		  <if test="networkModel != null and networkModel != ''"> and network_model = #{networkModel} </if>
+		  		  <if test="networkNumber != null and networkNumber != ''"> and network_number = #{networkNumber} </if>
+		  		  <if test="supplierContract != null and supplierContract != ''"> and supplier_contract = #{supplierContract} </if>
+		  		  <if test="supplierState != null and supplierState != ''"> and supplier_state = #{supplierState} </if>
+		  		  <if test="supplierCustomer != null and supplierCustomer != ''"> and supplier_customer = #{supplierCustomer} </if>
+		  		  <if test="supplierDescribe != null and supplierDescribe != ''"> and supplier_describe = #{supplierDescribe} </if>
+		  		  <if test="supplierStart != null and supplierStart != ''"> and supplier_start = #{supplierStart} </if>
+		  		  <if test="supplierEnd != null and supplierEnd != ''"> and supplier_end = #{supplierEnd} </if>
+		  		  <if test="supplier != null and supplier != ''"> and supplier = #{supplier} </if>
+		  		  <if test="supplierSla != null and supplierSla != ''"> and supplier_sla = #{supplierSla} </if>
+		  		  <if test="serviceTime != null and serviceTime != ''"> and service_time = #{serviceTime} </if>
+		  		  <if test="service != null and service != ''"> and service = #{service} </if>
+		  		  <if test="serviceSupplier != null and serviceSupplier != ''"> and service_supplier = #{serviceSupplier} </if>
+		  		  <if test="serviceState != null and serviceState != ''"> and service_state = #{serviceState} </if>
+		  		  <if test="serviceFamily != null and serviceFamily != ''"> and service_family = #{serviceFamily} </if>
+		  		  <if test="routerChange != null and routerChange != ''"> and router_change = #{routerChange} </if>
+		  		  <if test="normalChange != null and normalChange != ''"> and normal_change = #{normalChange} </if>
+		  		  <if test="urgentChange != null and urgentChange != ''"> and urgent_change = #{urgentChange} </if>
+		  		  <if test="problem != null and problem != ''"> and problem = #{problem} </if>
+		  		  <if test="event != null and event != ''"> and event = #{event} </if>
+		  		  <if test="serviceRequest != null and serviceRequest != ''"> and service_request = #{serviceRequest} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.deploy.domain.PcDO" useGeneratedKeys="true" keyProperty="pcId">
+		insert into deploy_pc
+		(
+			`pc_name`, 
+			`organization`, 
+			`state`, 
+			`business_level`, 
+			`geographical_position`, 
+			`brand`, 
+			`model`, 
+			`os_family`, 
+			`os_version`, 
+			`type`, 
+			`cpu`, 
+			`memory`, 
+			`serial_number`, 
+			`asset_number`, 
+			`starting_date`, 
+			`purchase_date`, 
+			`date_of_insurance`, 
+			`describe`, 
+			`software`, 
+			`software_license`, 
+			`contacts`, 
+			`organize`, 
+			`mailbox`, 
+			`telephone`, 
+			`duty`, 
+			`contact_state`, 
+			`software_name`, 
+			`software_organization`, 
+			`software_state`, 
+			`software_level`, 
+			`software_route`, 
+			`software_starting_date`, 
+			`software_describe`, 
+			`file`, 
+			`file_organize`, 
+			`file_state`, 
+			`file_dype`, 
+			`file_describe`, 
+			`network_name`, 
+			`network_ip`, 
+			`network_mac`, 
+			`network_notes`, 
+			`network_gateway`, 
+			`network_mask`, 
+			`network_sulv`, 
+			`local_network_port`, 
+			`equipment_net_mouth`, 
+			`line_type`, 
+			`network_equipment`, 
+			`network_organize`, 
+			`network_state`, 
+			`network_business_level`, 
+			`network_geographical_position`, 
+			`network_brand`, 
+			`network_model`, 
+			`network_number`, 
+			`supplier_contract`, 
+			`supplier_state`, 
+			`supplier_customer`, 
+			`supplier_describe`, 
+			`supplier_start`, 
+			`supplier_end`, 
+			`supplier`, 
+			`supplier_sla`, 
+			`service_time`, 
+			`service`, 
+			`service_supplier`, 
+			`service_state`, 
+			`service_family`, 
+			`router_change`, 
+			`normal_change`, 
+			`urgent_change`, 
+			`problem`, 
+			`event`, 
+			`service_request`
+		)
+		values
+		(
+			#{pcName}, 
+			#{organization}, 
+			#{state}, 
+			#{businessLevel}, 
+			#{geographicalPosition}, 
+			#{brand}, 
+			#{model}, 
+			#{osFamily}, 
+			#{osVersion}, 
+			#{type}, 
+			#{cpu}, 
+			#{memory}, 
+			#{serialNumber}, 
+			#{assetNumber}, 
+			#{startingDate}, 
+			#{purchaseDate}, 
+			#{dateOfInsurance}, 
+			#{describe}, 
+			#{software}, 
+			#{softwareLicense}, 
+			#{contacts}, 
+			#{organize}, 
+			#{mailbox}, 
+			#{telephone}, 
+			#{duty}, 
+			#{contactState}, 
+			#{softwareName}, 
+			#{softwareOrganization}, 
+			#{softwareState}, 
+			#{softwareLevel}, 
+			#{softwareRoute}, 
+			#{softwareStartingDate}, 
+			#{softwareDescribe}, 
+			#{file}, 
+			#{fileOrganize}, 
+			#{fileState}, 
+			#{fileDype}, 
+			#{fileDescribe}, 
+			#{networkName}, 
+			#{networkIp}, 
+			#{networkMac}, 
+			#{networkNotes}, 
+			#{networkGateway}, 
+			#{networkMask}, 
+			#{networkSulv}, 
+			#{localNetworkPort}, 
+			#{equipmentNetMouth}, 
+			#{lineType}, 
+			#{networkEquipment}, 
+			#{networkOrganize}, 
+			#{networkState}, 
+			#{networkBusinessLevel}, 
+			#{networkGeographicalPosition}, 
+			#{networkBrand}, 
+			#{networkModel}, 
+			#{networkNumber}, 
+			#{supplierContract}, 
+			#{supplierState}, 
+			#{supplierCustomer}, 
+			#{supplierDescribe}, 
+			#{supplierStart}, 
+			#{supplierEnd}, 
+			#{supplier}, 
+			#{supplierSla}, 
+			#{serviceTime}, 
+			#{service}, 
+			#{serviceSupplier}, 
+			#{serviceState}, 
+			#{serviceFamily}, 
+			#{routerChange}, 
+			#{normalChange}, 
+			#{urgentChange}, 
+			#{problem}, 
+			#{event}, 
+			#{serviceRequest}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.deploy.domain.PcDO">
+		update deploy_pc 
+		<set>
+			<if test="pcName != null">`pc_name` = #{pcName}, </if>
+			<if test="organization != null">`organization` = #{organization}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="businessLevel != null">`business_level` = #{businessLevel}, </if>
+			<if test="geographicalPosition != null">`geographical_position` = #{geographicalPosition}, </if>
+			<if test="brand != null">`brand` = #{brand}, </if>
+			<if test="model != null">`model` = #{model}, </if>
+			<if test="osFamily != null">`os_family` = #{osFamily}, </if>
+			<if test="osVersion != null">`os_version` = #{osVersion}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="cpu != null">`cpu` = #{cpu}, </if>
+			<if test="memory != null">`memory` = #{memory}, </if>
+			<if test="serialNumber != null">`serial_number` = #{serialNumber}, </if>
+			<if test="assetNumber != null">`asset_number` = #{assetNumber}, </if>
+			<if test="startingDate != null">`starting_date` = #{startingDate}, </if>
+			<if test="purchaseDate != null">`purchase_date` = #{purchaseDate}, </if>
+			<if test="dateOfInsurance != null">`date_of_insurance` = #{dateOfInsurance}, </if>
+			<if test="describe != null">`describe` = #{describe}, </if>
+			<if test="software != null">`software` = #{software}, </if>
+			<if test="softwareLicense != null">`software_license` = #{softwareLicense}, </if>
+			<if test="contacts != null">`contacts` = #{contacts}, </if>
+			<if test="organize != null">`organize` = #{organize}, </if>
+			<if test="mailbox != null">`mailbox` = #{mailbox}, </if>
+			<if test="telephone != null">`telephone` = #{telephone}, </if>
+			<if test="duty != null">`duty` = #{duty}, </if>
+			<if test="contactState != null">`contact_state` = #{contactState}, </if>
+			<if test="softwareName != null">`software_name` = #{softwareName}, </if>
+			<if test="softwareOrganization != null">`software_organization` = #{softwareOrganization}, </if>
+			<if test="softwareState != null">`software_state` = #{softwareState}, </if>
+			<if test="softwareLevel != null">`software_level` = #{softwareLevel}, </if>
+			<if test="softwareRoute != null">`software_route` = #{softwareRoute}, </if>
+			<if test="softwareStartingDate != null">`software_starting_date` = #{softwareStartingDate}, </if>
+			<if test="softwareDescribe != null">`software_describe` = #{softwareDescribe}, </if>
+			<if test="file != null">`file` = #{file}, </if>
+			<if test="fileOrganize != null">`file_organize` = #{fileOrganize}, </if>
+			<if test="fileState != null">`file_state` = #{fileState}, </if>
+			<if test="fileDype != null">`file_dype` = #{fileDype}, </if>
+			<if test="fileDescribe != null">`file_describe` = #{fileDescribe}, </if>
+			<if test="networkName != null">`network_name` = #{networkName}, </if>
+			<if test="networkIp != null">`network_ip` = #{networkIp}, </if>
+			<if test="networkMac != null">`network_mac` = #{networkMac}, </if>
+			<if test="networkNotes != null">`network_notes` = #{networkNotes}, </if>
+			<if test="networkGateway != null">`network_gateway` = #{networkGateway}, </if>
+			<if test="networkMask != null">`network_mask` = #{networkMask}, </if>
+			<if test="networkSulv != null">`network_sulv` = #{networkSulv}, </if>
+			<if test="localNetworkPort != null">`local_network_port` = #{localNetworkPort}, </if>
+			<if test="equipmentNetMouth != null">`equipment_net_mouth` = #{equipmentNetMouth}, </if>
+			<if test="lineType != null">`line_type` = #{lineType}, </if>
+			<if test="networkEquipment != null">`network_equipment` = #{networkEquipment}, </if>
+			<if test="networkOrganize != null">`network_organize` = #{networkOrganize}, </if>
+			<if test="networkState != null">`network_state` = #{networkState}, </if>
+			<if test="networkBusinessLevel != null">`network_business_level` = #{networkBusinessLevel}, </if>
+			<if test="networkGeographicalPosition != null">`network_geographical_position` = #{networkGeographicalPosition}, </if>
+			<if test="networkBrand != null">`network_brand` = #{networkBrand}, </if>
+			<if test="networkModel != null">`network_model` = #{networkModel}, </if>
+			<if test="networkNumber != null">`network_number` = #{networkNumber}, </if>
+			<if test="supplierContract != null">`supplier_contract` = #{supplierContract}, </if>
+			<if test="supplierState != null">`supplier_state` = #{supplierState}, </if>
+			<if test="supplierCustomer != null">`supplier_customer` = #{supplierCustomer}, </if>
+			<if test="supplierDescribe != null">`supplier_describe` = #{supplierDescribe}, </if>
+			<if test="supplierStart != null">`supplier_start` = #{supplierStart}, </if>
+			<if test="supplierEnd != null">`supplier_end` = #{supplierEnd}, </if>
+			<if test="supplier != null">`supplier` = #{supplier}, </if>
+			<if test="supplierSla != null">`supplier_sla` = #{supplierSla}, </if>
+			<if test="serviceTime != null">`service_time` = #{serviceTime}, </if>
+			<if test="service != null">`service` = #{service}, </if>
+			<if test="serviceSupplier != null">`service_supplier` = #{serviceSupplier}, </if>
+			<if test="serviceState != null">`service_state` = #{serviceState}, </if>
+			<if test="serviceFamily != null">`service_family` = #{serviceFamily}, </if>
+			<if test="routerChange != null">`router_change` = #{routerChange}, </if>
+			<if test="normalChange != null">`normal_change` = #{normalChange}, </if>
+			<if test="urgentChange != null">`urgent_change` = #{urgentChange}, </if>
+			<if test="problem != null">`problem` = #{problem}, </if>
+			<if test="event != null">`event` = #{event}, </if>
+			<if test="serviceRequest != null">`service_request` = #{serviceRequest}</if>
+		</set>
+		where pc_id = #{pcId}
+	</update>
+	
+	<delete id="remove">
+		delete from deploy_pc where pc_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from deploy_pc where pc_id in 
+		<foreach item="pcId" collection="array" open="(" separator="," close=")">
+			#{pcId}
+		</foreach>
+	</delete>
+
+</mapper>

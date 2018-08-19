@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="ipId" name="ipId" th:value="${ip.ipId}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="ipName" name="ipName" th:value="${ip.ipName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">组织：</label>
+								<div class="col-sm-8">
+									<input id="ipOrganization" name="ipOrganization" th:value="${ip.ipOrganization}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">状态：</label>
+								<div class="col-sm-8">
+									<input id="ipState" name="ipState" th:value="${ip.ipState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">业务级别：</label>
+								<div class="col-sm-8">
+									<input id="ipLevel" name="ipLevel" th:value="${ip.ipLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">地理位置：</label>
+								<div class="col-sm-8">
+									<input id="geographicalPosition" name="geographicalPosition" th:value="${ip.geographicalPosition}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">品牌：</label>
+								<div class="col-sm-8">
+									<input id="brand" name="brand" th:value="${ip.brand}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">型号：</label>
+								<div class="col-sm-8">
+									<input id="model" name="model" th:value="${ip.model}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">电话号码：</label>
+								<div class="col-sm-8">
+									<input id="telephoneNumber" name="telephoneNumber" th:value="${ip.telephoneNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">序列号：</label>
+								<div class="col-sm-8">
+									<input id="serialNumber" name="serialNumber" th:value="${ip.serialNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">资产编号：</label>
+								<div class="col-sm-8">
+									<input id="assetNumber" name="assetNumber" th:value="${ip.assetNumber}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">投产日期：</label>
+								<div class="col-sm-8">
+									<input id="startingDate" name="startingDate" th:value="${ip.startingDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">采购日期：</label>
+								<div class="col-sm-8">
+									<input id="purchaseDate" name="purchaseDate" th:value="${ip.purchaseDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">过保日期：</label>
+								<div class="col-sm-8">
+									<input id="dateOfInsurance" name="dateOfInsurance" th:value="${ip.dateOfInsurance}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">描述：</label>
+								<div class="col-sm-8">
+									<input id="describe" name="describe" th:value="${ip.describe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人：</label>
+								<div class="col-sm-8">
+									<input id="contacts" name="contacts" th:value="${ip.contacts}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人状态：</label>
+								<div class="col-sm-8">
+									<input id="contactsState" name="contactsState" th:value="${ip.contactsState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人组织：</label>
+								<div class="col-sm-8">
+									<input id="contactsOrganize" name="contactsOrganize" th:value="${ip.contactsOrganize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人邮箱：</label>
+								<div class="col-sm-8">
+									<input id="contactsMailbox" name="contactsMailbox" th:value="${ip.contactsMailbox}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人电话：</label>
+								<div class="col-sm-8">
+									<input id="contactsTelephone" name="contactsTelephone" th:value="${ip.contactsTelephone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">联系人职责：</label>
+								<div class="col-sm-8">
+									<input id="contactsDept" name="contactsDept" th:value="${ip.contactsDept}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档：</label>
+								<div class="col-sm-8">
+									<input id="file" name="file" th:value="${ip.file}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档状态：</label>
+								<div class="col-sm-8">
+									<input id="fileState" name="fileState" th:value="${ip.fileState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档组织：</label>
+								<div class="col-sm-8">
+									<input id="fileOrganize" name="fileOrganize" th:value="${ip.fileOrganize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档类型：</label>
+								<div class="col-sm-8">
+									<input id="fileType" name="fileType" th:value="${ip.fileType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">文档描述：</label>
+								<div class="col-sm-8">
+									<input id="fileDescribe" name="fileDescribe" th:value="${ip.fileDescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商合同：</label>
+								<div class="col-sm-8">
+									<input id="supplierContract" name="supplierContract" th:value="${ip.supplierContract}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商状态：</label>
+								<div class="col-sm-8">
+									<input id="supplierState" name="supplierState" th:value="${ip.supplierState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商客户：</label>
+								<div class="col-sm-8">
+									<input id="supplierCustomer" name="supplierCustomer" th:value="${ip.supplierCustomer}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商描述：</label>
+								<div class="col-sm-8">
+									<input id="supplierDescribe" name="supplierDescribe" th:value="${ip.supplierDescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商开始时间：</label>
+								<div class="col-sm-8">
+									<input id="supplierStartDate" name="supplierStartDate" th:value="${ip.supplierStartDate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">供应商结束时间：</label>
+								<div class="col-sm-8">
+									<input id="supplierEndTime" name="supplierEndTime" th:value="${ip.supplierEndTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">SLA：</label>
+								<div class="col-sm-8">
+									<input id="supplierSla" name="supplierSla" th:value="${ip.supplierSla}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务时间：</label>
+								<div class="col-sm-8">
+									<input id="serviceTime" name="serviceTime" th:value="${ip.serviceTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务：</label>
+								<div class="col-sm-8">
+									<input id="service" name="service" th:value="${ip.service}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务供应商：</label>
+								<div class="col-sm-8">
+									<input id="serviceSupplier" name="serviceSupplier" th:value="${ip.serviceSupplier}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务状态：</label>
+								<div class="col-sm-8">
+									<input id="serviceState" name="serviceState" th:value="${ip.serviceState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务家族：</label>
+								<div class="col-sm-8">
+									<input id="serviceFamily" name="serviceFamily" th:value="${ip.serviceFamily}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">例行变更：</label>
+								<div class="col-sm-8">
+									<input id="routineChange" name="routineChange" th:value="${ip.routineChange}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">正常变更：</label>
+								<div class="col-sm-8">
+									<input id="normalChange" name="normalChange" th:value="${ip.normalChange}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">紧急变更：</label>
+								<div class="col-sm-8">
+									<input id="urgent
+
+Change" name="urgent
+
+Change" th:value="${ip.urgent
+
+Change}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">事件：</label>
+								<div class="col-sm-8">
+									<input id="event" name="event" th:value="${ip.event}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">问题：</label>
+								<div class="col-sm-8">
+									<input id="problem" name="problem" th:value="${ip.problem}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">服务请求：</label>
+								<div class="col-sm-8">
+									<input id="serviceRequest" name="serviceRequest" th:value="${ip.serviceRequest}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/deploy/ip/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#shuxing" data-toggle="tab">属性</a>
+                    </li>
+                    <li>
+                        <a href="#ruanjian" data-toggle="tab">软件</a>
+                    </li>
+                    <li>
+                        <a href="#lianxiren" data-toggle="tab">联系人</a>
+                    </li>
+                    <li>
+                        <a href="#wendang" data-toggle="tab">文档</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#wangguan" data-toggle="tab">网卡</a>
+                    </li>
+
+                    <li>
+                        <a href="#wangluoshebei" data-toggle="tab">网络设备</a>
+                    </li>
+
+                    <li>
+                        <a href="#gongyingshanghetong" data-toggle="tab">供应商合同</a>
+                    </li>
+                    <li>
+                        <a href="#fuwu" data-toggle="tab">服务</a>
+                    </li>
+                    <li>
+                        <a href="#gongdan" data-toggle="tab">打开的工单</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="shuxing">
+                        <form class="form-horizontal m-t" id="signupFormz">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">名称：</label>
+                                <div class="col-sm-8">
+                                    <input id="pcName" name="pcName" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组织：</label>
+                                <div class="col-sm-8">
+                                    <input id="organization" name="organization" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态：</label>
+                                <div class="col-sm-8">
+                                    <input id="state" name="state" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">业务级别：</label>
+                                <div class="col-sm-8">
+                                    <input id="businessLevel" name="businessLevel" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">地理位置：</label>
+                                <div class="col-sm-8">
+                                    <input id="geographicalPosition" name="geographicalPosition" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">品牌：</label>
+                                <div class="col-sm-8">
+                                    <input id="brand" name="brand" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">型号：</label>
+                                <div class="col-sm-8">
+                                    <input id="model" name="model" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">OS家族：</label>
+                                <div class="col-sm-8">
+                                    <input id="osFamily" name="osFamily" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">OS版本：</label>
+                                <div class="col-sm-8">
+                                    <input id="osVersion" name="osVersion" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">类型：</label>
+                                <div class="col-sm-8">
+                                    <input id="type" name="type" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">CPU：</label>
+                                <div class="col-sm-8">
+                                    <input id="cpu" name="cpu" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">内存：</label>
+                                <div class="col-sm-8">
+                                    <input id="memory" name="memory" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">序列号：</label>
+                                <div class="col-sm-8">
+                                    <input id="serialNumber" name="serialNumber" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">资产编号：</label>
+                                <div class="col-sm-8">
+                                    <input id="assetNumber" name="assetNumber" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">投产日期：</label>
+                                <div class="col-sm-8">
+                                    <input id="startingDate" name="startingDate" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">采购日期：</label>
+                                <div class="col-sm-8">
+                                    <input id="purchaseDate" name="purchaseDate" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">过保日期：</label>
+                                <div class="col-sm-8">
+                                    <input id="dateOfInsurance" name="dateOfInsurance" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">描述：</label>
+                                <div class="col-sm-8" style=" padding-left: 10px;display: inline-block;">
+                                <textarea id="serveDescribe" name="serveDescribe" class="form-control"
+                                          style="width: 450px;height: 120px;resize: none"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="ruanjian">
+                        <form class="form-horizontal m-t" id="signupFormc">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件名称：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareName" name="softwareName" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件组织：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareOrganization" name="softwareOrganization" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件状态：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareState" name="softwareState" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件：</label>
+                                <div class="col-sm-8">
+                                    <input id="software" name="software" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件许可证：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareLicense" name="softwareLicense" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件业务级别：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareLevel" name="softwareLevel" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件路径：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareRoute" name="softwareRoute" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件投产日期：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareStartingDate" name="softwareStartingDate" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">软件描述：</label>
+                                <div class="col-sm-8">
+                                    <input id="softwareDescribe" name="softwareDescribe" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="wendang">
+                        <form class="form-horizontal m-t" id="signupForma">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">文档：</label>
+                                <div class="col-sm-8">
+                                    <input id="file" name="file" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组织（文档）：</label>
+                                <div class="col-sm-8">
+                                    <input id="fileOrganize" name="fileOrganize" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态（文档）：</label>
+                                <div class="col-sm-8">
+                                    <input id="fileState" name="fileState" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">类型（文档）：</label>
+                                <div class="col-sm-8">
+                                    <input id="fileDype" name="fileDype" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">描述（文档）：</label>
+                                <div class="col-sm-8">
+                                    <input id="fileDescribe" name="fileDescribe" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="lianxiren">
+                        <form class="form-horizontal m-t" id="signupFormb">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">联系人：</label>
+                                <div class="col-sm-8">
+                                    <input id="contacts" name="contacts" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组织：</label>
+                                <div class="col-sm-8">
+                                    <input id="organize" name="organize" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">邮箱：</label>
+                                <div class="col-sm-8">
+                                    <input id="mailbox" name="mailbox" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">电话：</label>
+                                <div class="col-sm-8">
+                                    <input id="telephone" name="telephone" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">职责：</label>
+                                <div class="col-sm-8">
+                                    <input id="duty" name="duty" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">联系人状态：</label>
+                                <div class="col-sm-8">
+                                    <input id="contactState" name="contactState" class="form-control" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="wangguan">
+                        <form class="form-horizontal m-t" id="signupFormd">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">名称（网卡）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkName" name="networkName" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">IP地址：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkIp" name="networkIp" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">MAC地址：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkMac" name="networkMac" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">注释：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkNotes" name="networkNotes" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">网关：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkGateway" name="networkGateway" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">掩码：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkMask" name="networkMask" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">速率：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkSulv" name="networkSulv" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="wangluoshebei">
+                        <form class="form-horizontal m-t" id="signupFormf">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">本地网口：</label>
+                                <div class="col-sm-8">
+                                    <input id="localNetworkPort" name="localNetworkPort" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">设备网口：</label>
+                                <div class="col-sm-8">
+                                    <input id="equipmentNetMouth" name="equipmentNetMouth" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">连接设备（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="lineType" name="lineType" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">网络设备：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkEquipment" name="networkEquipment" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">组织（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkOrganize" name="networkOrganize" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkState" name="networkState" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">业务级别（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkBusinessLevel" name="networkBusinessLevel" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">地理位置（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkGeographicalPosition" name="networkGeographicalPosition"
+                                           class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">品牌（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkBrand" name="networkBrand" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">型号（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkModel" name="networkModel" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">序列号（网络设备）：</label>
+                                <div class="col-sm-8">
+                                    <input id="networkNumber" name="networkNumber" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="gongyingshanghetong">
+                        <form class="form-horizontal m-t" id="signupFormh">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">供应商合同：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierContract" name="supplierContract" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierState" name="supplierState" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">客户（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierCustomer" name="supplierCustomer" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">描述（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierDescribe" name="supplierDescribe" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">开始日期（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierStart" name="supplierStart" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">结束日期（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierEnd" name="supplierEnd" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">供应商：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplier" name="supplier" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SLA（供应商合同）：</label>
+                                <div class="col-sm-8">
+                                    <input id="supplierSla" name="supplierSla" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">服务时间：</label>
+                                <div class="col-sm-8">
+                                    <input id="serviceTime" name="serviceTime" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="fuwu">
+                        <form class="form-horizontal m-t" id="signupFormi">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">服务：</label>
+                                <div class="col-sm-8">
+                                    <input id="service" name="service" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">供应商（服务）：</label>
+                                <div class="col-sm-8">
+                                    <input id="serviceSupplier" name="serviceSupplier" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态（服务）：</label>
+                                <div class="col-sm-8">
+                                    <input id="serviceState" name="serviceState" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">服务族：</label>
+                                <div class="col-sm-8">
+                                    <input id="serviceFamily" name="serviceFamily" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="gongdan">
+                        <form class="form-horizontal m-t" id="signupForm">
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">例行变更：</label>
+                                <div class="col-sm-8">
+                                    <input id="routerChange" name="routerChange" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">正常变更：</label>
+                                <div class="col-sm-8">
+                                    <input id="normalChange" name="normalChange" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">紧急变更：</label>
+                                <div class="col-sm-8">
+                                    <input id="urgentChange" name="urgentChange" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">问题：</label>
+                                <div class="col-sm-8">
+                                    <input id="problem" name="problem" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">事件：</label>
+                                <div class="col-sm-8">
+                                    <input id="event" name="event" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">服务请求：</label>
+                                <div class="col-sm-8">
+                                    <input id="serviceRequest" name="serviceRequest" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/deploy/pc/add.js">
+</script>
+</body>
+</html>

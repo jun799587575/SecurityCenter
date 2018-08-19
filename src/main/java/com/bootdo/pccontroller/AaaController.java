@@ -1,4 +1,4 @@
-package com.bootdo.pc.controller;
+package com.bootdo.pccontroller;
 
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
