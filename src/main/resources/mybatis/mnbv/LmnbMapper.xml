@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.mnbv.dao.LmnbDao">
+
+	<select id="get" resultType="com.bootdo.mnbv.domain.LmnbDO">
+		select `zxcv`,`afafdf`,`adafffaf`,`qwqwqr`,`qwrrqrqwq`,`adafff` from mnbv_lmnb where zxcv = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.mnbv.domain.LmnbDO">
+		select `zxcv`,`afafdf`,`adafffaf`,`qwqwqr`,`qwrrqrqwq`,`adafff` from mnbv_lmnb
+        <where>  
+		  		  <if test="zxcv != null and zxcv != ''"> and zxcv = #{zxcv} </if>
+		  		  <if test="afafdf != null and afafdf != ''"> and afafdf = #{afafdf} </if>
+		  		  <if test="adafffaf != null and adafffaf != ''"> and adafffaf = #{adafffaf} </if>
+		  		  <if test="qwqwqr != null and qwqwqr != ''"> and qwqwqr = #{qwqwqr} </if>
+		  		  <if test="qwrrqrqwq != null and qwrrqrqwq != ''"> and qwrrqrqwq = #{qwrrqrqwq} </if>
+		  		  <if test="adafff != null and adafff != ''"> and adafff = #{adafff} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by zxcv desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from mnbv_lmnb
+		 <where>  
+		  		  <if test="zxcv != null and zxcv != ''"> and zxcv = #{zxcv} </if>
+		  		  <if test="afafdf != null and afafdf != ''"> and afafdf = #{afafdf} </if>
+		  		  <if test="adafffaf != null and adafffaf != ''"> and adafffaf = #{adafffaf} </if>
+		  		  <if test="qwqwqr != null and qwqwqr != ''"> and qwqwqr = #{qwqwqr} </if>
+		  		  <if test="qwrrqrqwq != null and qwrrqrqwq != ''"> and qwrrqrqwq = #{qwrrqrqwq} </if>
+		  		  <if test="adafff != null and adafff != ''"> and adafff = #{adafff} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.mnbv.domain.LmnbDO">
+		insert into mnbv_lmnb
+		(
+			`zxcv`, 
+			`afafdf`, 
+			`adafffaf`, 
+			`qwqwqr`, 
+			`qwrrqrqwq`, 
+			`adafff`
+		)
+		values
+		(
+			#{zxcv}, 
+			#{afafdf}, 
+			#{adafffaf}, 
+			#{qwqwqr}, 
+			#{qwrrqrqwq}, 
+			#{adafff}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.mnbv.domain.LmnbDO">
+		update mnbv_lmnb 
+		<set>
+			<if test="afafdf != null">`afafdf` = #{afafdf}, </if>
+			<if test="adafffaf != null">`adafffaf` = #{adafffaf}, </if>
+			<if test="qwqwqr != null">`qwqwqr` = #{qwqwqr}, </if>
+			<if test="qwrrqrqwq != null">`qwrrqrqwq` = #{qwrrqrqwq}, </if>
+			<if test="adafff != null">`adafff` = #{adafff}</if>
+		</set>
+		where zxcv = #{zxcv}
+	</update>
+	
+	<delete id="remove">
+		delete from mnbv_lmnb where zxcv = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from mnbv_lmnb where zxcv in 
+		<foreach item="zxcv" collection="array" open="(" separator="," close=")">
+			#{zxcv}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -47,6 +47,13 @@ public class ListerController {
 		return "worker/lister/agency";
 	}
 
+	@GetMapping("/suoyou")
+	@RequiresPermissions("worker:lister:suoyou")
+	String suoyou(){
+		return "worker/lister/suoyou";
+	}
+
+
 	@GetMapping("/havedone")
 	@RequiresPermissions("worker:lister:havedone")
 	String havedone(){

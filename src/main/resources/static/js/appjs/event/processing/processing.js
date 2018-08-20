@@ -64,15 +64,23 @@ function load() {
                     },
                     {
                         field: 'reportingTime',
-                        title: '投报时间'
+                        title: 'SLA响应时间'
+                    },
+                    {
+                        field: 'reportingTime',
+                        title: '实际响应时间'
+                    },
+                    {
+                        field: 'reportingTime',
+                        title: 'SLA处理时间'
+                    },
+                    {
+                        field: 'reportingTime',
+                        title: '实际处理时间'
                     },
                     {
                         field: 'state',
                         title: '状态'
-                    },
-                    {
-                        field: 'handlingPersonnel',
-                        title: '处理人员'
                     },
                     {
                         field: 'eventLevel',

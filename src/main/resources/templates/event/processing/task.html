@@ -64,6 +64,32 @@
                                 <!--<input id="enclosure" name="enclosure" class="form-control" type="text">-->
                             <!--</div>-->
                         <!--</div>-->
+<div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>事件</th>
+                                <th>任务人员</th>
+                                <th>任务完成时间</th>
+                                <th>描述</th>
+                                <th>状态</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>一级</td>
+                                <td>XXXXX</td>
+                                <td>2018..12.12</td>
+                                <td>qwertt</td>
+                                <td>asdaf</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--<button  type="button" class="btn  btn-primary pull-right">-->
+                            <!--<i class="fa fa-edit" aria-hidden="true"></i>修改-->
+                        <!--</button>-->
+                </div>
+
                         <h3>任务清单</h3>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">任务人员：</label>
@@ -81,15 +107,16 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">描述：</label>
                             <div class="col-sm-8">
-                                <input id="describe" name="describe" class="form-control" type="text">
+                                <!--<input id="describe" name="describe" class="form-control" type="text">-->
+                                <textarea id="processingContent" name="processingContent" class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
-                        <label class="col-sm-3 control-label">状态：</label>
-                        <div class="col-sm-8">
-                        <input id="state" name="state" class="form-control" type="text">
-                        </div>
-                        </div>
+                        <!--<div class="form-group">-->
+                        <!--<label class="col-sm-3 control-label">状态：</label>-->
+                        <!--<div class="col-sm-8">-->
+                        <!--<input id="state" name="state" class="form-control" type="text">-->
+                        <!--</div>-->
+                        <!--</div>-->
                         <div class="form-group">
                             <div class="col-sm-8 col-sm-offset-3" style="text-align: center">
                                 <button type="submit" class="btn btn-primary" style="margin-right: 10px">分配任务</button>

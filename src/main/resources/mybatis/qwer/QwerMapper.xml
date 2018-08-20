@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.qwer.dao.QwertyDao">
+
+	<select id="get" resultType="com.bootdo.qwer.domain.QwertyDO">
+		select `sda`,`sada`,`adff`,`asd`,`qwe`,`wqew`,`wqewr`,`qwewqr`,`qeqwe`,`qwrsf` from abcd_qwer where sda = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.qwer.domain.QwertyDO">
+		select `sda`,`sada`,`adff`,`asd`,`qwe`,`wqew`,`wqewr`,`qwewqr`,`qeqwe`,`qwrsf` from abcd_qwer
+        <where>  
+		  		  <if test="sda != null and sda != ''"> and sda = #{sda} </if>
+		  		  <if test="sada != null and sada != ''"> and sada = #{sada} </if>
+		  		  <if test="adff != null and adff != ''"> and adff = #{adff} </if>
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="wqew != null and wqew != ''"> and wqew = #{wqew} </if>
+		  		  <if test="wqewr != null and wqewr != ''"> and wqewr = #{wqewr} </if>
+		  		  <if test="qwewqr != null and qwewqr != ''"> and qwewqr = #{qwewqr} </if>
+		  		  <if test="qeqwe != null and qeqwe != ''"> and qeqwe = #{qeqwe} </if>
+		  		  <if test="qwrsf != null and qwrsf != ''"> and qwrsf = #{qwrsf} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by sda desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from abcd_qwer
+		 <where>  
+		  		  <if test="sda != null and sda != ''"> and sda = #{sda} </if>
+		  		  <if test="sada != null and sada != ''"> and sada = #{sada} </if>
+		  		  <if test="adff != null and adff != ''"> and adff = #{adff} </if>
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="wqew != null and wqew != ''"> and wqew = #{wqew} </if>
+		  		  <if test="wqewr != null and wqewr != ''"> and wqewr = #{wqewr} </if>
+		  		  <if test="qwewqr != null and qwewqr != ''"> and qwewqr = #{qwewqr} </if>
+		  		  <if test="qeqwe != null and qeqwe != ''"> and qeqwe = #{qeqwe} </if>
+		  		  <if test="qwrsf != null and qwrsf != ''"> and qwrsf = #{qwrsf} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.qwer.domain.QwertyDO">
+		insert into abcd_qwer
+		(
+			`sda`, 
+			`sada`, 
+			`adff`, 
+			`asd`, 
+			`qwe`, 
+			`wqew`, 
+			`wqewr`, 
+			`qwewqr`, 
+			`qeqwe`, 
+			`qwrsf`
+		)
+		values
+		(
+			#{sda}, 
+			#{sada}, 
+			#{adff}, 
+			#{asd}, 
+			#{qwe}, 
+			#{wqew}, 
+			#{wqewr}, 
+			#{qwewqr}, 
+			#{qeqwe}, 
+			#{qwrsf}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.qwer.domain.QwertyDO">
+		update abcd_qwer 
+		<set>
+			<if test="sada != null">`sada` = #{sada}, </if>
+			<if test="adff != null">`adff` = #{adff}, </if>
+			<if test="asd != null">`asd` = #{asd}, </if>
+			<if test="qwe != null">`qwe` = #{qwe}, </if>
+			<if test="wqew != null">`wqew` = #{wqew}, </if>
+			<if test="wqewr != null">`wqewr` = #{wqewr}, </if>
+			<if test="qwewqr != null">`qwewqr` = #{qwewqr}, </if>
+			<if test="qeqwe != null">`qeqwe` = #{qeqwe}, </if>
+			<if test="qwrsf != null">`qwrsf` = #{qwrsf}</if>
+		</set>
+		where sda = #{sda}
+	</update>
+	
+	<delete id="remove">
+		delete from abcd_qwer where sda = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from abcd_qwer where sda in 
+		<foreach item="sda" collection="array" open="(" separator="," close=")">
+			#{sda}
+		</foreach>
+	</delete>
+
+</mapper>

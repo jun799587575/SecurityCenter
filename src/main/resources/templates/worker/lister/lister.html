@@ -11,7 +11,18 @@
 						<button type="button" class="btn  btn-primary" onclick=" " style="margin-right: 5px">我的工单</button>
 						<button type="button" class="btn  btn-danger" onclick="agencyAAA()" style="margin-right: 5px">代办工单</button>
 						<button type="button" class="btn  btn-danger" onclick="havedoneAAA() " style="margin-right: 5px">已办工单</button>
+						<button type="button" class="btn  btn-danger" onclick="suoyouAAA() " style="margin-right: 5px">所有工单</button>
 						<script>
+                            function suoyouAAA() {
+                                layer.open({
+                                    type: 2,
+                                    title: '代办工单',
+                                    maxmin: true,
+                                    shadeClose: false, // 点击遮罩关闭层
+                                    area: ['800px', '520px'],
+                                    content:  "/worker/lister" + '/suoyou' // iframe的url
+                                });
+                            }
                             function agencyAAA() {
                                 layer.open({
                                     type: 2,
