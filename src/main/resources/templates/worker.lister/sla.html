@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+
+                        <div class="form-group" >
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%" >响应时间：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <input id="workNumbera" name="workNumber" class="form-control" type="text" value="5分钟">
+                            </div>
+
+                        </div>
+                        <div class="form-group" >
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%" >超时时间：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <input id="workNumberas" name="workNumber" class="form-control" type="text" value="2分钟">
+                            </div>
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%">是否超时：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <select id="searchSelectb">
+                                    <option value="ip" class="btn  btn-primary">超时</option>
+                                    <option value="nas" class="btn  btn-primary">不超时</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" >
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%" >处理时间：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <input id="workNumberaa" name="workNumber" class="form-control" type="text" value="10分钟">
+                            </div>
+
+                        </div>
+                        <div class="form-group" >
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%" >超时时间：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <input id="workNumberax" name="workNumber" class="form-control" type="text"value="1分钟" >
+                            </div>
+                            <label class="col-sm-3 control-label" style="display: inline;width: 20%">是否超时：</label>
+                            <div class="col-sm-8" style="display: inline;width: 30%">
+                                <select id="searchSelectbc" >
+                                    <option value="ip" class="btn  btn-primary">超时</option>
+                                    <option value="nas" class="btn  btn-primary">不超时</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/worker/lister/add.js">
+</script>
+</body>
+</html>

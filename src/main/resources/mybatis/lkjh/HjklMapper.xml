@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.lkjh.dao.HjklDao">
+
+	<select id="get" resultType="com.bootdo.lkjh.domain.HjklDO">
+		select `asd`,`qwe`,`zxc`,`qws`,`sads`,`asdsaf`,`asdaf` from lkjh_hjkl where asd = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.lkjh.domain.HjklDO">
+		select `asd`,`qwe`,`zxc`,`qws`,`sads`,`asdsaf`,`asdaf` from lkjh_hjkl
+        <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="zxc != null and zxc != ''"> and zxc = #{zxc} </if>
+		  		  <if test="qws != null and qws != ''"> and qws = #{qws} </if>
+		  		  <if test="sads != null and sads != ''"> and sads = #{sads} </if>
+		  		  <if test="asdsaf != null and asdsaf != ''"> and asdsaf = #{asdsaf} </if>
+		  		  <if test="asdaf != null and asdaf != ''"> and asdaf = #{asdaf} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by asd desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from lkjh_hjkl
+		 <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="zxc != null and zxc != ''"> and zxc = #{zxc} </if>
+		  		  <if test="qws != null and qws != ''"> and qws = #{qws} </if>
+		  		  <if test="sads != null and sads != ''"> and sads = #{sads} </if>
+		  		  <if test="asdsaf != null and asdsaf != ''"> and asdsaf = #{asdsaf} </if>
+		  		  <if test="asdaf != null and asdaf != ''"> and asdaf = #{asdaf} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.lkjh.domain.HjklDO">
+		insert into lkjh_hjkl
+		(
+			`asd`, 
+			`qwe`, 
+			`zxc`, 
+			`qws`, 
+			`sads`, 
+			`asdsaf`, 
+			`asdaf`
+		)
+		values
+		(
+			#{asd}, 
+			#{qwe}, 
+			#{zxc}, 
+			#{qws}, 
+			#{sads}, 
+			#{asdsaf}, 
+			#{asdaf}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.lkjh.domain.HjklDO">
+		update lkjh_hjkl 
+		<set>
+			<if test="qwe != null">`qwe` = #{qwe}, </if>
+			<if test="zxc != null">`zxc` = #{zxc}, </if>
+			<if test="qws != null">`qws` = #{qws}, </if>
+			<if test="sads != null">`sads` = #{sads}, </if>
+			<if test="asdsaf != null">`asdsaf` = #{asdsaf}, </if>
+			<if test="asdaf != null">`asdaf` = #{asdaf}</if>
+		</set>
+		where asd = #{asd}
+	</update>
+	
+	<delete id="remove">
+		delete from lkjh_hjkl where asd = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from lkjh_hjkl where asd in 
+		<foreach item="asd" collection="array" open="(" separator="," close=")">
+			#{asd}
+		</foreach>
+	</delete>
+
+</mapper>

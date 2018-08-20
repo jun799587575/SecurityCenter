@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm" style="display: inline">
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">合同信息：</label>
+								<div class="col-sm-8">
+									<input id="engineerName" name="engineerName" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">货物名称和数量：</label>
+								<div class="col-sm-8">
+									<input id="workNumber" name="workNumber" class="form-control" type="text">
+								</div>
+							</div>
+
+
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">货物件数：</label>
+								<div class="col-sm-8">
+									<input id="post" name="post" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">货物包装状态：</label>
+								<div class="col-sm-8">
+									<input id="grade" name="grade" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">货物外观状态：</label>
+								<div class="col-sm-8">
+									<input id="phone" name="phone" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">客户签章，签名：</label>
+								<div class="col-sm-8">
+									<input id="email" name="email" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block;width: 50%">
+								<label class="col-sm-3 control-label" style="width: 30%">收货清单：</label>
+								<div class="col-sm-8">
+									<input id="engineerMatching" name="engineerMatching" class="form-control" type="text">
+								</div>
+							</div>
+
+							<div class="form-group" style="display: inline-block;width: 70%">
+								<label class="col-sm-3 control-label"  style="width: 30%">附件：</label>
+								<div class="col-sm-8">
+									<input id="brithday10" name="brithday" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group" style="display: inline-block">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">上传</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/system/reports/add.js">
+	</script>
+</body>
+</html>

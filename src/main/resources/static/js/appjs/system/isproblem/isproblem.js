@@ -79,12 +79,12 @@ function load() {
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="详情" onclick="edits(\''
                                 + row.queId
-                                + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
+                                + '\')"><i class="fa fa-file-o"></i></a> ';
+                            var d = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" title="确认"  mce_href="#" onclick="edit(\''
                                 + row.queId
-                                + '\')"><i class="fa fa-remove"></i></a> ';
+                                + '\')"><i class="fa fa-check"></i></a> ';
                             var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
                                 + row.queId
                                 + '\')"><i class="fa fa-key"></i></a> ';
@@ -104,7 +104,7 @@ function add() {
         title: '增加',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
+        area: ['800px', '550px'],
         content: prefix + '/add' // iframe的url
     });
 }
@@ -115,9 +115,21 @@ function edit(id) {
         title: '编辑',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ['500px', '500px'],
+        area: ['550px', '450px'],
         content: prefix + '/edit/' + id // iframe的url
     });
+}
+
+function edits(id) {
+    //弹出即全屏
+    var index = layer.open({
+        type : 2,
+        title : '编辑',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+        content: '/system/problem/add' // iframe的url
+    });
+    layer.full(index);
 }
 
 function remove(id) {

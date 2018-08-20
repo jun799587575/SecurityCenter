@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.yhnj.dao.JhgkDao">
+
+	<select id="get" resultType="com.bootdo.yhnj.domain.JhgkDO">
+		select `asd`,`qwe`,`asdsaf`,`qwerr`,`asdsafs`,`qweqwrq`,`sdaf` from yhnj_jhgk where asd = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.yhnj.domain.JhgkDO">
+		select `asd`,`qwe`,`asdsaf`,`qwerr`,`asdsafs`,`qweqwrq`,`sdaf` from yhnj_jhgk
+        <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="asdsaf != null and asdsaf != ''"> and asdsaf = #{asdsaf} </if>
+		  		  <if test="qwerr != null and qwerr != ''"> and qwerr = #{qwerr} </if>
+		  		  <if test="asdsafs != null and asdsafs != ''"> and asdsafs = #{asdsafs} </if>
+		  		  <if test="qweqwrq != null and qweqwrq != ''"> and qweqwrq = #{qweqwrq} </if>
+		  		  <if test="sdaf != null and sdaf != ''"> and sdaf = #{sdaf} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by asd desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from yhnj_jhgk
+		 <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwe != null and qwe != ''"> and qwe = #{qwe} </if>
+		  		  <if test="asdsaf != null and asdsaf != ''"> and asdsaf = #{asdsaf} </if>
+		  		  <if test="qwerr != null and qwerr != ''"> and qwerr = #{qwerr} </if>
+		  		  <if test="asdsafs != null and asdsafs != ''"> and asdsafs = #{asdsafs} </if>
+		  		  <if test="qweqwrq != null and qweqwrq != ''"> and qweqwrq = #{qweqwrq} </if>
+		  		  <if test="sdaf != null and sdaf != ''"> and sdaf = #{sdaf} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.yhnj.domain.JhgkDO">
+		insert into yhnj_jhgk
+		(
+			`asd`, 
+			`qwe`, 
+			`asdsaf`, 
+			`qwerr`, 
+			`asdsafs`, 
+			`qweqwrq`, 
+			`sdaf`
+		)
+		values
+		(
+			#{asd}, 
+			#{qwe}, 
+			#{asdsaf}, 
+			#{qwerr}, 
+			#{asdsafs}, 
+			#{qweqwrq}, 
+			#{sdaf}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.yhnj.domain.JhgkDO">
+		update yhnj_jhgk 
+		<set>
+			<if test="qwe != null">`qwe` = #{qwe}, </if>
+			<if test="asdsaf != null">`asdsaf` = #{asdsaf}, </if>
+			<if test="qwerr != null">`qwerr` = #{qwerr}, </if>
+			<if test="asdsafs != null">`asdsafs` = #{asdsafs}, </if>
+			<if test="qweqwrq != null">`qweqwrq` = #{qweqwrq}, </if>
+			<if test="sdaf != null">`sdaf` = #{sdaf}</if>
+		</set>
+		where asd = #{asd}
+	</update>
+	
+	<delete id="remove">
+		delete from yhnj_jhgk where asd = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from yhnj_jhgk where asd in 
+		<foreach item="asd" collection="array" open="(" separator="," close=")">
+			#{asd}
+		</foreach>
+	</delete>
+
+</mapper>

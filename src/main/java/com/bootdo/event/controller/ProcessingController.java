@@ -47,11 +47,33 @@ public class ProcessingController {
 		return "event/processing/handle";
 	}
 
+	@GetMapping("/cooperation")
+	@RequiresPermissions("event:processing:cooperation")
+	String cooperation(){
+		return "event/processing/cooperation";
+	}
+
+
+//	@GetMapping("/haven")
+//	@RequiresPermissions("event:processing:haven")
+//	String haven(){
+//		return "event/processing/haven";
+//	}
+//
+//	@GetMapping("/total")
+//	@RequiresPermissions("event:processing:total")
+//	String total(){
+//		return "event/processing/total";
+//	}
+
 	@GetMapping("/task")
 	@RequiresPermissions("event:processing:task")
 	String task(){
 		return "event/processing/task";
 	}
+
+
+
 
 	@ResponseBody
 	@GetMapping("/list")

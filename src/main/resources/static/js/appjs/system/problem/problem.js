@@ -2,6 +2,7 @@
 var prefix = "/system/problem"
 $(function() {
 	load();
+
 });
 
 function load() {
@@ -68,6 +69,10 @@ function load() {
 									title : '服务'
 								},
 																{
+									field : 'queManage',
+									title : '问题来源'
+								},
+																{
 									field : 'queDispose', 
 									title : '处理'
 								},
@@ -101,25 +106,29 @@ function load() {
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+
+
 function add() {
-	layer.open({
-		type : 2,
-		title : '增加',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '80%', '600px' ],
-		content : prefix + '/add' // iframe的url
-	});
+    //弹出即全屏
+    var index = layer.open({
+        type : 2,
+        title : '增加',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+        content : prefix + '/add' // iframe的url
+    });
+    layer.full(index);
 }
 function edit(id) {
-	layer.open({
-		type : 2,
-		title : '编辑',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : ['80%', '600px' ],
-		content : prefix + '/edit/' + id // iframe的url
-	});
+    //弹出即全屏
+    var index = layer.open({
+        type : 2,
+        title : '编辑',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+        content : prefix + '/edit/' + id // iframe的url
+    });
+    layer.full(index);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

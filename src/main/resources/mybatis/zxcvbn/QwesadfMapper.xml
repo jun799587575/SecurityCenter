@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.zxcvbn.dao.QwesadfDao">
+
+	<select id="get" resultType="com.bootdo.zxcvbn.domain.QwesadfDO">
+		select `asd`,`qwwe`,`sadf`,`asfaf`,`afas`,`affasfsff`,`afaffgwerq`,`afafqweerr` from zxcvbn_qwesadf where asd = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.zxcvbn.domain.QwesadfDO">
+		select `asd`,`qwwe`,`sadf`,`asfaf`,`afas`,`affasfsff`,`afaffgwerq`,`afafqweerr` from zxcvbn_qwesadf
+        <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwwe != null and qwwe != ''"> and qwwe = #{qwwe} </if>
+		  		  <if test="sadf != null and sadf != ''"> and sadf = #{sadf} </if>
+		  		  <if test="asfaf != null and asfaf != ''"> and asfaf = #{asfaf} </if>
+		  		  <if test="afas != null and afas != ''"> and afas = #{afas} </if>
+		  		  <if test="affasfsff != null and affasfsff != ''"> and affasfsff = #{affasfsff} </if>
+		  		  <if test="afaffgwerq != null and afaffgwerq != ''"> and afaffgwerq = #{afaffgwerq} </if>
+		  		  <if test="afafqweerr != null and afafqweerr != ''"> and afafqweerr = #{afafqweerr} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by asd desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from zxcvbn_qwesadf
+		 <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="qwwe != null and qwwe != ''"> and qwwe = #{qwwe} </if>
+		  		  <if test="sadf != null and sadf != ''"> and sadf = #{sadf} </if>
+		  		  <if test="asfaf != null and asfaf != ''"> and asfaf = #{asfaf} </if>
+		  		  <if test="afas != null and afas != ''"> and afas = #{afas} </if>
+		  		  <if test="affasfsff != null and affasfsff != ''"> and affasfsff = #{affasfsff} </if>
+		  		  <if test="afaffgwerq != null and afaffgwerq != ''"> and afaffgwerq = #{afaffgwerq} </if>
+		  		  <if test="afafqweerr != null and afafqweerr != ''"> and afafqweerr = #{afafqweerr} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.zxcvbn.domain.QwesadfDO">
+		insert into zxcvbn_qwesadf
+		(
+			`asd`, 
+			`qwwe`, 
+			`sadf`, 
+			`asfaf`, 
+			`afas`, 
+			`affasfsff`, 
+			`afaffgwerq`, 
+			`afafqweerr`
+		)
+		values
+		(
+			#{asd}, 
+			#{qwwe}, 
+			#{sadf}, 
+			#{asfaf}, 
+			#{afas}, 
+			#{affasfsff}, 
+			#{afaffgwerq}, 
+			#{afafqweerr}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.zxcvbn.domain.QwesadfDO">
+		update zxcvbn_qwesadf 
+		<set>
+			<if test="qwwe != null">`qwwe` = #{qwwe}, </if>
+			<if test="sadf != null">`sadf` = #{sadf}, </if>
+			<if test="asfaf != null">`asfaf` = #{asfaf}, </if>
+			<if test="afas != null">`afas` = #{afas}, </if>
+			<if test="affasfsff != null">`affasfsff` = #{affasfsff}, </if>
+			<if test="afaffgwerq != null">`afaffgwerq` = #{afaffgwerq}, </if>
+			<if test="afafqweerr != null">`afafqweerr` = #{afafqweerr}</if>
+		</set>
+		where asd = #{asd}
+	</update>
+	
+	<delete id="remove">
+		delete from zxcvbn_qwesadf where asd = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from zxcvbn_qwesadf where asd in 
+		<foreach item="asd" collection="array" open="(" separator="," close=")">
+			#{asd}
+		</foreach>
+	</delete>
+
+</mapper>

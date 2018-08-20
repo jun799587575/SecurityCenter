@@ -100,7 +100,7 @@ function add() {
 	});
 }
 function edit(id) {
-	layer.open({
+	var index=layer.open({
 		type : 2,
 		title : '编辑',
 		maxmin : true,
@@ -108,6 +108,7 @@ function edit(id) {
 		area : [ '800px', '520px' ],
 		content : prefix + '/edit/' + id // iframe的url
 	});
+    layer.full(index);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

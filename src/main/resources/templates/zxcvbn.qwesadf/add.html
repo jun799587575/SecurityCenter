@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="col-sm-12">
+	<div class="ibox float-e-margins">
+		<div class="ibox-content">
+			<ul id="myTab" class="nav nav-tabs">
+				<li class="active">
+					<a href="#shuxing" data-toggle="tab">属性</a>
+				</li>
+				<li>
+					<a href="#ruanjian" data-toggle="tab">关联配置项</a>
+				</li>
+				<li>
+					<a href="#lianxiren" data-toggle="tab">相关联系人</a>
+				</li>
+
+
+
+				<li>
+					<a href="#wangguan" data-toggle="tab">关联知识</a>
+				</li>
+
+				<li>
+					<a href="#wangluoshebei" data-toggle="tab">关联请求</a>
+				</li>
+
+				<li>
+					<a href="#gongyingshanghetong" data-toggle="tab">关联事件</a>
+				</li>
+				<li>
+					<a href="#fuwu" data-toggle="tab">关联问题</a>
+				</li>
+				<li>
+					<a href="#zibiangeng" data-toggle="tab">子变更</a>
+				</li>
+
+
+				<li>
+					<a href="#gongdan" data-toggle="tab">附件</a>
+				</li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<!--属性-->
+				<div class="tab-pane fade in active" id="shuxing">
+					<form class="form-horizontal m-t" id="signupFormz">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">编号：</label>
+							<div class="col-sm-8">
+								<input id="pcName" name="pcName" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">组织：</label>
+							<div class="col-sm-8">
+								<input id="organization" name="organization" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">状态：</label>
+							<div class="col-sm-8">
+								<input id="state" name="state" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">标题：</label>
+							<div class="col-sm-8">
+								<input id="businessLevel" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">描述：</label>
+							<div class="col-sm-8">
+								<input id="businessLeve" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">发起人：</label>
+							<div class="col-sm-8">
+								<input id="businessLev" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">内部日志：</label>
+							<div class="col-sm-8">
+								<input id="businessLv" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">父级变更：</label>
+							<div class="col-sm-8">
+								<input id="businesLv" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">创建时间：</label>
+							<div class="col-sm-8">
+								<input id="businsLv" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">最后更新：</label>
+							<div class="col-sm-8">
+								<input id="bsinsLv" name="businessLevel" class="form-control" type="text" style="width: 30%">
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="tab-pane fade" id="ruanjian">
+					<form class="form-horizontal m-t" id="signupFormc">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>影响</th>
+								<th>功能配置项</th>
+								<th>组织</th>
+								<th>业务级别</th>
+								<th>投产日期</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>ccccc</td>
+								<td>dddd</td>
+								<td>XXXXXXXXXXXXXXXXXXXXXXXX</td>
+								<td>2018..12.12</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="tab-pane fade" id="lianxiren">
+					<form class="form-horizontal m-t" id="signupFormb">
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>角色</th>
+								<th>联系人</th>
+								<th>状态</th>
+								<th>组织</th>
+								<th>邮箱</th>
+								<th>电话</th>
+								<th>职责</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>ccccc</td>
+								<td>dddd</td>
+								<td>XXXXXXXXXXXXXXXXXXXXXXXX</td>
+								<td>2018..12.12</td>
+								<td>asdaf</td>
+								<td>cs</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+
+						<!--<div class="form-group">-->
+						<!--<div class="col-sm-8 col-sm-offset-3">-->
+						<!--<button type="submit" class="btn btn-primary" >取消</button>-->
+						<!--<button type="submit" class="btn btn-primary"style="margin-left: 5px;">创建</button>-->
+						<!--<button type="submit" class="btn btn-primary" style="margin-left: 5px;">分配</button>-->
+						<!--</div>-->
+						<!--</div>-->
+
+
+					</form>
+				</div>
+
+				<div class="tab-pane fade" id="wangguan">
+					<form class="form-horizontal m-t" id="signupFormd">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>知识管理</th>
+								<th>客户</th>
+
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>ccccc</td>
+
+							</tr>
+							</tbody>
+						</table>
+
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+
+						<!--<div class="form-group">-->
+						<!--<div class="col-sm-8 col-sm-offset-3">-->
+						<!--<button type="submit" class="btn btn-primary" >取消</button>-->
+						<!--<button type="submit" class="btn btn-primary"style="margin-left: 5px;">创建</button>-->
+						<!--<button type="submit" class="btn btn-primary" style="margin-left: 5px;">分配</button>-->
+						<!--</div>-->
+						<!--</div>-->
+
+
+
+
+					</form>
+				</div>
+
+				<div class="tab-pane fade" id="wangluoshebei">
+					<form class="form-horizontal m-t" id="signupFormf">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>全称</th>
+								<th>标题</th>
+								<th>组织</th>
+								<th>发起人</th>
+								<th>开始日期</th>
+								<th>状态</th>
+								<th>办理人</th>
+
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>bbb</td>
+								<td>ccc</td>
+								<td>dddd</td>
+								<td>eee</td>
+								<td>fff</td>
+								<td>ggg</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="tab-pane fade" id="gongyingshanghetong">
+					<form class="form-horizontal m-t" id="signupFormh">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>全称</th>
+								<th>标题</th>
+								<th>组织</th>
+								<th>发起人</th>
+								<th>开始日期</th>
+								<th>状态</th>
+								<th>办理人</th>
+
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>bbb</td>
+								<td>ccc</td>
+								<td>dddd</td>
+								<td>eee</td>
+								<td>fff</td>
+								<td>ggg</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+
+
+
+
+
+
+
+					</form>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="tab-pane fade" id="fuwu">
+					<form class="form-horizontal m-t" id="signupFormi">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>全称</th>
+								<th>标题</th>
+								<th>组织</th>
+								<th>发起人</th>
+								<th>开始日期</th>
+								<th>服务</th>
+								<th>优先级</th>
+
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>bbb</td>
+								<td>ccc</td>
+								<td>dddd</td>
+								<td>eee</td>
+								<td>fff</td>
+								<td>ggg</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+
+
+
+
+
+
+					</form>
+				</div>
+
+				<div class="tab-pane fade" id="zibiangeng">
+					<form class="form-horizontal m-t" id="signupFormfq">
+
+						<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th>全称</th>
+								<th>标题</th>
+								<th>组织</th>
+								<th>发起人</th>
+								<th>开始日期</th>
+								<th>结束日期</th>
+								<th>状态</th>
+								<th>办理人</th>
+
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>AAA</td>
+								<td>bbb</td>
+								<td>ccc</td>
+								<td>dddd</td>
+								<td>eee</td>
+								<td>fff</td>
+								<td>ggg</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary" >移除选择对象</button>
+								<button type="submit" class="btn btn-primary"style="margin-left: 5px;">添加联系人</button>
+
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+				<div class="tab-pane fade" id="gongdan">
+					<form class="form-horizontal m-t" id="signupForm">
+
+
+						<!--<span class="">-->
+						<span>上传文件</span>
+						<input type="file">
+						<!--</span>-->
+						<!--<div class="form-group">-->
+						<!--<div class="col-sm-8 col-sm-offset-3">-->
+						<button type="submit" class="btn btn-primary" style="margin-top: 10px">上传</button>
+						<!--</div>-->
+						<!--</div>-->
+
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/zxcvbn/qwesadf/add.js">
+	</script>
+</body>
+</html>

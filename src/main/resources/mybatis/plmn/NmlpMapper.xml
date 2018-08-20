@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.plmn.dao.NmlpDao">
+
+	<select id="get" resultType="com.bootdo.plmn.domain.NmlpDO">
+		select `asd`,`asdas`,`dasfff`,`adsadf`,`dasdffaf`,`adawfqw`,`asdaf` from plmn_nmlp where asd = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.plmn.domain.NmlpDO">
+		select `asd`,`asdas`,`dasfff`,`adsadf`,`dasdffaf`,`adawfqw`,`asdaf` from plmn_nmlp
+        <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="asdas != null and asdas != ''"> and asdas = #{asdas} </if>
+		  		  <if test="dasfff != null and dasfff != ''"> and dasfff = #{dasfff} </if>
+		  		  <if test="adsadf != null and adsadf != ''"> and adsadf = #{adsadf} </if>
+		  		  <if test="dasdffaf != null and dasdffaf != ''"> and dasdffaf = #{dasdffaf} </if>
+		  		  <if test="adawfqw != null and adawfqw != ''"> and adawfqw = #{adawfqw} </if>
+		  		  <if test="asdaf != null and asdaf != ''"> and asdaf = #{asdaf} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by asd desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from plmn_nmlp
+		 <where>  
+		  		  <if test="asd != null and asd != ''"> and asd = #{asd} </if>
+		  		  <if test="asdas != null and asdas != ''"> and asdas = #{asdas} </if>
+		  		  <if test="dasfff != null and dasfff != ''"> and dasfff = #{dasfff} </if>
+		  		  <if test="adsadf != null and adsadf != ''"> and adsadf = #{adsadf} </if>
+		  		  <if test="dasdffaf != null and dasdffaf != ''"> and dasdffaf = #{dasdffaf} </if>
+		  		  <if test="adawfqw != null and adawfqw != ''"> and adawfqw = #{adawfqw} </if>
+		  		  <if test="asdaf != null and asdaf != ''"> and asdaf = #{asdaf} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.plmn.domain.NmlpDO">
+		insert into plmn_nmlp
+		(
+			`asd`, 
+			`asdas`, 
+			`dasfff`, 
+			`adsadf`, 
+			`dasdffaf`, 
+			`adawfqw`, 
+			`asdaf`
+		)
+		values
+		(
+			#{asd}, 
+			#{asdas}, 
+			#{dasfff}, 
+			#{adsadf}, 
+			#{dasdffaf}, 
+			#{adawfqw}, 
+			#{asdaf}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.plmn.domain.NmlpDO">
+		update plmn_nmlp 
+		<set>
+			<if test="asdas != null">`asdas` = #{asdas}, </if>
+			<if test="dasfff != null">`dasfff` = #{dasfff}, </if>
+			<if test="adsadf != null">`adsadf` = #{adsadf}, </if>
+			<if test="dasdffaf != null">`dasdffaf` = #{dasdffaf}, </if>
+			<if test="adawfqw != null">`adawfqw` = #{adawfqw}, </if>
+			<if test="asdaf != null">`asdaf` = #{asdaf}</if>
+		</set>
+		where asd = #{asd}
+	</update>
+	
+	<delete id="remove">
+		delete from plmn_nmlp where asd = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from plmn_nmlp where asd in 
+		<foreach item="asd" collection="array" open="(" separator="," close=")">
+			#{asd}
+		</foreach>
+	</delete>
+
+</mapper>

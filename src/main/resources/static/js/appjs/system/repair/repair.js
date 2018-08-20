@@ -79,11 +79,11 @@ function load() {
                         title: '是否修复'
                     },
                     {
-                        title: '操作',
+                        title: '问题恢复',
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
+                            var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="恢复" onclick="edit(\''
                                 + row.queId
                                 + '\')"><i class="fa fa-edit"></i></a> ';
                             var d = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
@@ -119,7 +119,7 @@ function edit(id) {
         title: '编辑',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ['300px', '300px'],
+        area: ['800px', '520px'],
         content: prefix + '/edit/' + id // iframe的url
     });
 }
