@@ -10,19 +10,36 @@
                 <div class="ibox-content">
                     <form class="form-horizontal m-t" id="signupForm">
                         <input id="queId" name="queId" th:value="${allotproblem.queId}" type="hidden">
-
-                        <div class="form-group">
+                        分派人员名单
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>年龄</th>
+                                <th>水平</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="form-group" style="margin-left:60%">
                             <label class="col-sm-3 control-label">分配：</label>
-                            <select id="queAllot" th:value="${allotproblem.queAllot}" name="queAllot"
+                            <select name="queAllot"
                                     style="width: 80px;height: 35px;">
                                 <option value="小明">小明</option>
                                 <option value="小虎">小虎</option>
                                 <option value="小鹿">小鹿</option>
                                 <option value="小花">小花</option>
                             </select>
+                            <div style="display: inline;margin-right: 10px">
+                                <button type="button" class="btn btn-primary">添加</button>
+                            </div>
                         </div>
+
+
                         <div class="form-group pull-right">
-                            <div class="col-sm-8 col-sm-offset-3">
+                            <div class="col-sm-8 col-sm-offset-3" style="display: flex ; margin-right: 25px;">
+                                <button type="button" class="btn btn-primary" style="margin-right: 10px">取消</button>
                                 <button type="submit" class="btn btn-primary">提交</button>
                             </div>
                         </div>

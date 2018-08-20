@@ -59,6 +59,12 @@ public class CancelController {
 	    return "system/cancel/add";
 	}
 
+	@GetMapping("/adds")
+	@RequiresPermissions("system:cancel:add")
+	String adds(){
+	    return "system/cancel/adds";
+	}
+
 	@GetMapping("/edit/{queId}")
 	@RequiresPermissions("system:cancel:edit")
 	String edit(@PathVariable("queId") Integer queId,Model model){
