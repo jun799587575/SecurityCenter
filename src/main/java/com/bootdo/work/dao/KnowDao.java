@@ -18,9 +18,9 @@ public interface KnowDao {
 
 	KnowDO get(String knowKeyword);
 
-	List<KnowDO> list(Map<String,Object> map);
+	List<KnowDO> list(Map<String, Object> map);
 
-	int count(Map<String,Object> map);
+	int count(Map<String, Object> map);
 
 	int save(KnowDO know);
 

@@ -66,11 +66,9 @@ public class ListController {
 	}
 
 
-	@GetMapping("/edit/{workId}")
+	@GetMapping("/edit")
 	@RequiresPermissions("work:list:edit")
-	String edit(@PathVariable("workId") String workId,Model model){
-		ListDO list = listService.get(workId);
-		model.addAttribute("list", list);
+	String edit(){
 	    return "work/list/edit";
 	}
 	
