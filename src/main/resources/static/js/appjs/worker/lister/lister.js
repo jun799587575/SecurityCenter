@@ -4,6 +4,50 @@ $(function() {
 	load();
 });
 
+
+
+
+var qweAAA =function(rowid){
+
+    //弹出即全屏
+    var fqbx_index = layer.open({
+        content: "/worker/lister"+'/suoyou',
+        type : 2,
+        title : '接受',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+    });
+    layer.full(fqbx_index);
+}
+
+
+
+var qwesAAA =function(rowid){
+
+    //弹出即全屏
+    var fqbx_index = layer.open({
+        content: "/worker/lister"+'/suoyou',
+        type : 2,
+        title : '处理',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+    });
+    layer.full(fqbx_index);
+}
+
+var asdAAA =function(rowid){
+    //弹出即全屏
+    var fqbx_index = layer.open({
+        content: "/worker/lister"+'/suoyou',
+        type : 2,
+        title : '详情',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+    });
+    layer.full(fqbx_index);
+}
+
+
 function load() {
 	$('#exampleTable')
 			.bootstrapTable(
@@ -96,16 +140,19 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.workId
-												+ '\')"><i class="fa fa-edit"></i></a> ';
-										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-												+ row.workId
-												+ '\')"><i class="fa fa-remove"></i></a> ';
+                                        var a = '<a class="btn btn-primary btn-sm      " href="#" title="接受"  mce_href="#" onclick="qweAAA(\''
+                                            + row.workId
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">接受</i></a> ';
+                                        var e = '<a class="btn btn-primary btn-sm      " href="#" title="处理"  mce_href="#" onclick="qwesAAA(\''
+                                            + row.workId
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">接受</i></a> ';
+                                        var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdAAA(\''
+                                            + row.workId
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';
 										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
 												+ row.workId
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d ;
+										return a + e + d  ;
 									}
 								} ]
 					});

@@ -12,7 +12,7 @@ var fqbx_editFunction =function(rowid){
     var fqbx_index = layer.open({
         content:  "/abcd/qwer"+'/add',
         type : 2,
-        title : '编辑',
+        title : '变更',
         maxmin: true,
         shadeClose : false, // 点击遮罩关闭层
     });
@@ -114,9 +114,10 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-                                        var e1 = '<a class="btn btn-primary btn-sm      " href="#" title="编辑"  mce_href="#" onclick="fqbx_editFunction(\''
+                                        var e1 = '<a class="btn btn-primary btn-sm      " href="#" title="变更"  mce_href="#" onclick="fqbx_editFunction(\''
                                             + row.ipId
-                                            + '\')"><i class="fa fa-edit"></i></a> ';
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">变更</i></a>';
+
                                         var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="fqbx_detailFunction(\''
                                             + row.ipId
                                             + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';

@@ -10,7 +10,7 @@ var qweasAAA =function(rowid){
     var fqbx_index = layer.open({
         content:   "/mnbv/lmnb"+'/pinggu',
         type : 2,
-        title : '详情',
+        title : '评估',
         maxmin: true,
         shadeClose : false, // 点击遮罩关闭层
     });
@@ -100,9 +100,9 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-                                        var e = '<a class="btn btn-primary btn-sm  " href="#" title="编辑"  mce_href="#" onclick="qweasAAA(\''
+                                        var e = '<a class="btn btn-primary btn-sm  " href="#" title="评估"  mce_href="#" onclick="qweasAAA(\''
                                             + row.ipId
-                                            + '\')"><i class="fa fa-edit"></i></a> ';
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">评估</i></a> ';
                                         var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdasAAA(\''
                                             + row.ipId
                                             + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';

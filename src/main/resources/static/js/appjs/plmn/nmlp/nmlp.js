@@ -11,7 +11,7 @@ var qweassAAA =function(rowid){
     var fqbx_index = layer.open({
         content:  "/plmn/nmlp"+'/paicheng',
         type : 2,
-        title : '详情',
+        title : '排程',
         maxmin: true,
         shadeClose : false, // 点击遮罩关闭层
     });
@@ -99,9 +99,9 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-                                        var e = '<a class="btn btn-primary btn-sm  " href="#" title="编辑"  mce_href="#" onclick="qweassAAA(\''
+                                        var e = '<a class="btn btn-primary btn-sm  " href="#" title="排程"  mce_href="#" onclick="qweassAAA(\''
                                             + row.ipId
-                                            + '\')"><i class="fa fa-edit"></i></a> ';
+                                            + '\')"><i class="fa fa-id-card" aria-hidden="true">排程</i></a> ';
                                         var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdassAAA(\''
                                             + row.ipId
                                             + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';

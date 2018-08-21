@@ -101,9 +101,9 @@ function load() {
                                 field : 'id',
                                 align : 'center',
                                 formatter : function(value, row, index) {
-                                    var e = '<a class="btn btn-primary btn-sm  " href="#" title="编辑"  mce_href="#" onclick="qweassAAA(\''
+                                    var e = '<a class="btn btn-primary btn-sm  " href="#" title="审核"  mce_href="#" onclick="qweassAAA(\''
                                         + row.ipId
-                                        + '\')"><i class="fa fa-edit"></i></a> ';
+                                        + '\')"><i class="fa fa-id-card" aria-hidden="true">审核</i></a> ';
                                     var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdassAAA(\''
                                         + row.ipId
                                         + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';

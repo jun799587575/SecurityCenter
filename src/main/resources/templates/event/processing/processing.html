@@ -10,11 +10,25 @@
 
                 <button type="button" class="btn  btn-primary" onclick=" " style="margin-right: 5px">事件升级</button>
                 <button type="button" class="btn  btn-primary" onclick=" " style="margin-right: 5px">升级二线</button>
-                <button type="button" class="btn  btn-danger" onclick="taskAAA()" style="margin-right: 5px">协作</button>
-                <button type="button" class="btn  btn-danger" onclick="handleAAA()" style="margin-right: 5px">处理</button>
+                <button type="button" class="btn  btn-danger" onclick="taskAAA()" style="margin-right: 5px">协&nbsp;&nbsp;作</button>
+                <button type="button" class="btn  btn-danger" onclick="handleAAA()" style="margin-right: 5px">处&nbsp;&nbsp;理</button>
+                <button type="button" class="btn  btn-danger" onclick="jieshouAAA()" style="margin-right: 5px">接受工单</button>
                 <script>
+
+                    // function jieshouAAA() {
+                    //     layer.open({
+                    //         type: 2,
+                    //         title: '协作',
+                    //         maxmin: true,
+                    //         shadeClose: false, // 点击遮罩关闭层
+                    //         area: ['800px', '520px'],
+                    //         content: prefix + '/jieshou' // iframe的url
+                    //     });
+                    // }
+
+
                     function taskAAA() {
-                        layer.open({
+                        var fqbx_index =  layer.open({
                             type: 2,
                             title: '协作',
                             maxmin: true,
@@ -22,10 +36,11 @@
                             area: ['800px', '520px'],
                             content: prefix + '/task' // iframe的url
                         });
+                        layer.full(fqbx_index);
                     }
 
                     function handleAAA() {
-                        layer.open({
+                        var fqbx_index =    layer.open({
                             type: 2,
                             title: '处理',
                             maxmin: true,
@@ -33,9 +48,10 @@
                             area: ['800px', '520px'],
                             content: prefix + '/handle' // iframe的url
                         });
+                        layer.full(fqbx_index);
                     }
                 </script>
-                <button type="button" class="btn  btn-primary" onclick=" " style="margin-right: 5px">转问题</button>
+                <button type="button" class="btn  btn-primary" onclick=" " style="margin-right: 5px">转&nbsp;问&nbsp;题</button>
                 <button type="button" class="btn  btn-danger" onclick=" " style="margin-right: 5px">转知识库</button>
                 <div style="clear: both; margin-top: 15px" >
                     工&nbsp; 单&nbsp; 号 <input id="searchJobNumber" name="jobNumber" class="form-control" type="text"

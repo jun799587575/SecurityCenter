@@ -12,39 +12,39 @@
 						<button type="button" class="btn  btn-danger" onclick="agencyAAA()" style="margin-right: 5px">代办工单</button>
 						<button type="button" class="btn  btn-danger" onclick="havedoneAAA() " style="margin-right: 5px">已办工单</button>
 						<button type="button" class="btn  btn-danger" onclick="suoyouAAA() " style="margin-right: 5px">所有工单</button>
-						<script>
-                            function suoyouAAA() {
-                                layer.open({
-                                    type: 2,
-                                    title: '代办工单',
-                                    maxmin: true,
-                                    shadeClose: false, // 点击遮罩关闭层
-                                    area: ['800px', '520px'],
-                                    content:  "/worker/lister" + '/suoyou' // iframe的url
-                                });
-                            }
-                            function agencyAAA() {
-                                layer.open({
-                                    type: 2,
-                                    title: '代办工单',
-                                    maxmin: true,
-                                    shadeClose: false, // 点击遮罩关闭层
-                                    area: ['800px', '520px'],
-                                    content: prefix + '/agency' // iframe的url
-                                });
-                            }
+						<!--<script>-->
+                            <!--function suoyouAAA() {-->
+                                <!--layer.open({-->
+                                    <!--type: 2,-->
+                                    <!--title: '代办工单',-->
+                                    <!--maxmin: true,-->
+                                    <!--shadeClose: false, // 点击遮罩关闭层-->
+                                    <!--area: ['800px', '520px'],-->
+                                    <!--content:  "/worker/lister" + '/suoyou' // iframe的url-->
+                                <!--});-->
+                            <!--}-->
+                            <!--function agencyAAA() {-->
+                                <!--layer.open({-->
+                                    <!--type: 2,-->
+                                    <!--title: '代办工单',-->
+                                    <!--maxmin: true,-->
+                                    <!--shadeClose: false, // 点击遮罩关闭层-->
+                                    <!--area: ['800px', '520px'],-->
+                                    <!--content: prefix + '/agency' // iframe的url-->
+                                <!--});-->
+                            <!--}-->
 
-                            function havedoneAAA() {
-                                layer.open({
-                                    type: 2,
-                                    title: '已办工单',
-                                    maxmin: true,
-                                    shadeClose: false, // 点击遮罩关闭层
-                                    area: ['800px', '520px'],
-                                    content: prefix + '/havedone' // iframe的url
-                                });
-                            }
-						</script>
+                            <!--function havedoneAAA() {-->
+                                <!--layer.open({-->
+                                    <!--type: 2,-->
+                                    <!--title: '已办工单',-->
+                                    <!--maxmin: true,-->
+                                    <!--shadeClose: false, // 点击遮罩关闭层-->
+                                    <!--area: ['800px', '520px'],-->
+                                    <!--content: prefix + '/havedone' // iframe的url-->
+                                <!--});-->
+                            <!--}-->
+						<!--</script>-->
 						<div style="margin-top: 10px">
 							工单号  <input id="searchWorkId" name="workId" class="form-control" type="text"
 																  style="width: 20%;  display: inline-block;margin-right: 3%">

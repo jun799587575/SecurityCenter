@@ -9,23 +9,15 @@ var qweasssAAA =function(rowid){
     var fqbx_index = layer.open({
         content: "/event/processing"+'/bianji',
         type : 2,
-        title : '详情',
+        title : '编辑',
         maxmin: true,
         shadeClose : false, // 点击遮罩关闭层
     });
     layer.full(fqbx_index);
 }
-// var asdqAAA =function(rowid){
-//     //弹出即全屏
-//     var fqbx_index = layer.open({
-//         content:  "/qwer/qwer"+'/xiangqing',
-//         type : 2,
-//         title : '详情',
-//         maxmin: true,
-//         shadeClose : false, // 点击遮罩关闭层
-//     });
-//     layer.full(fqbx_index);
-// }
+
+
+
 
 
 
@@ -178,12 +170,12 @@ function load() {
                                 // var d= '<a class="btn btn-primary btn-sm  " href="#" title="编辑"  mce_href="#" onclick="qweasssAAA(\''
                                 //     + row.ipId
                                 //     + '\')"><i class="fa fa-edit"></i></a> ';
-                                var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="详情" onclick="edit(\''
+                                var e = '<a class="btn btn-primary btn-sm " href="#" mce_href="#" title="详情" onclick="edit(\''
                                     + row.eventId
                                     + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';
 
-                                var d = '<a class="btn btn-primary btn-sm      " href="#" title="编辑"  mce_href="#" onclick="qweasssAAA(\''
-                                    + row.ipId
+                                var d = '<a class="btn btn-primary btn-sm " href="#" title="编辑"  mce_href="#" onclick="qweasssAAA(\''
+                                    + row.eventId
                                     + '\')"><i class="fa fa-edit"></i></a> ';
                                 // var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdqAAA(\''
                                 //     + row.ipId
@@ -203,26 +195,33 @@ function reLoad() {
     $('#exampleTable').bootstrapTable('refresh');
 }
 
+
 function add() {
-    layer.open({
+    var mn_index = layer.open({
         type: 2,
         title: '增加',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
+        // shadeClose: false, // 点击遮罩关闭层
+        // area: ['1200px', '800px'],
         content: prefix + '/add' // iframe的url
     });
+    layer.full(mn_index);
 }
 
+
+
+
+
 function edit(id) {
-    layer.open({
+    var mn_index =  layer.open({
         type: 2,
-        title: '编辑',
+        title: '详情',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
         content: prefix + '/edit/' + id // iframe的url
     });
+    layer.full(mn_index);
 }
 
 function remove(id) {

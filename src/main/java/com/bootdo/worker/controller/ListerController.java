@@ -53,6 +53,17 @@ public class ListerController {
 		return "worker/lister/suoyou";
 	}
 
+	@GetMapping("/jieshou")
+	@RequiresPermissions("worker:lister:suoyou")
+	String jieshou(){
+		return "worker/lister/jieshou";
+	}
+
+	@GetMapping("/chuli")
+	@RequiresPermissions("worker:lister:suoyou")
+	String chuli(){
+		return "worker/lister/chuli";
+	}
 
 	@GetMapping("/havedone")
 	@RequiresPermissions("worker:lister:havedone")

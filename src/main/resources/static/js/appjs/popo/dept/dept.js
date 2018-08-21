@@ -1,8 +1,31 @@
 
 var prefix = "/popo/dept"
 $(function() {
-	load();
+	// load();
 });
+function havenAAA() {
+    // alert(123);
+    // var index =
+		parent.layer.open({
+        type: 2,
+        title: '执行',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content: "/popo/dept"+ '/haven' // iframe的url
+    });
+    // parent.layer.full(index);
+}
+function totalAAA() {
+    parent.layer.open({
+        type: 2,
+        title: '任务详情',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content:  "/popo/dept" + '/total' // iframe的url
+    });
+}
 
 function load() {
 	$('#exampleTable')
@@ -72,16 +95,11 @@ function load() {
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.deptId
-												+ '\')"><i class="fa fa-edit"></i></a> ';
-										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-												+ row.deptId
-												+ '\')"><i class="fa fa-remove"></i></a> ';
+
 										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
 												+ row.deptId
 												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d ;
+										// return e + d ;
 									}
 								} ]
 					});

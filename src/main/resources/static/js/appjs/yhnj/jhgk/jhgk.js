@@ -98,9 +98,9 @@ function load() {
                                 field : 'id',
                                 align : 'center',
                                 formatter : function(value, row, index) {
-                                    var e = '<a class="btn btn-primary btn-sm  " href="#" title="关闭"  mce_href="#" onclick="qweasssAAA(\''
+                                    var e = '<a class="btn btn-primary btn-sm  " href="#" title="验证关闭"  mce_href="#" onclick="qweasssAAA(\''
                                         + row.ipId
-                                        + '\')"><i class="fa fa-edit"></i></a> ';
+                                        + '\')"><i class="fa fa-id-card" aria-hidden="true">验证关闭</i></a> ';
                                     var d = '<a class="btn btn-success btn-sm " href="#" title="详情"  mce_href="#" onclick="asdasssAAA(\''
                                         + row.ipId
                                         + '\')"><i class="fa fa-id-card" aria-hidden="true">详情</i></a> ';
