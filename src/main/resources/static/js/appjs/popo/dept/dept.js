@@ -23,7 +23,7 @@ function totalAAA() {
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
-        content:  "/popo/dept" + '/total' // iframe的url
+        content:  "/popo/dept" + '/total' // iframe的url2
     });
 }
 
