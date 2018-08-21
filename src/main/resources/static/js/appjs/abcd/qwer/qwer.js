@@ -18,7 +18,6 @@ var fqbx_editFunction =function(rowid){
     });
     layer.full(fqbx_index);
 }
-
 var fqbx_detailFunction =function(rowid){
     //弹出即全屏
     var fqbx_index = layer.open({
@@ -26,11 +25,24 @@ var fqbx_detailFunction =function(rowid){
         type : 2,
         title : '详情',
         maxmin: true,
-		area:['90%','600px'],
+        area:['90%','600px'],
         shadeClose : false, // 点击遮罩关闭层
     });
-    layer.full(fqbx_detailFunction);
+    layer.full(fqbx_index);
 }
+
+// var fqbx_detailFunction =function(rowid){
+//     //弹出即全屏
+//     var fqbx_index = layer.open({
+//         content:  '/abcd/qwer/add',
+//         type : 2,
+//         title : '详情',
+//         maxmin: true,
+// 		area:['90%','600px'],
+//         shadeClose : false, // 点击遮罩关闭层
+//     });
+//     layer.full(fqbx_detailFunction);
+// }
 
 
 function load() {
