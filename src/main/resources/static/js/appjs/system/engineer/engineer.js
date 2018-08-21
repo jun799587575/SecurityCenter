@@ -197,7 +197,7 @@ function resetPwd(id) {
 function getTreeData() {
     $.ajax({
         type : "GET",
-        url : "/system/sysDept/tree",
+        url : "/system/sysDept1/tree",
         success : function(tree) {
             loadTree(tree);
         }

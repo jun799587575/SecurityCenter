@@ -90,10 +90,8 @@ function load() {
 									title : '操作',
 									field : 'id',
 									align : 'center',
-									/*formatter : function(value, row, index) {
-										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-												+ row.id
-												+ '\')"><i class="fa fa-edit"></i></a> ';
+									formatter : function(value, row, index) {
+										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit()"><i class="fa fa-edit"></i></a> ';
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.id
 												+ '\')"><i class="fa fa-remove"></i></a> ';
@@ -101,7 +99,7 @@ function load() {
 												+ row.id
 												+ '\')"><i class="fa fa-key"></i></a> ';
 										return e + d ;
-									}*/
+									}
 								} ]
 					});
 }
@@ -118,15 +116,16 @@ function add() {
 		content : prefix + '/add' // iframe的url
 	});
 }
-function edit(id) {
-	layer.open({
+function edit() {
+	var index=layer.open({
 		type : 2,
 		title : '编辑',
 		maxmin : true,
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '800px', '520px' ],
-		content : prefix + '/edit/' + id // iframe的url
+		content : prefix + '/add/'// iframe的url
 	});
+    layer.full(index);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

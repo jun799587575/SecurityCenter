@@ -52,4 +52,8 @@ public class InformationSafetyController {
     String InformationEdit(){
         return "work/list/informationEdit";
     }
+    @GetMapping("/EditAssessment")
+    String EditAssessment(){
+        return "work/list/editAssessment";
+    }
 }

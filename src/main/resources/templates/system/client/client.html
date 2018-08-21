@@ -8,21 +8,43 @@
 			<div class="ibox">
 				<div class="ibox-body">
 					<div class="fixed-table-toolbar">
-						<div class="columns pull-left">
-							<button shiro:hasPermission="system:client:add" type="button" class="btn  btn-primary" onclick="add()">
-								<i class="fa fa-plus" aria-hidden="true"></i>添加
-							</button>
-							<button shiro:hasPermission="system:client:batchRemove" type="button" class="btn  btn-danger"
+						<button shiro:hasPermission="system:client:add" type="button" class="btn  btn-primary" onclick="add()">
+							<i class="fa fa-plus" aria-hidden="true"></i>添加
+						</button>
+						<button shiro:hasPermission="system:client:batchRemove" type="button" class="btn  btn-danger"
 								onclick="batchRemove()">
-								<i class="fa fa-trash" aria-hidden="true"></i>删除
-							</button>
+							<i class="fa fa-trash" aria-hidden="true"></i>删除
+						</button>
+
+						<div style="text-align: center">
+							<div>
+								<div style="display: inline;margin: 40px;">
+									<label>编号：</label>
+									<input id="searchId" type="text" class="form-control"
+										   placeholder="" style="display: inline;width: 200px">
+								</div>
+								<div style="display: inline;margin: 40px;">
+									<label>合同状态：</label>
+									<select style="width: 80px;height: 35px;">
+										<option value=1>状态1</option>
+										<option value=2>状态2</option>
+										<option value=3>状态3</option>
+									</select>
+								</div>
+
+								<div style="display: inline;">
+									<label style="display: inline-block">合同类型：</label>
+									<select id="serveState" name="serveState" style="width: 80px;height: 35px;">
+										<option value=1>类型1</option>
+										<option value=2>类型2</option>
+										<option value=3>类型3</option>
+									</select>
+								</div>
+							</div>
 						</div>
+
 						<div class="columns pull-right">
 							<button class="btn btn-success" onclick="reLoad()">查询</button>
-						</div>
-						<div class="columns pull-right col-md-2 nopadding">
-							<input id="searchName" type="text" class="form-control"
-								placeholder="">
 						</div>
 					</div>
 					<table id="exampleTable" data-mobile-responsive="true">

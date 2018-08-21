@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<ul class="nav nav-tabs">
+					<li><a href="#attribute" data-toggle="tab">属性</a></li>
+					<li><a href="#1" data-toggle="tab">关键配置项</a></li>
+					<li><a href="#2" data-toggle="tab">相关联系人</a></li>
+					<li><a href="#3" data-toggle="tab">关联事件</a></li>
+					<li><a href="#4" data-toggle="tab">关联只是</a></li>
+					<li><a href="#5" data-toggle="tab">关联请求</a></li>
+					<li><a href="#6" data-toggle="tab">工作任务</a></li>
+					<li><a href="#7" data-toggle="tab">附件</a></li>
+				</ul>
+				<form class="form-horizontal m-t" id="signupForm">
+					<div id="myTabContent" class="tab-content">
+						<div class="ibox-content tab-pane fade in active" id="attribute">
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="essentialInformation">
+								<legend>基本信息</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">组织：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="organization" readonly name="organization" class="form-control" type="text">
+										</div>
+
+										<label class="col-sm-3 control-label" style="width: 16%">发起人：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="initiator" readonly name="initiator" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">状态：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="state" readonly value="已分配" name="state" class="form-control" type="text">
+										</div>
+
+										<label class="col-sm-3 control-label" style="width: 16%">途径：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="phone" readonly value="电话" name="phone" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">组织：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="title" readonly value="无法上网" name="title" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">描述：</label>
+										<div class="col-sm-8" >
+											<textarea id="describe" readonly style="resize: none"  name="describe" class="form-control">内部的系统可以使用，不能打开百度网页</textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="moreInformation">
+									<legend>更多信息</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">服务目录：</label>
+										<div class="col-sm-8" >
+											<input id="serviceDirectory" value="网络维护服务" type="text" readonly  name="serviceDirectory" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">子级目录：</label>
+										<div class="col-sm-8" >
+											<input id="sublevelDirectory" value="交换机维护" type="text" readonly  name="sublevelDirectory" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">升级：</label>
+										<div class="col-sm-8" >
+											<input id="upgrade" value="交换机维护" type="text" readonly  name="upgrade" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">升级原因：</label>
+										<div class="col-sm-8" >
+											<textarea id="Reason" style="resize: none"  readonly  name="Reason" class="form-control"></textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="interior">
+									<legend>内部日志</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label"></label>
+										<div class="col-sm-8" >
+											<textarea id="inside" style="resize: none" readonly  name="inside" class="form-control">
+											</textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="outInterior">
+									<legend>外部日志</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label"></label>
+										<div class="col-sm-8" >
+											<textarea id="outside" style="resize: none"  readonly  name="outside" class="form-control">
+											</textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="assessment">
+									<legend>风险评估</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">影响范围：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="scope" readonly value="个人" name="scope" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">紧急度：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="degree" readonly value="个人" name="degree" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">优先级：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="priority" readonly value="低" name="priority" class="form-control" type="text">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="contacts">
+									<legend>联系人</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">执行团队：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="team" readonly value="桌面运维" name="team" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">办理人：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="transactor" readonly value="酷邦" name="transactor" class="form-control" type="text">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="dateInformation">
+									<legend>日期信息</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">开始日期：</label>
+										<div class="col-sm-8" >
+											<input id="start" value="2018-01-30 21:57:53" type="text" readonly  name="start" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">最后更新：</label>
+										<div class="col-sm-8" >
+											<input id="last" value="2018-02-01 09:58:02" type="text" readonly  name="last" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">分配日期：</label>
+										<div class="col-sm-8" >
+											<input id="distribution" value="2018-01-30 21:58:08" type="text" readonly  name="distribution" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">解决时间截止：</label>
+										<div class="col-sm-8" >
+											<input id="end" value="超时 200d 11h 15min" type="text" readonly  name="end" class="form-control">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="information">
+									<legend>相关信息</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">父级事件：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="parentevent" readonly  name="parentevent" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label" >父级问题：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="problem" readonly  name="problem" class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">父级变更：</label>
+										<div class="col-sm-8" style="width: 25%;display: inline">
+											<input id="change" readonly  name="change" class="form-control" type="text">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="solution">
+									<legend>解决方案</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">方案：</label>
+										<div class="col-sm-8" >
+											<textarea id="programme" style="resize: none" readonly  name="programme" class="form-control"></textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+								<div class="ibox-content tab-pane fade in active" id="presentation">
+									<legend>SLA报告</legend>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">响应超时：</label>
+										<div class="col-sm-8" >
+											<input id="overtime" type="text" readonly  name="overtime" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">超出时间：</label>
+										<div class="col-sm-8" >
+											<input id="beyond" type="text" readonly  name="beyond" class="form-control">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="ibox-content tab-pane fade" id="1">
+							<table id="table1" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="2">
+							<table id="table2" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="3">
+							<table id="table3" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="4">
+							<table id="table4" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="5">
+							<table id="table5" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="6">
+							<table id="table6" data-mobile-responsive="true">
+							</table>
+						</div>
+						<div class="ibox-content tab-pane fade" id="7">
+							<table id="table7" data-mobile-responsive="true">
+							</table>
+						</div>
+					</div>
+				</form>
+				</div>
+					<div class="form-group">
+						<div class="col-sm-8 col-sm-offset-3">
+							<button type="submit" class="btn btn-primary">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:include="include::footer"></div>
+<!--<script type="text/javascript" src="/js/appjs/work/list/add.js">
+
+</script>-->
+<script type="text/javascript" src="/js/appjs/work/list/table.js">
+
+</script>
+</body>
+</html>

@@ -69,7 +69,10 @@ function load() {
 																{
 									field : 'knowTime', 
 									title : '服务'
-								},
+								},{
+                                field : 'knowTime',
+                                title : '状态'
+                            },
 																{
 									field : 'knowState', 
 									title : '风险描述'
