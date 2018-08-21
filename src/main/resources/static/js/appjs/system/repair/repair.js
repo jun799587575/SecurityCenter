@@ -116,7 +116,7 @@ function add() {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '编辑',
+        title: '问题恢复',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],

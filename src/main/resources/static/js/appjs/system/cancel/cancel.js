@@ -127,7 +127,7 @@ function edits(id) {
     //弹出即全屏
     var index = layer.open({
         type : 2,
-        title : '编辑',
+        title : '详情',
         maxmin: true,
         shadeClose : false, // 点击遮罩关闭层
         content: '/system/problem/add' // iframe的url
@@ -138,7 +138,7 @@ function edits(id) {
 function wtgb_zsk(id) {
     layer.open({
         type: 2,
-        title: '编辑1',
+        title: '知识',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['620px', '540px'],
