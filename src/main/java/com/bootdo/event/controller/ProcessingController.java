@@ -47,12 +47,17 @@ public class ProcessingController {
 		return "event/processing/handle";
 	}
 
+	@GetMapping("/bianji")
+	@RequiresPermissions("event:processing:bianji")
+	String bianji(){
+		return "event/processing/bianji";
+	}
+
 	@GetMapping("/cooperation")
 	@RequiresPermissions("event:processing:cooperation")
 	String cooperation(){
 		return "event/processing/cooperation";
 	}
-
 
 //	@GetMapping("/haven")
 //	@RequiresPermissions("event:processing:haven")
