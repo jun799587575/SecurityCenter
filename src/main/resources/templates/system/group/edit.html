@@ -8,33 +8,66 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" id="signupForm">
-                        <input id="serveId" name="serveId" th:value="${group.serveId}" type="hidden">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">名称：</label>
-                            <div class="col-sm-8" style="padding-left: 0px;display: inline-block;" >
-                                <input id="serveName" name="serveName" th:value="${group.serveName}"
-                                       class="form-control" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">备注：</label>
-                            <div class="col-sm-8" style="padding-left: 0px;display: inline-block;">
-                                <div class="col-sm-8" style="padding-left: 0">
-                                <textarea id="serveRemark" name="serveRemark"
-                                          th:value="${group.serveRemark}"
-                                          class="form-control"
-                                          style="width: 450px;height: 120px;resize: none"
-                                          type="text"></textarea>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#shuxing" data-toggle="tab">属性</a>
+                        </li>
+                        <li>
+                            <a href="#wendang" data-toggle="tab">服务</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="shuxing">
+                            <form class="form-horizontal m-t" id="signupForm">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">编号：</label>
+                                    <div class="col-sm-8" style="padding-left: 0px;display: inline-block;">
+                                        <input id="serveId" name="serveId" class="form-control" type="text"
+                                               style="width: 250px;">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">名称：</label>
+                                    <div class="col-sm-8" style="padding-left: 0px;display: inline-block;">
+                                        <input id="serveName" name="serveName" class="form-control" type="text"
+                                               style="width: 250px;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">备注：</label>
+                                    <div class="col-sm-8" style="padding-left: 0px;display: inline-block;">
+                                <textarea id="serveRemark" name="serveRemark" class="form-control"
+                                          style="width: 450px;height: 120px;resize: none"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group pull-right" style="text-align: center;">
+                                    <div class="col-sm-8 col-sm-offset-3" style="display: inline;margin-right: 30px">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group pull-right">
-                            <div class="col-sm-8 col-sm-offset-3">
-                                <button type="submit" class="btn btn-primary">提交</button>
-                            </div>
+                        <div class="tab-pane fade" id="wendang">
+                            <button  type="button" class="btn  btn-primary" onclick="add()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>添加
+                            </button>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>服务</th>
+                                    <th>供应商</th>
+                                    <th>状态</th>
+                                    <th>服务族</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <button  type="button" class="btn  btn-primary pull-right">
+                                <i class="fa fa-edit" aria-hidden="true"></i>修改
+                            </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

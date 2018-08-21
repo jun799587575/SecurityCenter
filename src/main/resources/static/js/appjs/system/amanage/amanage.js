@@ -82,25 +82,25 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 function add() {
-	layer.open({
-		type : 2,
-		title : '添加',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/add' // iframe的url
-	});
+    var index = layer.open({
+        type : 2,
+        title : '添加',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+        content : prefix + '/add' // iframe的url
+    });
+    layer.full(index);
 }
 
 function edit(id) {
-	layer.open({
-		type : 2,
-		title : '编辑',
-		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
-		area : [ '800px', '520px' ],
-		content : prefix + '/edit/' + id // iframe的url
-	});
+    var index = layer.open({
+        type : 2,
+        title : '编辑',
+        maxmin: true,
+        shadeClose : false, // 点击遮罩关闭层
+        content : prefix + '/edit/' + id // iframe的url
+    });
+    layer.full(index);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

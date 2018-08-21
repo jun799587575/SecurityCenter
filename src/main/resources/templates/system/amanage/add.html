@@ -8,57 +8,140 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" id="signupForm">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">SLA编号：</label>
-                            <div class="col-sm-8">
-                                <input id="slaId" name="slaId" class="form-control" type="text" style="width: 250px">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">SLA名称：</label>
-                            <div class="col-sm-8">
-                                <input id="slaName" name="slaName" class="form-control" type="text" style="width: 250px">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">供应商：</label>
-                            <div class="col-sm-8" style=" padding-left: 13px;display: inline-block;">
-                                <select id="slaSupplier" name="slaSupplier" style="width: 80px;height: 35px;">
-                                    <option value=1>供应商1</option>
-                                    <option value=2>供应商2</option>
-                                    <option value=3>供应商3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">描述：</label>
-                            <div class="col-sm-8" style="padding-left: 10px;display: inline-block;">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#shuxing" data-toggle="tab">属性</a>
+                        </li>
+                        <li>
+                            <a href="#wendang" data-toggle="tab">SLT</a>
+                        </li>
+                        <li>
+                            <a href="#kehu" data-toggle="tab">客户合同</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="shuxing">
+                            <form class="form-horizontal m-t" id="signupForm">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">SLA编号：</label>
+                                    <div class="col-sm-8">
+                                        <input id="slaId" name="slaId" class="form-control" type="text" style="width: 250px">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">SLA名称：</label>
+                                    <div class="col-sm-8">
+                                        <input id="slaName" name="slaName" class="form-control" type="text" style="width: 250px">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">供应商：</label>
+                                    <div class="col-sm-8" style=" padding-left: 13px;display: inline-block;">
+                                        <select id="slaSupplier" name="slaSupplier" style="width: 80px;height: 35px;">
+                                            <option value=1>供应商1</option>
+                                            <option value=2>供应商2</option>
+                                            <option value=3>供应商3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">描述：</label>
+                                    <div class="col-sm-8" style="padding-left: 10px;display: inline-block;">
                                 <textarea id="slaDescribe" name="slaDescribe" class="form-control"
                                           style="width: 450px;height: 120px;resize: none"></textarea>
-                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <button shiro:hasPermission="system:tmanage:add"  type="button" class="btn  btn-primary" onclick="addA()">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>STL
+                                    </button>
+                                    <script>
+                                        function addA() {
+                                            parent.layer.open({
+                                                type : 2,
+                                                title : '添加',
+                                                maxmin : true,
+                                                shadeClose : false, // 点击遮罩关闭层
+                                                area : [ '800px', '520px' ],
+                                                content : prefix + '/add' // iframe的url
+                                            });
+                                        }
+                                    </script>
+                                    <div class="col-sm-offset-3" style="display: inline;margin-left: 10px">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group pull-right">
-                            <button shiro:hasPermission="system:tmanage:add"  type="button" class="btn  btn-primary" onclick="addA()">
-                                <i class="fa fa-plus" aria-hidden="true"></i>STL
+                        <div class="tab-pane fade" id="wendang">
+                            <button  type="button" class="btn  btn-primary" onclick="add()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>添加
                             </button>
-                                <script>
-                                    function addA() {
-                                        parent.layer.open({
-                                            type : 2,
-                                            title : '添加',
-                                            maxmin : true,
-                                            shadeClose : false, // 点击遮罩关闭层
-                                            area : [ '800px', '520px' ],
-                                            content : prefix + '/add' // iframe的url
-                                        });
-                                    }
-                                </script>
-                            <div class="col-sm-offset-3" style="display: inline;margin-left: 10px">
-                                <button type="submit" class="btn btn-primary">提交</button>
-                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>SLT</th>
+                                    <th>优先级</th>
+                                    <th>请求类型</th>
+                                    <th>指标</th>
+                                    <th>值</th>
+                                    <th>单位</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <button  type="button" class="btn  btn-primary pull-right">
+                                <i class="fa fa-edit" aria-hidden="true"></i>修改
+                            </button>
                         </div>
-                    </form>
+                        <div class="tab-pane fade" id="kehu">
+                            <button  type="button" class="btn  btn-primary" onclick="add()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>添加
+                            </button>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>客户</th>
+                                    <th>类型</th>
+                                    <th>状态</th>
+                                    <th>描述</th>
+                                    <th>地址</th>
+                                    <th>邮编</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>客户1</td>
+                                    <td>adwad</td>
+                                    <td>换个方法</td>
+                                    <td>大师傅但是</td>
+                                    <td>上海</td>
+                                    <td>562150001</td>
+                                </tr>
+                                <tr>
+                                    <td>客户2</td>
+                                    <td>sdasdas</td>
+                                    <td>南方为凤尾干旱</td>
+                                    <td>发生飞洒的</td>
+                                    <td>广州</td>
+                                    <td>560033401</td>
+                                </tr>
+                                <tr>
+                                    <td>客户3</td>
+                                    <td>Bangalore</td>
+                                    <td>弗萨翁</td>
+                                    <td>权威的权威的</td>
+                                    <td>北京</td>
+                                    <td>56026001</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button  type="button" class="btn  btn-primary pull-right">
+                                <i class="fa fa-edit" aria-hidden="true"></i>修改
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
