@@ -45,7 +45,7 @@ public class ComplaintController {
 	@GetMapping("/list")
 	@RequiresPermissions("system:complaint:complaint")
 	public PageUtils list(@RequestParam Map<String, Object> params){
-		//查询列表数据1
+		//查询列表数据11w11
         Query query = new Query(params);
 		List<ComplaintDO> complaintList = complaintService.list(query);
 		int total = complaintService.count(query);
