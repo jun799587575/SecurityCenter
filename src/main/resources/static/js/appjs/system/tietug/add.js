@@ -12,7 +12,7 @@ function save() {
 		cache : true,
 		type : "POST",
 		url : "/system/tietug/save",
-		data : $('#signupForm').serialize(),// 你的formid
+		data : $('#signupForm').serialize(),// 你的formidnrr
 		async : false,
 		error : function(request) {
 			parent.layer.alert("Connection error");
