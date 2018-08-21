@@ -98,7 +98,7 @@ function add() {
 		type : 2,
 		title : '增加',
 		maxmin : true,
-		shadeClose : false, // 点击遮罩关闭层
+		shadeClose : false, // 点击遮罩关闭层1
 		area : [ '800px', '520px' ],
 		content : prefix + '/add' // iframe的url
 	});
