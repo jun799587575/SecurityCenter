@@ -144,7 +144,7 @@ public class QwerDO implements Serializable {
 		this.qeqwe = qeqwe;
 	}
 	/**1111111123412342
-	 * 获取：
+	 * 获取：awqrq
 	 */
 	public String getQeqwe() {
 		return qeqwe;
