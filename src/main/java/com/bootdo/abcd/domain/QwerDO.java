@@ -138,13 +138,13 @@ public class QwerDO implements Serializable {
 		return qwewqr;
 	}
 	/**
-	 * 设置：124421323
+	 * 设置：
 	 */
 	public void setQeqwe(String qeqwe) {
 		this.qeqwe = qeqwe;
 	}
-	/**1111111123412342
-	 * 获取：awqrq
+	/**1
+	 * 获取
 	 */
 	public String getQeqwe() {
 		return qeqwe;
