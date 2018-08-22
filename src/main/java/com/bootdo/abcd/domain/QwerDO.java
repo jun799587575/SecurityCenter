@@ -1,7 +1,9 @@
 package com.bootdo.abcd.domain;
 
+
+
 import java.io.Serializable;
-import java.util.Date;
+
 
 
 
@@ -12,9 +14,12 @@ import java.util.Date;
  * @email 1992lcg@163.com
  * @date 2018-08-19 18:15:36
  */
+
 public class QwerDO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+
+
 	//
 	private String sda;
 	//
@@ -138,7 +143,7 @@ public class QwerDO implements Serializable {
 	public void setQeqwe(String qeqwe) {
 		this.qeqwe = qeqwe;
 	}
-	/**
+	/**1111
 	 * 获取：
 	 */
 	public String getQeqwe() {
@@ -156,4 +161,6 @@ public class QwerDO implements Serializable {
 	public String getQwrsf() {
 		return qwrsf;
 	}
+
+
 }
