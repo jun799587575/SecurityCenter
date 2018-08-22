@@ -143,7 +143,7 @@ public class QwerDO implements Serializable {
 	public void setQeqwe(String qeqwe) {
 		this.qeqwe = qeqwe;
 	}
-	/**11111111234
+	/**1111111123412342
 	 * 获取：
 	 */
 	public String getQeqwe() {
